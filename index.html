@@ -2,440 +2,693 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<script>document.documentElement.classList.add("js")</script>
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ruben’s Saffiano — Gammes, tarifs, délais &amp; services</title>
-<meta name="description" content="Ruben’s Saffiano, atelier indépendant de maroquinerie : gammes Prestige, Premium et Essentiel, tarifs indicatifs, délais d’expédition, coffret, achats groupés et parrainage.">
-<meta property="og:title" content="Ruben’s Saffiano — Le guide de l’atelier">
-<meta property="og:description" content="Gammes, tarifs, délais et services de l’atelier">
-<meta property="og:type" content="website">
-<!-- À REMPLACER : URL de déploiement et image 1200×630 à la racine -->
-<meta property="og:url" content="https://VOTRE-UTILISATEUR.github.io/VOTRE-DEPOT/">
-<meta property="og:image" content="https://VOTRE-UTILISATEUR.github.io/VOTRE-DEPOT/og-image.jpg">
-<meta name="theme-color" content="#090807">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23090807'/%3E%3Crect x='6' y='6' width='52' height='52' fill='none' stroke='%23C9CCCA' stroke-width='1.5'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Georgia,serif' font-size='20' fill='%23F1F0EC'%3ERS%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ruben's Saffiano</title>
+<meta name="description" content="Ruben's Saffiano — joaillerie fine, création maison et maroquinerie. Catalogues privés et commande personnelle sur WhatsApp.">
+<meta name="theme-color" content="#ffffff">
 <style>
-/* ===== Base ===== */
-:root{ box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
-  background:#090807; color-scheme:dark; }
-@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){ background:#090807; } }
-:root[data-theme="dark"]{ background:#090807; }
-html{ scroll-padding-top:env(safe-area-inset-top,0px); -webkit-text-size-adjust:100%; text-size-adjust:100%; }
-body{ margin:0; background:#090807; overflow-x:hidden; }
-
-/* ===== Jetons ===== */
-.rs{
-  --trait:1px;                                   /* ramené à 0,5 px sur écrans haute densité */
-  --argent:#C9CCCA;
-  --ligne:rgba(201,204,202,.20); --ligne-douce:rgba(201,204,202,.12); --ligne-page:rgba(201,204,202,.26);
-  --texte:#F1F0EC; --corps:#BDBEBA; --gris:#8E9290; --eteint:#9A9D9B;
-  --dehors:#090807; --base:#0F0E0D; --lueur:rgba(158,146,130,.17);
-  --voile:rgba(255,255,255,.028); --voile-actif:rgba(255,255,255,.065);
-  --r-s:1px; --r-m:2px; --r-l:2px;
-  --ombre:none;
-  --titre:'Cormorant Garamond',Garamond,'Times New Roman',serif;
-  --texte-courant:'Inter','Helvetica Neue',Arial,sans-serif;
-  --doux:cubic-bezier(.22,.61,.36,1);
-  box-sizing:border-box;
-  min-height:calc(100vh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));
-  min-height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));
-  display:grid; place-items:start center;
-  padding:clamp(6px,3vw,40px);
-  background:var(--dehors); color:var(--texte);
-  font-family:var(--texte-courant); font-weight:400; font-size:14px; line-height:1.7;
-  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+/* Mise en page : corps noir (hero + bande « sur mesure »), menu et pied de page blancs.
+   Texte toujours franc : noir pur sur blanc, blanc pur sur noir. Une seule famille sans empattement. */
+:root{
+  --noir:#050505;
+  --blanc:#FFFFFF;
+  --encre:#000000;            /* texte sur blanc */
+  --gris:#000000;             /* secondaire sur blanc : noir franc */
+  --gris-clair:#FFFFFF;       /* secondaire sur noir : blanc franc */
+  --filet:rgba(0,0,0,.12);    /* filet sur blanc */
+  --filet-nuit:rgba(255,255,255,.22);
+  --f:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --gouttiere:clamp(16px,4.5vw,56px);
+  --entete:50px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  color-scheme:dark;
+  background:var(--noir);
 }
-@media (min-resolution:2dppx){ .rs{ --trait:.5px; --ligne:rgba(201,204,202,.34); --ligne-douce:rgba(201,204,202,.22); --ligne-page:rgba(201,204,202,.42); } }
-.rs *, .rs *::before, .rs *::after{ box-sizing:border-box; margin:0; padding:0; }
-.rs ::selection{ background:var(--argent); color:#0F0E0D; }
-.rs h2, .rs h3{ font:inherit; }
+*,*::before,*::after{box-sizing:border-box}
+html{background:#fff;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--blanc);color:var(--blanc);font-family:var(--f);font-weight:400;font-size:12px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.fige{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:1px solid currentColor;outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ico{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.surtitre{font-weight:400;font-size:9px;letter-spacing:.3em;text-transform:uppercase}
 
-/* Règle anti-coupure : un mot ne se coupe jamais */
-.rs, .rs *{ word-break:normal; overflow-wrap:normal; -webkit-hyphens:manual; hyphens:manual; }
-.rs .nw{ white-space:nowrap; }
+/* ——— En-tête ——— */
+.entete,.site-header{height:50px !important;min-height:50px !important;max-height:50px !important;display:flex !important;flex-direction:row !important;flex-wrap:nowrap !important;align-items:center !important;justify-content:space-between !important;padding:0 16px !important;margin:0 !important;background-color:#ffffff !important;border-bottom:1px solid #e5e5e5 !important;box-sizing:border-box !important;width:100% !important;position:sticky !important;top:0 !important;z-index:1000 !important;color:#000}
+.entete.scrolled,.site-header.scrolled{background-color:#ffffff !important}
+.bloc-g,.bloc-d{display:flex !important;flex-direction:row !important;flex-wrap:nowrap !important;align-items:center !important;gap:12px;flex-shrink:0 !important;margin:0;width:auto !important}
+.entete .bloc-d{margin-left:auto}
+.entete svg.ic{width:22px !important;height:22px !important;stroke-width:2.3px !important;stroke:#000000 !important;fill:none !important;stroke-linecap:round;stroke-linejoin:round}
+.icone-btn{appearance:none;background:none;border:0;padding:0;margin:0;cursor:pointer;width:22px;height:50px;display:flex;align-items:center;justify-content:center;flex:none;color:#000;transition:opacity .3s var(--ease)}
+@media (hover:hover){.icone-btn:hover{opacity:.55}}
+svg.ic{display:block !important;width:20px !important;height:20px !important;fill:none !important;stroke:#000000 !important;stroke-width:2 !important;stroke-linecap:round;stroke-linejoin:round;opacity:1 !important;visibility:visible !important;margin:0 !important;flex:none}
+.marque{position:absolute;left:50%;transform:translateX(-50%);margin:0;white-space:nowrap;font-weight:400;font-size:13px;letter-spacing:.25em;padding-left:.25em;text-transform:uppercase;line-height:1;color:#000}
+@media (max-width:374px){.entete .marque{font-size:10px;letter-spacing:.14em;padding-left:.14em}}
 
-/* Rôle 1 — titres : Cormorant Garamond 500. Rôle 2 — tout le reste : Inter */
-.rs-marque, .rs-rang-titre, .rs-bloc-titre, .rs-pied-marque{
-  font-family:var(--titre); font-weight:400; font-style:normal;
-  font-variant-numeric:lining-nums; text-transform:uppercase; color:var(--texte);
+/* ——— Hero ——— */
+main{padding-top:0;margin-top:0}
+.hero{position:relative;margin-top:0;height:calc(100vh - 50px);height:calc(100svh - 50px);min-height:520px;max-height:1000px;overflow:hidden;background:var(--blanc);color:var(--blanc);isolation:isolate}
+.diapo{position:absolute;inset:0;z-index:0;opacity:0;visibility:hidden;transition:opacity 0s .5s,visibility 0s .5s}
+.diapo.active{z-index:1;opacity:1;visibility:visible;transition:opacity .5s ease-in-out,visibility 0s}
+.fond{position:absolute;inset:0}
+.fond img{width:100%;height:100%;object-fit:contain;object-position:var(--focus,50% 50%);image-rendering:auto;image-rendering:-webkit-optimize-contrast;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0)}
+.fond.compose{background:
+  radial-gradient(ellipse 70% 60% at var(--gx,50%) var(--gy,50%),rgba(229,228,226,.13),transparent 72%),
+  repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 1px,transparent 1px 7px),
+  repeating-linear-gradient(-45deg,rgba(0,0,0,.45) 0 1px,transparent 1px 7px),
+  linear-gradient(180deg,#0a0a0a,#050505)}
+.voile{display:none}
+.diapo-texte{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:0 var(--gouttiere) 66px;display:grid;justify-items:center;gap:8px;text-align:center;color:var(--blanc);text-shadow:0 1px 10px rgba(0,0,0,.28)}
+.diapo-titre{margin:0;font-weight:400;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;padding-left:.24em;white-space:nowrap}
+.diapo-sous{margin:0;font-weight:300;font-size:11px;letter-spacing:.06em;white-space:nowrap}
+.lien{display:inline-flex;align-items:center;min-height:40px;font-weight:300;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;padding-left:.14em;background:linear-gradient(currentColor,currentColor) .14em calc(100% - 9px)/calc(100% - .14em) 1px no-repeat;transition:background-size .5s var(--ease)}
+.lien:hover{background-size:30% 1px}
+.diapo-texte > *{opacity:0;transform:translateY(10px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.diapo.active .diapo-texte > *{opacity:1;transform:none}
+.diapo.active .diapo-texte > *:nth-child(2){transition-delay:.12s}
+.diapo.active .diapo-texte > *:nth-child(3){transition-delay:.22s}
+.progression{position:absolute;z-index:2;left:var(--gouttiere);right:var(--gouttiere);bottom:14px;display:flex;gap:6px;max-width:420px;margin-inline:auto}
+.trait{appearance:none;border:0;background:none;cursor:pointer;flex:1;padding:14px 0}
+.trait span{display:block;height:2px;background:rgba(255,255,255,0.3);position:relative;overflow:hidden}
+.trait span::after{content:"";position:absolute;top:0;left:0;bottom:0;width:0;background:#ffffff}
+.trait.vu span::after{width:100%}
+.trait.en-cours span::after{animation:fillBar var(--duree,2000ms) linear forwards}
+@keyframes fillBar{from{width:0}to{width:100%}}
+.hero.pause .trait.en-cours span::after{animation-play-state:paused}
+@keyframes remplir{to{transform:scaleX(1)}}
+/* Hero plein cadre (mobile) · image entière centrée (ordinateur) */
+@media (max-width:899px){
+  .fond img{object-fit:cover}
 }
-
-/* Filet dégradé réutilisable (s'efface aux extrémités) */
-.rs-fondu{ height:1px; background:linear-gradient(90deg, transparent, rgba(214,216,215,.55) 50%, transparent); }
-@media (min-resolution:2dppx){ .rs-fondu{ transform:scaleY(.5); } }
-
-/* ===== Feuille texturée ===== */
-.rs-feuille{ position:relative; container-type:inline-size; width:100%; max-width:760px;
-  background-color:var(--base);
-  background-image:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>"),
-    repeating-linear-gradient(45deg, rgba(255,255,255,.025) 0 1px, transparent 1px 6px),
-    repeating-linear-gradient(-45deg, rgba(0,0,0,.30) 0 1px, transparent 1px 6px),
-    radial-gradient(ellipse 85% 55% at 16% 6%, var(--lueur), transparent 72%),
-    radial-gradient(ellipse 95% 55% at 58% 104%, rgba(0,0,0,.55), transparent 72%),
-    linear-gradient(162deg, transparent 38%, rgba(0,0,0,.38));
-}
-.rs-feuille::before, .rs-feuille::after{ content:""; position:absolute; pointer-events:none; }
-.rs-feuille::before{ inset:8px; border:var(--trait) solid rgba(201,204,202,.50); }
-.rs-feuille::after{ inset:14px; border:var(--trait) solid rgba(201,204,202,.24); }
-.rs-contenu{ --u:8px; position:relative; z-index:1; padding:64px 26px; }
-@container (min-width:600px){ .rs-contenu{ --u:10px; padding:64px 10cqi; } }
-
-/* ===== En-tête ===== */
-.rs-entete{ text-align:center; }
-.rs-cartouche{ display:inline-block; max-width:100%;
-  padding:calc(3.5 * var(--u)) clamp(22px,7cqi,52px) calc(3 * var(--u));
-  border:var(--trait) solid var(--ligne); border-radius:var(--r-m); background:rgba(0,0,0,.18); }
-.rs-marque{ font-weight:500; font-size:clamp(23px,6.4cqi,34px); line-height:1.12; letter-spacing:.04em; padding-left:.04em; text-wrap:balance; }
-.rs-cartouche .rs-fondu{ width:56px; margin:calc(1.8 * var(--u)) auto 0; }
-.rs-devise{ margin-top:calc(1.6 * var(--u)); font-size:11.5px; line-height:1.4; letter-spacing:.24em; padding-left:.24em; text-transform:uppercase; color:var(--gris); }
-.rs-contenu > .rs-fondu{ margin:calc(4.5 * var(--u)) 0; }
-
-/* ===== Navigation en grille ===== */
-.rs-bandeau{ padding:13px 12px; border-radius:var(--r-m); background:rgba(0,0,0,.34); text-align:center;
-  font-size:11px; font-weight:500; line-height:1.3; letter-spacing:.16em; padding-left:calc(12px + .16em);
-  text-transform:uppercase; color:var(--texte); }
-.rs-grille{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
-  margin-top:calc(1.5 * var(--u)); border:var(--trait) solid var(--ligne); border-radius:var(--r-m);
-  overflow:hidden; background:rgba(0,0,0,.22); box-shadow:var(--ombre); }
-.rs-tuile{ position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px;
-  min-height:82px; padding:16px 10px; border:0; background:transparent; color:var(--eteint);
-  font:inherit; text-align:center; cursor:pointer; -webkit-tap-highlight-color:transparent; -webkit-appearance:none; appearance:none;
-  transition:background-color .5s var(--doux), color .5s var(--doux); }
-/* séparateurs internes : filets dégradés, jamais de quadrillage dur */
-.rs-tuile::before, .rs-tuile::after{ content:""; position:absolute; pointer-events:none; }
-.rs-tuile::before{ left:0; right:0; bottom:0; height:1px; background:var(--ligne-douce); }
-.rs-tuile:nth-child(odd):not(:last-child)::after{ top:0; bottom:0; right:0; width:1px; background:var(--ligne-douce); }
-.rs-tuile:last-child:nth-child(odd){ grid-column:1 / -1; }
-.rs-tuile:last-child::before, .rs-tuile:nth-last-child(2):nth-child(odd)::before{ display:none; }
-@media (min-resolution:2dppx){ .rs-tuile::before{ transform:scaleY(.5); } .rs-tuile::after{ transform:scaleX(.5); } }
-
-.rs-tuile-nom{ font-size:11.5px; font-weight:500; line-height:1.3; letter-spacing:.12em; padding-left:.12em; text-transform:uppercase; }
-.rs-tuile-sous{ font-size:11.5px; line-height:1.35; color:var(--gris); transition:color .5s var(--doux); }
-.rs-tuile:hover{ background-color:rgba(255,255,255,.025); color:var(--texte); }
-.rs-tuile[aria-selected="true"]{ color:var(--texte);
-  background:var(--voile-actif); box-shadow:inset 0 0 0 1px rgba(214,216,215,.22); }
-.rs-tuile[aria-selected="true"]::before{ display:block; left:0; right:0; background:rgba(236,237,235,.7); }
-.rs-tuile[aria-selected="true"] .rs-tuile-sous{ color:var(--corps); }
-.rs-tuile:focus-visible{ outline:1px solid rgba(214,216,215,.6); outline-offset:-5px; border-radius:var(--r-s); }
-@container (min-width:600px){
-  .rs-tuile{ min-height:96px; }
-  .rs-tuile-nom{ font-size:12.5px; }
-  .rs-tuile-sous{ font-size:12px; }
+@media (min-width:900px){
+  .fond img{object-fit:cover;object-position:var(--focus-pc,50% 50%)}
+  .diapo-titre{font-size:14px}
 }
 
-/* ===== Panneaux ===== */
-.rs-panneaux{ margin-top:calc(2 * var(--u)); }
-.rs-panneau{ display:grid; row-gap:calc(1.25 * var(--u)); }
-.rs-panneau + .rs-panneau{ margin-top:calc(3 * var(--u)); }
-.js .rs-panneau + .rs-panneau{ margin-top:0; }
-.js .rs-panneau[hidden]{ display:none; }
-.rs-panneau.rs-entree{ animation:rs-entree .6s var(--doux) both; }
-@keyframes rs-entree{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:none; } }
+/* ——— Tiroir : rubriques dépliables (niveaux de gamme et maisons) ——— */
+.tiroir nav .rub{border-bottom:1px solid rgba(0,0,0,.08)}
+.tiroir nav .rub-tete,.tiroir nav > a{appearance:none;background:none;border:0;width:100%;margin:0;padding:0;display:flex;align-items:center;justify-content:space-between;min-height:56px;line-height:1.4;font-family:var(--f);font-weight:300;font-size:11.5px;letter-spacing:.04em;color:var(--encre);text-align:left;cursor:pointer}
+.tiroir nav .rub-tete .ico{transition:transform .35s ease}
+.tiroir nav .rub.ouverte > .rub-tete .ico{transform:rotate(90deg)}
+.pli{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.ouverte > .pli{grid-template-rows:1fr}
+.pli > div{overflow:hidden;min-height:0}
+.gamme{border-top:1px solid #f0f0f0;margin-left:12px}
+.gamme-tete{appearance:none;background:none;border:0;width:100%;margin:0;padding:0;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;color:#000;font-family:var(--f);text-align:left}
+.gamme-tete b{font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+.gamme-tete small{font-weight:300;font-size:11px;color:#888888;letter-spacing:.02em;margin-left:8px}
+.gamme-tete svg{width:14px;height:14px;fill:none;stroke:#000;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none;transition:transform .35s ease}
+.gamme.ouverte > .gamme-tete svg{transform:rotate(180deg)}
+.maisons{list-style:none;margin:0;padding:0 0 8px}
+.tiroir nav .maisons a{display:flex;align-items:center;justify-content:flex-start;gap:14px;min-height:44px;border:0;border-top:1px solid #f4f4f4;font-size:12.5px;letter-spacing:.02em}
+.maisons .n{width:20px;flex:none;font-weight:300;font-size:11px;color:#888888;font-variant-numeric:tabular-nums}
+.maisons .m{flex:1;font-weight:700;color:#000}
+.maisons .act{flex:none;font-weight:400;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#000;margin-right:-8px}
+.tiroir nav .rub-tete small{margin-left:8px;font-size:10.5px;color:#888888;letter-spacing:.02em}
+.tiroir nav .maisons .ico{width:13px;height:13px;stroke-width:1.6;margin-left:0}
+@media (prefers-reduced-motion:reduce){.pli,.gamme-tete svg,.tiroir nav .rub-tete .ico{transition:none}}
 
-/* Cartes : trait fin, coins adoucis, voile léger */
-.rs-carte, .rs-rang{ border:var(--trait) solid var(--ligne); border-radius:var(--r-m); background:var(--voile); box-shadow:var(--ombre); }
-.rs-carte{ padding:calc(2.5 * var(--u)) 20px; }
-.rs-bloc-titre{ font-size:16px; line-height:1.25; letter-spacing:.12em; }
-.rs-bloc-sous{ margin-top:3px; font-size:12.5px; line-height:1.45; color:var(--gris); }
-.rs-p{ margin-top:calc(1.5 * var(--u)); max-width:36em; color:var(--corps); text-wrap:pretty; }
-.rs-p + .rs-p{ margin-top:calc(1.2 * var(--u)); }
+/* ——— Sur mesure (bande noire) ——— */
+.sur-mesure{position:relative;background:#fff;color:#000;margin-top:0;padding:clamp(56px,7vw,76px) var(--gouttiere);display:grid;justify-items:center;gap:20px;text-align:center}
+.sceau{display:block;width:var(--t,96px);height:var(--t,96px);max-width:100%}
+.diapo-texte .sceau{--t:clamp(118px,28vw,150px);margin-bottom:8px}
+.sceau-img{width:var(--t,96px);height:auto;max-width:100%}
+.sur-mesure .surtitre{color:#000;font-weight:700 !important;font-size:14px;letter-spacing:1.5px;text-transform:uppercase}
+.sur-mesure blockquote{margin:0;max-width:30ch;font-weight:300;font-size:clamp(1rem,2.2vw,1.25rem);line-height:1.6;letter-spacing:.04em;text-wrap:balance}
+.sur-mesure .trois-lignes{max-width:none;font-weight:300 !important;font-size:13px;color:#111111;line-height:1.6;letter-spacing:.01em}
+.sur-mesure .trois-lignes span{display:block;white-space:nowrap}
+.sur-mesure p{margin:0;max-width:52ch;font-weight:300;font-size:.84rem;letter-spacing:.02em;color:var(--gris-clair)}
+.bouton{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:46px;padding:0 28px 0 calc(28px + .3em);margin-top:8px;border:1px solid currentColor;font-weight:500;font-size:9px;letter-spacing:.3em;text-transform:uppercase;transition:background-color .4s var(--ease),color .4s var(--ease)}
+.sur-mesure .bouton{border:1px solid #000000;color:#000;background:#fff;font-weight:400}
+.sur-mesure .bouton:hover{background:#000;color:#fff}
 
-/* ===== Gammes : rangées repliables ===== */
-.rs-rang{ overflow:hidden; }
-.rs-rang-tete{ display:grid; grid-template-columns:minmax(0,1fr) 14px; align-items:center; column-gap:14px;
-  min-height:60px; padding:12px 20px; color:var(--texte); cursor:pointer; list-style:none;
-  -webkit-tap-highlight-color:transparent; transition:background-color .5s var(--doux); }
-.rs-rang-tete::-webkit-details-marker{ display:none; }
-.rs-rang-tete::marker{ content:""; }
-.rs-rang-tete:hover{ background-color:rgba(255,255,255,.02); }
-.rs-rang-tete:focus-visible{ outline:1px solid rgba(214,216,215,.6); outline-offset:-5px; border-radius:var(--r-s); }
-.rs-rang-titre{ font-size:17px; line-height:1.2; letter-spacing:.14em; }
-.rs-rang-corps{ overflow:hidden; }
-.rs-rang-int{ position:relative; padding:calc(.5 * var(--u)) 20px calc(2.5 * var(--u)); }
-.rs-rang-int::before{ content:""; position:absolute; top:0; left:20px; right:20px; height:1px;
-  background:linear-gradient(90deg, transparent, var(--ligne) 50%, transparent); }
+/* ——— Tiroir blanc ——— */
+.ombre{position:fixed;inset:0;z-index:1040;background:rgba(0,0,0,.35);opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility 0s .45s}
+.ombre.ouvert{opacity:1;visibility:visible;transition:opacity .45s var(--ease)}
+.tiroir{position:fixed;inset:0 auto 0 0;z-index:1041;width:min(480px,100%);background:var(--blanc);color:var(--encre);padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);transform:translateX(-102%);transition:transform .55s var(--ease);display:flex;flex-direction:column}
+.tiroir.ouvert{transform:none}
+.tiroir-tete{height:50px;min-height:50px;flex:none;box-sizing:border-box;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #e5e5e5}
+.tiroir-tete .icone-btn{color:var(--encre)}
+.tiroir nav{overflow-y:auto;padding:14px var(--gouttiere) 40px;flex:1}
+.tiroir nav > a{display:flex;align-items:center;justify-content:space-between;min-height:56px;line-height:1.4;font-weight:300;font-size:11.5px;letter-spacing:.04em;color:var(--encre);border-bottom:1px solid rgba(0,0,0,.08);transition:opacity .3s var(--ease)}
+.tiroir nav a:hover{opacity:.55}
+.tiroir nav .ico{width:16px;height:16px;stroke-width:1.9;flex:none;margin-left:16px}
 
-.rs-chevron{ width:14px; height:8px; color:var(--gris); transition:transform .55s var(--doux), color .5s var(--doux); }
-.rs-rang-tete:hover .rs-chevron{ color:var(--argent); }
-.rs-rang[open]:not(.rs-fermeture) .rs-chevron{ transform:rotate(180deg); color:var(--argent); }
+/* ——— Recherche ——— */
+.recherche{position:fixed;inset:0 0 auto 0;z-index:1042;background:var(--blanc);color:var(--encre);padding-top:env(safe-area-inset-top,0px);transform:translateY(-102%);transition:transform .5s var(--ease);max-height:100svh;display:flex;flex-direction:column;border-bottom:1px solid var(--filet)}
+.recherche.ouvert{transform:none}
+.recherche-ligne{display:flex;align-items:center;gap:8px;padding:10px calc(var(--gouttiere) - 10px) 10px var(--gouttiere);border-bottom:1px solid var(--encre)}
+.recherche-ligne input{flex:1;min-width:0;border:0;background:none;outline:none;font-family:var(--f);font-weight:400;font-size:.92rem;padding:12px 0;color:var(--encre)}
+.recherche-ligne input::placeholder{color:var(--gris)}
+.resultats{list-style:none;margin:0;padding:8px var(--gouttiere) 24px;overflow-y:auto}
+.resultats a{display:flex;justify-content:space-between;align-items:center;min-height:52px;border-bottom:1px solid var(--filet);font-weight:500;font-size:.82rem}
+.resultats .ico{width:16px;height:16px;stroke-width:1.8}
+.resultats .vide{padding:18px 0;color:var(--gris);font-size:.9rem}
 
-/* ===== Tarifs ===== */
-.rs-tarif + .rs-tarif{ position:relative; margin-top:calc(2.25 * var(--u)); padding-top:calc(2.25 * var(--u)); }
-.rs-tarif + .rs-tarif::before, .rs-mention::before{ content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--ligne) 50%, transparent); }
-.rs-valeurs{ display:grid; row-gap:5px; margin-top:calc(1.25 * var(--u)); }
-.rs-valeur{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:2px 16px; }
-.rs-valeur dt{ font-size:13px; color:var(--gris); }
-.rs-valeur dd{ margin-left:auto; font-size:14px; text-align:right; font-variant-numeric:tabular-nums lining-nums; color:var(--texte); white-space:nowrap; }
-.rs-valeur--nd dd{ font-size:12.5px; color:var(--gris); opacity:.75; }
-@container (min-width:600px){
-  .rs-tarif{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); column-gap:28px; align-items:baseline; }
-  .rs-tarif .rs-valeurs{ margin-top:0; }
+/* ——— L'atelier & savoir-faire ——— */
+.atelier{background:#f6f6f6;color:#000;border-bottom:1px solid #e5e5e5;display:grid;gap:22px;padding:24px 24px 48px}
+.galerie{position:relative;width:100%;max-width:560px;margin-inline:auto;aspect-ratio:4 / 5 !important;overflow:hidden;background:#1a1a1a}
+.galerie img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:4 / 5 !important;object-fit:cover !important;width:100% !important;image-rendering:-webkit-optimize-contrast !important;image-rendering:crisp-edges !important;transform:translateZ(0) !important;-webkit-backface-visibility:hidden !important;backface-visibility:hidden !important;filter:contrast(1.02);z-index:0;opacity:0;visibility:hidden;transition:opacity 0s .5s,visibility 0s .5s}
+.galerie img.active{z-index:1;opacity:1;visibility:visible;transition:opacity 0.5s ease-in-out !important}
+.galerie-traits{position:absolute;z-index:2;left:var(--gouttiere);right:var(--gouttiere);bottom:10px;display:flex;gap:6px;max-width:420px;margin-inline:auto}
+.galerie.pause .trait.en-cours span::after{animation-play-state:paused}
+.atelier-texte{display:grid;justify-items:center;gap:0;text-align:center;padding-inline:var(--gouttiere)}
+.atelier-titre{margin:0;font-weight:700 !important;font-size:14px;letter-spacing:1px;text-transform:uppercase}
+.atelier .lien{font-size:11px;font-weight:700 !important;margin-top:12px;background:none;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;min-height:auto}
+.atelier-sous{margin:6px 0 0;font-weight:300 !important;font-size:13px;letter-spacing:.06em}
+@media (min-width:900px){
+  .atelier{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(32px,5vw,72px);padding:clamp(48px,6vw,80px) max(24px,calc((100% - 1180px) / 2))}
+  .galerie{margin-right:0}
 }
-.rs-mention{ position:relative; margin-top:calc(2.5 * var(--u)); padding-top:calc(1.75 * var(--u));
-  font-size:11.5px; line-height:1.6; letter-spacing:.01em; color:var(--gris); text-align:center; }
 
-/* ===== Délais ===== */
-.rs-duree{ margin-top:calc(1.25 * var(--u)); font-size:15px; font-weight:400; line-height:1.4; color:var(--texte); }
+/* ——— Pied de page blanc ——— */
+.pied{background:var(--blanc);color:var(--encre);border-top:1px solid var(--filet);padding-bottom:env(safe-area-inset-bottom,0px)}
+.cercle{max-width:1180px;margin-inline:auto;padding:clamp(48px,7vw,80px) var(--gouttiere) 28px;display:grid;gap:14px}
+.cercle h2{margin:0;font-weight:700 !important;font-size:14px;letter-spacing:1.5px;text-transform:uppercase}
+.cercle p.intro{margin:0;max-width:56ch;font-weight:300 !important;font-size:13px;line-height:1.6;color:#111111}
+.form-tel{display:grid;gap:14px;max-width:760px}
+.champ{display:flex;align-items:center;border-bottom:1px solid var(--encre)}
+.champ input{flex:1;min-width:0;border:0;background:none;outline:none;font-family:var(--f);font-weight:300;font-size:13px;padding:12px 0;color:var(--encre)}
+.champ input::placeholder{color:var(--encre);opacity:1}
+.champ .ico{width:24px;height:24px;stroke-width:1.6}
+.consentement{margin:0;font-weight:300;font-size:11px;line-height:1.55;color:var(--encre);cursor:pointer}
+.consentement input{appearance:none;width:16px;height:16px;margin:3px 0 0;border:1px solid var(--encre);display:grid;place-content:center;cursor:pointer}
+.consentement input:checked{background:var(--encre)}
+.consentement input:checked::after{content:"";width:7px;height:3.5px;border:solid var(--blanc);border-width:0 0 1.3px 1.3px;transform:rotate(-45deg) translate(1px,-1px)}
+.consentement a{color:var(--encre);font-weight:400;border-bottom:1px solid var(--encre)}
+.statut{margin:0;font-size:.78rem}
+.statut:empty{display:none}
+.statut.erreur{color:#9b2c1f}
+.reseaux{display:flex;flex-wrap:nowrap;justify-content:center;gap:clamp(18px,6vw,36px);margin-top:4px}
+.reseaux a{width:44px;height:44px;flex:none;display:grid;place-items:center;color:var(--encre);transition:opacity .3s var(--ease)}
+.reseaux a:hover{opacity:.55}
+.reseaux a[aria-disabled="true"]{cursor:default}
+.reseaux svg{width:22px;height:22px;fill:currentColor;stroke:none}
 
-/* ===== Paliers (achats groupés, parrainage) ===== */
-.rs-paliers{ display:grid; margin-top:calc(1.5 * var(--u)); }
-.rs-palier{ position:relative; display:grid; grid-template-columns:5.6em minmax(0,1fr); align-items:baseline; column-gap:16px; padding:calc(1.5 * var(--u)) 0; }
-.rs-palier:last-child{ padding-bottom:0; }
-.rs-palier + .rs-palier::before{ content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, var(--ligne-douce), var(--ligne) 40%, transparent); }
-.rs-palier dt{ font-size:13px; font-weight:400; white-space:nowrap; color:var(--argent); }
-.rs-palier dd{ color:var(--texte); font-variant-numeric:tabular-nums; }
-.rs-gamme{ display:block; margin-top:2px; font-size:12px; color:var(--gris); }
-@media (max-width:330px){ .rs-palier{ grid-template-columns:minmax(0,1fr); row-gap:2px; } }
 
-.rs-masque{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.colonnes{border-top:1px solid var(--filet)}
+.colonnes-in{max-width:1180px;margin-inline:auto}
+.accordeon{border-bottom:1px solid var(--filet)}
+.accordeon summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;min-height:56px;padding-inline:var(--gouttiere);font-weight:400;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.accordeon summary::-webkit-details-marker{display:none}
+.accordeon summary .ico{width:16px;height:16px;stroke-width:1.5;transition:transform .4s var(--ease)}
+.accordeon[open] summary .ico{transform:rotate(180deg)}
+.accordeon ul{list-style:none;margin:0;padding:0 var(--gouttiere) 30px;display:grid;gap:16px}
+.accordeon li{font-weight:300;font-size:11px;line-height:1.5;letter-spacing:.03em;color:var(--encre)}
+.accordeon li a,.accordeon li button{transition:color .3s var(--ease)}
+.accordeon li a:hover,.accordeon li button:hover{opacity:.55}
+.accordeon li button{appearance:none;background:none;border:0;padding:0;cursor:pointer;color:var(--encre);text-align:left;font-weight:300;font-size:11px;letter-spacing:.03em}
+.num{color:var(--encre);font-weight:300;font-variant-numeric:tabular-nums}
+@media (min-width:900px){
+  .colonnes-in{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;padding-inline:var(--gouttiere)}
+  .accordeon{border-bottom:0}
+  .accordeon summary{min-height:auto;padding:40px 0 18px;pointer-events:none}
+  .accordeon summary .ico{display:none}
+  .accordeon ul{padding:0 0 40px}
+}
+.copyright{border-top:1px solid var(--filet);padding:26px calc(var(--gouttiere) + 52px) calc(30px + env(safe-area-inset-bottom,0px));text-align:center;font-weight:300;font-size:9px;letter-spacing:.16em;line-height:2;text-transform:uppercase;color:var(--encre)}
+.copyright .barre{display:inline-block;margin-inline:.9em;opacity:.35}
 
-/* ===== Pied ===== */
-.rs-pied{ text-align:center; }
-.rs-pied-marque{ font-size:17px; line-height:1; letter-spacing:.04em; }
-.rs-pied-devise{ margin-top:10px; font-size:10.5px; letter-spacing:.24em; padding-left:.24em; text-transform:uppercase; color:var(--gris); }
+/* ——— Mentions légales ——— */
+dialog{border:0;padding:0;background:transparent;color:var(--encre);max-width:none;max-height:none}
+dialog::backdrop{background:rgba(0,0,0,.4)}
+.legal{width:min(680px,calc(100vw - 24px))}
+.legal-in{position:relative;background:var(--blanc);padding:52px clamp(20px,5vw,48px) 36px;max-height:calc(100svh - 24px);overflow:auto}
+.legal-in .fermer{position:absolute;right:10px;top:8px}
+.legal-in h3{margin:0 0 4px;font-weight:400;font-size:.8rem;letter-spacing:.28em;text-transform:uppercase}
+.legal-in h4{margin:24px 0 4px;font-weight:400;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
+.legal-in p{margin:0;font-size:.82rem;color:var(--encre);max-width:62ch}
+.a-completer{color:#9b6a1f}
 
-@media (prefers-reduced-motion:reduce){ .rs *{ transition:none !important; animation:none !important; } }
+/* ——— WhatsApp flottant, discret ——— */
+.flottant{position:fixed;right:clamp(14px,3vw,24px);bottom:calc(clamp(14px,3vw,24px) + env(safe-area-inset-bottom,0px));z-index:20;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--noir);color:var(--blanc);box-shadow:0 0 0 1px rgba(255,255,255,.18);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.flottant .ico{width:20px;height:20px}
+.flottant.cache{opacity:0;transform:translateY(10px);pointer-events:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .diapo-texte > *{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-losange" viewBox="0 0 8 8"><path d="M4 0L8 4L4 8L0 4Z" fill="currentColor"/></symbol>
-  <symbol id="i-chevron" viewBox="0 0 14 8"><path d="M1 1l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.1"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3.5 9h17M3.5 15h17"/></symbol>
+  <symbol id="i-recherche" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4 20.5 20.5"/></symbol>
+  <symbol id="i-fermer" viewBox="0 0 24 24"><path d="M5.5 5.5l13 13M18.5 5.5l-13 13"/></symbol>
+  <symbol id="i-compte" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1.4-3.7 4.2-5.5 7.5-5.5s6.1 1.8 7.5 5.5"/></symbol>
+  <symbol id="i-droite" viewBox="0 0 24 24"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></symbol>
+  <symbol id="i-bas" viewBox="0 0 24 24"><path d="m5.5 9.5 6.5 6.5 6.5-6.5"/></symbol>
+  <symbol id="i-fleche" viewBox="0 0 24 24"><path d="M3 12h17.5M14.5 6l6 6-6 6"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.3 20.7l4.4-1.1A8.8 8.8 0 1 0 12 3.2Z"/><path d="M8.9 8.3c.2-.5.6-.6 1-.6l.6 1.6-.7.9c.6 1.4 1.7 2.5 3.1 3.1l.9-.7 1.6.6c0 .4-.1.8-.6 1-2.9.8-6.6-2.9-5.9-5.9Z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.9"/><circle cx="17.2" cy="6.8" r=".5"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 3.5v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3.5c.6 2.5 2.4 4.3 5 4.7"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14.3 20.5v-7h2.5l.4-3h-2.9V8.7c0-.9.3-1.5 1.5-1.5h1.6V4.6c-.3-.1-1.3-.2-2.3-.2-2.3 0-3.8 1.4-3.8 3.9v2.2H8.8v3h2.5v7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M4.5 4.5h4.2l10.8 15h-4.2Z"/><path d="M19 4.5l-5.9 6.6M5 19.5l5.9-6.6"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3.6"/><path d="M10.4 9.6v4.8l4.1-2.4Z"/></symbol>
+  <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M20.5 4.5 3.5 11.3l5.7 2 2.1 5.9 3-3.7 4.4 3.2Z"/><path d="m9.2 13.3 8.6-6.1"/></symbol>
+  <symbol id="p-instagram" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm5.2-3.4a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/></symbol>
+  <symbol id="p-tiktok" viewBox="0 0 24 24"><path d="M16.6 2.5c.4 2.3 1.9 3.8 4.2 4v3.2c-1.6 0-3-.5-4.2-1.3v6.6a6.2 6.2 0 1 1-6.2-6.2c.4 0 .7 0 1 .1v3.3a3 3 0 1 0 2.1 2.9V2.5Z"/></symbol>
+  <symbol id="p-whatsapp" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm-3.3 5.5c.3 0 .5 0 .7.5l.9 2.2c.1.3 0 .5-.1.7l-.6.7c-.1.2-.2.4 0 .6.5.9 1.1 1.6 1.8 2.2.8.7 1.6 1.1 2.2 1.3.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l2.1 1c.3.2.5.3.5.5 0 .3-.1 1.2-.6 1.7-.6.6-1.6 1-2.5.9-1.3-.1-3.4-.9-5.1-2.5-1.9-1.7-3-3.8-3.2-5.1-.1-.9.3-1.9.9-2.5.3-.3.6-.5.9-.6Z"/></symbol>
+  <symbol id="p-telegram" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.7 3.3 2.6 10.6c-1.3.5-1.3 1.3-.2 1.6l4.9 1.5 1.9 5.8c.2.6.4.8.9.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.8c.3-1.3-.5-1.9-1.2-1.5ZM9.6 14.4l-.4 3.7-1.4-4.6 10.5-6.7Z"/></symbol>
 </svg>
 
-<div class="rs">
-  <div class="rs-feuille">
-    <main class="rs-contenu">
-
-      <header class="rs-entete">
-        <div class="rs-cartouche">
-          <h1 class="rs-marque">Ruben’s Saffiano</h1>
-          <div class="rs-fondu" aria-hidden="true"></div>
-          <p class="rs-devise">Affordable Luxury</p>
-        </div>
-      </header>
-
-      <div class="rs-fondu" aria-hidden="true"></div>
-
-      <!-- ============ NAVIGATION EN GRILLE ============ -->
-      <nav aria-label="Rubriques de l’atelier">
-        <p class="rs-bandeau">L’atelier</p>
-        <div class="rs-grille" role="tablist">
-          <button type="button" class="rs-tuile" role="tab" id="t-gammes" aria-controls="gammes" aria-selected="false">
-            <span class="rs-tuile-nom">Gammes</span><span class="rs-tuile-sous">Trois niveaux</span>
-          </button>
-          <button type="button" class="rs-tuile" role="tab" id="t-tarifs" aria-controls="tarifs" aria-selected="false">
-            <span class="rs-tuile-nom">Tarifs</span><span class="rs-tuile-sous">Par catégorie</span>
-          </button>
-          <button type="button" class="rs-tuile" role="tab" id="t-delais" aria-controls="delais" aria-selected="false">
-            <span class="rs-tuile-nom">Délais</span><span class="rs-tuile-sous">Fabrication &amp; envoi</span>
-          </button>
-          <button type="button" class="rs-tuile" role="tab" id="t-coffret" aria-controls="coffret" aria-selected="false">
-            <span class="rs-tuile-nom">Coffret</span><span class="rs-tuile-sous">L’écrin de l’atelier</span>
-          </button>
-          <button type="button" class="rs-tuile" role="tab" id="t-parrainage" aria-controls="parrainage" aria-selected="false">
-            <span class="rs-tuile-nom">Parrainage</span><span class="rs-tuile-sous">Achats groupés &amp; paliers</span>
-          </button>
-        </div>
-      </nav>
-
-      <!-- ============ CONTENU DE LA RUBRIQUE CHOISIE ============ -->
-      <div class="rs-panneaux">
-        <section class="rs-panneau" id="gammes" role="tabpanel" aria-labelledby="t-gammes">
-          <h2 class="rs-masque">Gammes</h2>
-          <details class="rs-rang">
-            <summary class="rs-rang-tete">
-              <span class="rs-rang-titre">Prestige</span>
-              <svg class="rs-chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
-            </summary>
-            <div class="rs-rang-corps"><div class="rs-rang-int"><p class="rs-p">Notre maison se distingue par un concept d’exception, consistant à façonner des pièces d’artisanat de très haute volée à partir de matières nobles et sélectionnées. Chaque création intègre un suivi de traçabilité numérique individuel garantissant son exclusivité, qui font de nos produits le sommet de notre savoir-faire.</p><p class="rs-p">Ce niveau d’excellence met en œuvre des peausseries d’exception (autruche, python, crocodile) et un travail entièrement réalisé à la main par nos maîtres artisans disposant de décennies d’expertise en haute facture.</p></div></div>
-          </details>
-          <details class="rs-rang">
-            <summary class="rs-rang-tete">
-              <span class="rs-rang-titre">Premium</span>
-              <svg class="rs-chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
-            </summary>
-            <div class="rs-rang-corps"><div class="rs-rang-int"><p class="rs-p">Une manufacture artisanale exigeante et robuste, conçue pour durer. Nous sélectionnons des alternatives d’une excellente tenue&nbsp;— cuirs nobles, acier pur, finitions palladium, soie et cachemire.</p><p class="rs-p">La confection associe un assemblage rigoureux à des finitions manuelles minutieuses, offrant un produit fini d’un niveau remarquable, parfaitement adapté à une clientèle en quête d’élégance et de durabilité.</p></div></div>
-          </details>
-          <details class="rs-rang">
-            <summary class="rs-rang-tete">
-              <span class="rs-rang-titre">Essentiel</span>
-              <svg class="rs-chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
-            </summary>
-            <div class="rs-rang-corps"><div class="rs-rang-int"><p class="rs-p">Une ligne d’entrée de gamme pensée pour un usage quotidien simple et accessible. Les composants et la confection sont épurés et fonctionnels, parfaits pour un choix direct et sans superflus.</p></div></div>
-          </details>
-        </section>
-        <section class="rs-panneau" id="tarifs" role="tabpanel" aria-labelledby="t-tarifs">
-          <h2 class="rs-masque">Tarifs</h2>
-          <div class="rs-carte rs-carte--tarifs">
-            <div class="rs-tarif">
-              <h3 class="rs-bloc-titre">Sacs à main</h3>
-              <dl class="rs-valeurs">
-                <div class="rs-valeur"><dt>Prestige</dt><dd>250&nbsp;–&nbsp;2&#8239;000&nbsp;€</dd></div>
-                <div class="rs-valeur"><dt>Premium</dt><dd>200&nbsp;–&nbsp;400&nbsp;€</dd></div>
-                <div class="rs-valeur"><dt>Essentiel</dt><dd>100&nbsp;–&nbsp;200&nbsp;€</dd></div>
-              </dl>
-            </div>
-            <div class="rs-tarif">
-              <h3 class="rs-bloc-titre">Chaussures</h3>
-              <dl class="rs-valeurs">
-                <div class="rs-valeur"><dt>Prestige</dt><dd>150&nbsp;–&nbsp;380&nbsp;€</dd></div>
-                <div class="rs-valeur rs-valeur--nd"><dt>Premium</dt><dd>Non disponible</dd></div>
-                <div class="rs-valeur rs-valeur--nd"><dt>Essentiel</dt><dd>Non disponible</dd></div>
-              </dl>
-            </div>
-            <div class="rs-tarif">
-              <h3 class="rs-bloc-titre">Joaillerie &amp; Accessoires</h3>
-              <dl class="rs-valeurs">
-                <div class="rs-valeur"><dt>Prestige</dt><dd>400&nbsp;–&nbsp;5&#8239;000&nbsp;€</dd></div>
-                <div class="rs-valeur"><dt>Premium</dt><dd>200&nbsp;–&nbsp;800&nbsp;€</dd></div>
-                <div class="rs-valeur rs-valeur--nd"><dt>Essentiel</dt><dd>Non disponible</dd></div>
-              </dl>
-            </div>
-            <p class="rs-mention">Prix TTC donnés à titre indicatif. Le prix définitif est fixé par devis avant fabrication.</p>
-          </div>
-        </section>
-        <section class="rs-panneau" id="delais" role="tabpanel" aria-labelledby="t-delais">
-          <h2 class="rs-masque">Délais</h2>
-          <div class="rs-carte">
-              <h3 class="rs-bloc-titre">Essentiel</h3>
-              <p class="rs-bloc-sous">Pièces prêtes</p>
-              <p class="rs-duree">Expédition sous <span class="nw">24&nbsp;h à 72&nbsp;h</span></p>
-              <p class="rs-p">Déjà achevées et contrôlées, elles quittent l’atelier dans les jours qui suivent votre commande.</p>
-            </div>
-            <div class="rs-carte">
-              <h3 class="rs-bloc-titre">Premium &amp; Prestige</h3>
-              <p class="rs-bloc-sous">Sur commande</p>
-              <p class="rs-duree">Fabrication artisanale de <span class="nw">3&nbsp;à&nbsp;15&nbsp;jours</span></p>
-              <p class="rs-p">Chaque création naît à votre commande, entre les mains de nos artisans. Le temps de façon varie selon la pièce, puis elle est expédiée dans son coffret.</p>
-            </div>
-        </section>
-        <section class="rs-panneau" id="coffret" role="tabpanel" aria-labelledby="t-coffret">
-          <h2 class="rs-masque">Coffret</h2>
-          <div class="rs-carte">
-              <h3 class="rs-bloc-titre">L’écrin rigide</h3>
-              <p class="rs-p">Chaque pièce quitte l’atelier dans l’écrin rigide de la maison, pensé comme le prolongement de la création elle-même.</p>
-              <p class="rs-p">Glissée dans une housse en coton qui la préserve de la poussière et des frottements, elle repose sur un calage ajusté à ses dimensions, conçu pour les expéditions internationales&nbsp;: elle traverse les frontières intacte et vous parvient telle qu’elle a quitté l’établi.</p>
-            </div>
-            <div class="rs-carte">
-              <h3 class="rs-bloc-titre">Envoi allégé</h3>
-              <p class="rs-bloc-sous">Sur demande</p>
-              <p class="rs-p">La pièce voyage sans coffret, dans sa seule housse et sous carton renforcé. Le colis s’allège, et les frais de port avec lui.</p>
-            </div>
-        </section>
-        <section class="rs-panneau" id="parrainage" role="tabpanel" aria-labelledby="t-parrainage">
-          <h2 class="rs-masque">Parrainage</h2>
-          <div class="rs-carte">
-            <h3 class="rs-bloc-titre">Achats groupés</h3>
-            <p class="rs-bloc-sous">Plusieurs articles commandés en même temps</p>
-            <dl class="rs-paliers">
-              <div class="rs-palier"><dt>2&nbsp;achats</dt><dd><span class="nw">−10&nbsp;€</span> par article</dd></div>
-              <div class="rs-palier"><dt>3&nbsp;achats</dt><dd><span class="nw">−15&nbsp;€</span> par article</dd></div>
-              <div class="rs-palier"><dt>4&nbsp;achats</dt><dd><span class="nw">−20&nbsp;€</span> par article</dd></div>
-            </dl>
-          </div>
-          <div class="rs-carte">
-            <h3 class="rs-bloc-titre">Parrainage</h3>
-            <p class="rs-bloc-sous">Selon le nombre de clients recommandés</p>
-            <dl class="rs-paliers">
-              <div class="rs-palier"><dt>1&nbsp;client</dt><dd><span class="nw">15&nbsp;€</span> de promotion</dd></div>
-              <div class="rs-palier"><dt>2&nbsp;clients</dt><dd>Un mini sac, chaussures ou portefeuille offert<span class="rs-gamme">Gamme Essentiel</span></dd></div>
-              <div class="rs-palier"><dt>3&nbsp;clients</dt><dd><span class="nw">15&nbsp;%</span> de réduction sur toute la boutique</dd></div>
-              <div class="rs-palier"><dt>4&nbsp;clients</dt><dd>Chaussures, portefeuille, accessoires ou ceinture offerts<span class="rs-gamme">Gamme Premium</span></dd></div>
-            </dl>
-          </div>
-        </section>
-      </div>
-
-      <div class="rs-fondu" aria-hidden="true"></div>
-
-      <footer class="rs-pied">
-        <p class="rs-pied-marque">Ruben’s Saffiano</p>
-        <p class="rs-pied-devise">Affordable Luxury</p>
-      </footer>
-    </main>
+<header class="entete site-header" id="entete">
+  <div class="bloc-g">
+    <button class="icone-btn" type="button" id="ouvrir-menu" aria-label="Ouvrir le menu" aria-controls="tiroir" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg></button>
+    <button class="icone-btn" type="button" id="ouvrir-recherche" aria-label="Rechercher" aria-controls="recherche" aria-expanded="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="20.5" y2="20.5"/></svg></button>
   </div>
+  <a class="marque" href="#haut" aria-label="Ruben’s Saffiano">Ruben’s Saffiano</a>
+  <div class="bloc-d">
+    <a class="icone-btn" href="#contact" aria-label="Service client"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></a>
+    <a class="icone-btn" data-wa="Bonjour Ruben’s Saffiano, je souhaite être conseillé(e)." href="#" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+  </div>
+</header>
+
+<div class="ombre" id="ombre"></div>
+<aside class="tiroir" id="tiroir" aria-label="Menu" inert>
+  <div class="tiroir-tete">
+    <div class="bloc-g">
+      <button class="icone-btn" type="button" id="fermer-menu" aria-label="Fermer le menu"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 5.5l13 13M18.5 5.5l-13 13"/></svg></button>
+      <button class="icone-btn" type="button" id="menu-recherche" aria-label="Rechercher"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4 20.5 20.5"/></svg></button>
+    </div>
+    <div class="bloc-d">
+      <a class="icone-btn" href="#contact" data-fermer-menu aria-label="Service client"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1.4-3.7 4.2-5.5 7.5-5.5s6.1 1.8 7.5 5.5"/></svg></a>
+      <a class="icone-btn" data-wa="Bonjour Ruben’s Saffiano, je souhaite être conseillé(e)." href="#" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.3 20.7l4.4-1.1A8.8 8.8 0 1 0 12 3.2Z"/><path d="M8.9 8.3c.2-.5.6-.6 1-.6l.6 1.6-.7.9c.6 1.4 1.7 2.5 3.1 3.1l.9-.7 1.6.6c0 .4-.1.8-.6 1-2.9.8-6.6-2.9-5.9-5.9Z"/></svg></a>
+    </div>
+  </div>
+  <nav id="menu" aria-label="Univers"></nav>
+</aside>
+
+<div class="recherche" id="recherche" role="dialog" aria-label="Recherche" inert>
+  <div class="recherche-ligne">
+    <label class="sr" for="champ-recherche">Rechercher un univers ou un service</label>
+    <input id="champ-recherche" type="search" placeholder="Rechercher un univers ou un service" autocomplete="off">
+    <button class="icone-btn" type="button" id="fermer-recherche" aria-label="Fermer la recherche"><svg class="ico"><use href="#i-fermer"/></svg></button>
+  </div>
+  <ul class="resultats" id="resultats" aria-live="polite"></ul>
 </div>
 
+<main id="haut">
+  <section class="hero" id="hero" aria-roledescription="carrousel" aria-label="À la une">
+    <div id="diapos"></div>
+    <div class="progression" id="progression" aria-label="Visuels"></div>
+  </section>
+
+
+  <section class="sur-mesure" id="sur-mesure" aria-labelledby="t-sm">
+    <span class="surtitre" id="t-sm">Commande sur mesure</span>
+    <blockquote class="trois-lignes"><span>Une pièce recherchée ne figure pas dans</span><span>nos éditions&nbsp;? Notre atelier réalise votre</span><span>modèle sur-mesure, sur simple demande.</span></blockquote>
+    <a class="bouton" data-wa="Bonjour Ruben’s Saffiano, je souhaite une pièce sur mesure. Voici ce que je recherche :" href="#" target="_blank" rel="noopener">Décrire ma pièce</a>
+  </section>
+
+  <section class="atelier" id="atelier" aria-labelledby="t-at">
+    <div class="galerie" id="galerie" aria-roledescription="carrousel" aria-label="Détails de l’atelier">
+      <img class="active" src="images/detail-1.jpg" alt="Escarpins bicolores, cuir grainé et bout en gros-grain" width="1080" height="1350">
+      <img src="images/detail-2.jpg" alt="Talon gainé de cuir" width="1080" height="1350" loading="lazy">
+      <img src="images/detail-3.jpg" alt="Fermeture éclair sur cuir bordeaux" width="1080" height="1350" loading="lazy">
+      <img src="images/detail-4.jpg" alt="Fermeture éclair sur cuir grainé noir" width="1080" height="1350" loading="lazy">
+      <img src="images/detail-5.jpg" alt="Œillets métalliques et lanière de cuir" width="1080" height="1350" loading="lazy">
+      <img src="images/detail-6.jpg" alt="Ballerines matelassées bordeaux" width="1080" height="1350" loading="lazy">
+      <img src="images/detail-7.jpg" alt="Rabat et sangles en cuir noir" width="1080" height="1350" loading="lazy">
+      <img src="images/detail-8.jpg" alt="Contrefort matelassé et gros-grain" width="1080" height="1350" loading="lazy">
+      <img src="images/detail-9.jpg" alt="Attache de poignée, couture sellier" width="1080" height="1350" loading="lazy">
+      <div class="galerie-traits" id="galerie-traits"></div>
+    </div>
+    <div class="atelier-texte">
+      <h2 class="atelier-titre" id="t-at">L’atelier &amp; savoir-faire</h2>
+      <p class="atelier-sous">Le cuir d’exception, finitions faites main.</p>
+      <a class="lien" id="lien-atelier" href="#" target="_blank" rel="noopener">Découvrir</a>
+    </div>
+  </section>
+</main>
+
+<footer class="pied" id="contact">
+  <div class="cercle">
+    <h2>Le cercle privé</h2>
+    <p class="intro">Laissez votre numéro : nous vous écrivons sur WhatsApp à chaque nouvelle édition, avant sa présentation publique.</p>
+    <form class="form-tel" id="form-tel" novalidate>
+      <div class="champ">
+        <label class="sr" for="tel">Numéro de téléphone</label>
+        <input id="tel" name="telephone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Insérez votre numéro de téléphone" required>
+        <button class="icone-btn" type="submit" aria-label="Envoyer"><svg class="ico"><use href="#i-fleche"/></svg></button>
+      </div>
+      <p class="consentement">En cliquant sur la flèche, WhatsApp s’ouvre avec un message prêt à nous envoyer. Votre numéro sert uniquement à vous prévenir des nouveautés, comme indiqué dans notre <a href="#" data-legal="confidentialite">politique de confidentialité</a>.</p>
+      <p class="statut" id="statut" role="status"></p>
+    </form>
+    <div class="reseaux" id="reseaux" aria-label="Réseaux sociaux">
+      <a href="https://www.instagram.com/rubens.saffiano.paris" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#p-instagram"/></svg></a>
+      <a href="https://www.tiktok.com/@rubens.saffiano?_r=1&amp;_t=ZN-9AT3OpEegi6" target="_blank" rel="noopener" aria-label="TikTok"><svg aria-hidden="true"><use href="#p-tiktok"/></svg></a>
+      <a href="https://wa.me/33695772805" target="_blank" rel="noopener" aria-label="WhatsApp"><svg aria-hidden="true"><use href="#p-whatsapp"/></svg></a>
+      <a href="https://t.me/+53MQ3b2okQg1OGQ0" target="_blank" rel="noopener" aria-label="Telegram"><svg aria-hidden="true"><use href="#p-telegram"/></svg></a>
+    </div>
+  </div>
+
+  <div class="colonnes">
+    <div class="colonnes-in">
+      <details class="accordeon">
+        <summary>Nous contacter<svg class="ico"><use href="#i-bas"/></svg></summary>
+        <ul>
+          <li>WhatsApp · <span class="num">+33 6 95 77 28 05</span></li>
+          <li><a data-wa="Bonjour Ruben’s Saffiano, je souhaite être conseillé(e)." href="#" target="_blank" rel="noopener">Écrire au service client</a></li>
+          <li>Telegram · accès privé sur demande</li>
+        </ul>
+      </details>
+      <details class="accordeon">
+        <summary>Services<svg class="ico"><use href="#i-bas"/></svg></summary>
+        <ul>
+          <li><a href="#sur-mesure">Commande sur mesure</a></li>
+          <li><a data-wa="Bonjour, je souhaite faire restaurer une pièce." href="#" target="_blank" rel="noopener">Restauration de maroquinerie</a></li>
+          <li><a data-wa="Bonjour, je souhaite un redorage." href="#" target="_blank" rel="noopener">Redorage &amp; remise en teinte</a></li>
+          <li><a data-wa="Bonjour, je souhaite vous proposer une pièce au rachat." href="#" target="_blank" rel="noopener">Rachat de pièces</a></li>
+        </ul>
+      </details>
+      <details class="accordeon">
+        <summary>Société<svg class="ico"><use href="#i-bas"/></svg></summary>
+        <ul>
+          <li>Joaillerie, maroquinerie, chaussures, ceintures</li>
+          <li>Séries courtes, présentées sur catalogue privé</li>
+          <li>Atelier et usines partenaires</li>
+        </ul>
+      </details>
+      <details class="accordeon">
+        <summary>Conditions et mentions légales<svg class="ico"><use href="#i-bas"/></svg></summary>
+        <ul>
+          <li><button type="button" data-legal="mentions">Mentions légales</button></li>
+          <li><button type="button" data-legal="conditions">Conditions de vente</button></li>
+          <li><button type="button" data-legal="confidentialite">Politique de confidentialité</button></li>
+        </ul>
+      </details>
+    </div>
+  </div>
+
+  <div class="copyright" id="signature">© Ruben’s Saffiano · Maison de haute maroquinerie</div>
+</footer>
+
+<a class="flottant cache" id="flottant" data-wa="Bonjour Ruben’s Saffiano, je souhaite être conseillé(e)." href="#" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg class="ico"><use href="#i-whatsapp"/></svg></a>
+
+<dialog class="legal" id="legal" aria-labelledby="legal-titre">
+  <div class="legal-in">
+    <button class="icone-btn fermer" type="button" data-fermer aria-label="Fermer"><svg class="ico"><use href="#i-fermer"/></svg></button>
+    <div id="legal-mentions">
+      <h3 id="legal-titre">Mentions légales</h3>
+      <h4>Éditeur du site</h4>
+      <p>Ruben’s Saffiano · <span class="a-completer">[forme juridique, adresse, numéro SIRET]</span></p>
+      <h4>Contact</h4>
+      <p>WhatsApp : +33 6 95 77 28 05</p>
+      <h4>Hébergement</h4>
+      <p>GitHub Pages · GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
+    </div>
+    <div id="legal-conditions" hidden>
+      <h3>Conditions de vente</h3>
+      <h4>Commande</h4>
+      <p>Les commandes se font par message direct. La disponibilité, le prix et le délai sont confirmés par écrit avant tout paiement.</p>
+      <h4>Livraison et retours</h4>
+      <p class="a-completer">[Délais et frais de livraison, droit de rétractation de 14 jours pour les particuliers, exceptions pour les pièces sur mesure.]</p>
+    </div>
+    <div id="legal-confidentialite" hidden>
+      <h3>Confidentialité</h3>
+      <h4>Données collectées</h4>
+      <p>Votre numéro de téléphone, uniquement si vous nous l’envoyez sur WhatsApp depuis le formulaire « Le cercle privé ».</p>
+      <h4>Usage</h4>
+      <p>Vous prévenir des nouveautés par WhatsApp ou SMS. Votre numéro n’est ni vendu ni cédé. Pour être retiré de la liste, envoyez-nous un message.</p>
+      <h4>Responsable</h4>
+      <p>Ruben’s Saffiano · <span class="a-completer">[adresse de contact]</span></p>
+    </div>
+  </div>
+</dialog>
+
 <script>
+/* ===================== RÉGLAGES — tout se modifie ici ===================== */
+var CONFIG = {
+  whatsapp: "33695772805",                  // format international, sans + ni espaces
+  reseaux: {
+    instagram: "https://www.instagram.com/rubens.saffiano.paris",
+    tiktok: "https://www.tiktok.com/@rubens.saffiano?_r=1&_t=ZN-9AT3OpEegi6",
+    telegram: "https://t.me/+53MQ3b2okQg1OGQ0"
+  }, // "" = icône grisée
+  dureeDiapo: 2000,
+  dureeGalerie: 1500,
+  logo: "images/sceau-rs.png", // sceau RS sur fond transparent ; vide = sceau dessiné
+  siret: "",       // numéro SIRET affiché dans la signature ; vide = masqué
+  tva: ""          // numéro de TVA intracommunautaire (ex. "FR12345678901") ; vide = masqué
+};
+
+/* Univers : catalogue = lien de partage Canva (« Afficher seulement »).
+   Vide = le bouton propose de recevoir le catalogue par WhatsApp. */
+var UNIVERS = [
+  { id:"nouveautes",      nom:"Nouveautés",      ligne:"Les dernières pièces ajoutées",            catalogue:"" },
+  { id:"joaillerie",      nom:"Joaillerie fine", ligne:"Bagues, colliers, bracelets",               catalogue:"" },
+  { id:"creation-maison", nom:"Création Maison", ligne:"Haute joaillerie · Modèles sur mesure",     catalogue:"" },
+  { id:"maroquinerie",    nom:"Maroquinerie",    ligne:"Cuir saffiano, séries courtes",             catalogue:"" },
+  { id:"chaussures",      nom:"Chaussures",      ligne:"Taille semi-sur-mesure",                    catalogue:"" },
+  { id:"ceintures",       nom:"Ceintures",       ligne:"Taille semi-sur-mesure",                    catalogue:"" },
+  { id:"atelier",         nom:"Atelier",         ligne:"Restauration · Redorage · Rachat",          catalogue:"" }
+];
+
+/* Catalogues du menu latéral : pour chaque rubrique, les niveaux de gamme et leurs entrées.
+   - nom : texte affiché (remplacez "Maison 01"… par vos noms de lignes ou de modèles)
+   - url : lien de partage Canva du catalogue ("#" = pas encore relié : ouvre WhatsApp avec une demande)
+   - action : mention à droite (ÉDITION, SÉLECTION ou ATELIER)
+   Une rubrique absente de cette liste s'affiche comme un lien simple. */
+var N = function(n, action){ var l = []; for (var i = 1; i <= n; i++) l.push({ nom:"Maison " + (i < 10 ? "0" : "") + i, url:"#", action:action || "Édition" }); return l; };
+var COLLECTIONS = {
+  maroquinerie: { titre:"Maroquinerie · Sacs à main", detail:"19 éditions", gammes:[
+    { nom:"Prestige", detail:"12 maisons", entrees:N(12) },
+    { nom:"Premium", detail:"6 maisons", entrees:N(6) },
+    { nom:"Essentiel", detail:"Sélection multi-marques", entrees:[ { nom:"Sélection multi-marques", url:"#", action:"Sélection" } ] }
+  ] },
+  joaillerie: { detail:"11 éditions", gammes:[
+    { nom:"Prestige", detail:"7 maisons", entrees:N(7) },
+    { nom:"Essentiel", detail:"4 maisons", entrees:N(4) }
+  ] },
+  chaussures: { detail:"2 éditions", gammes:[
+    { nom:"Prestige", detail:"2 maisons", entrees:N(2) }
+  ] },
+  ceintures: { detail:"5 éditions", gammes:[
+    { nom:"Prestige", detail:"5 maisons", entrees:N(5) }
+  ] },
+  atelier: { titre:"Atelier · Restauration", detail:"3 services", gammes:[
+    { nom:"Prestige", detail:"Atelier & pièces officielles · 3 services", entrees:[
+      { nom:"Restauration de maroquinerie", url:"#", action:"Atelier" },
+      { nom:"Rachat de pièces officielles", url:"#", action:"Atelier" },
+      { nom:"Redorage d’excellence", url:"#", action:"Atelier" } ] }
+  ] }
+};
+
+/* Hero : image = photo de votre dépôt (ex. "images/hero-1.jpg"), vide = fond graphique.
+   cible = id d'un univers, ou "sur-mesure". */
+var DIAPOS = [
+  { image:"images/hero-1.jpg", etape:"Maroquinerie", titre:"Maroquinerie", accroche:"Cuir matelassé, chaîne dorée.", lien:"Découvrir", cible:"maroquinerie", focus:"55% 50%", focusPc:"50% 62%" },
+  { image:"images/hero-2.jpg", etape:"Nouveautés", titre:"Nouveautés", accroche:"Les dernières pièces de l’atelier.", lien:"Découvrir", cible:"nouveautes", focus:"50% 50%", focusPc:"50% 58%" },
+  { image:"images/hero-3.jpg", etape:"Exclusivités", titre:"Exclusivités", accroche:"Chaque pièce, en séries courtes.", lien:"Découvrir", cible:"maroquinerie", focus:"50% 50%", focusPc:"50% 55%" }
+];
+/* ========================================================================== */
+
 (function(){
   "use strict";
-  var racine = document.documentElement;
-  try {
-    var mouvementReduit = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var courbe = "cubic-bezier(.22,.61,.36,1)";
-
-    /* ---------- Onglets en grille : une rubrique active à la fois ---------- */
-    var tuiles = Array.prototype.slice.call(document.querySelectorAll(".rs-tuile"));
-    var panneaux = tuiles.map(function(t){ return document.getElementById(t.getAttribute("aria-controls")); });
-
-    function choisir(index, focus, anime){
-      for (var i = 0; i < tuiles.length; i++){
-        var actif = i === index, p = panneaux[i];
-        tuiles[i].setAttribute("aria-selected", actif ? "true" : "false");
-        tuiles[i].tabIndex = actif ? 0 : -1;
-        if (!p) continue;
-        p.hidden = !actif;
-        p.classList.remove("rs-entree");
-        if (actif && anime && !mouvementReduit){ void p.offsetWidth; p.classList.add("rs-entree"); }
-      }
-      if (focus) tuiles[index].focus();
-    }
-
-    tuiles.forEach(function(t, i){
-      t.addEventListener("click", function(){ choisir(i, false, true); });
-      t.addEventListener("keydown", function(e){
-        var n = tuiles.length, cible = null;
-        if (e.key === "ArrowRight" || e.key === "ArrowDown") cible = (i + 1) % n;
-        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") cible = (i - 1 + n) % n;
-        else if (e.key === "Home") cible = 0;
-        else if (e.key === "End") cible = n - 1;
-        if (cible !== null){ e.preventDefault(); choisir(cible, true, true); }
-      });
-    });
-
-    /* Lecture seule de l'ancre (…/#delais) : aucune écriture dans l'historique,
-       qui échoue dans les aperçus mobiles sandboxés */
-    var depart = 0;
-    try {
-      var id = (window.location.hash || "").slice(1);
-      for (var k = 0; k < tuiles.length; k++){ if (tuiles[k].getAttribute("aria-controls") === id) depart = k; }
-    } catch (e) {}
-    choisir(depart, false, false);
-
-    /* ---------- Gammes : ouverture fluide des <details> ---------- */
-    Array.prototype.forEach.call(document.querySelectorAll(".rs-rang"), function(d){
-      var tete = d.querySelector(".rs-rang-tete"), corps = d.querySelector(".rs-rang-corps");
-      if (!tete || !corps || typeof corps.animate !== "function" || mouvementReduit) return; /* repli natif */
-      var anim = null;
-      tete.addEventListener("click", function(e){
-        e.preventDefault();
-        if (anim) return;
-        if (!d.open){
-          d.open = true;
-          var h = corps.scrollHeight;
-          anim = corps.animate([{ height: "0px", opacity: 0 }, { height: h + "px", opacity: 1 }], { duration: 600, easing: courbe });
-          anim.onfinish = anim.oncancel = function(){ anim = null; };
-        } else {
-          d.classList.add("rs-fermeture");
-          var hauteur = corps.offsetHeight;
-          anim = corps.animate([{ height: hauteur + "px", opacity: 1 }, { height: "0px", opacity: 0 }], { duration: 480, easing: courbe });
-          anim.onfinish = anim.oncancel = function(){ d.open = false; d.classList.remove("rs-fermeture"); anim = null; };
-        }
-      });
-    });
-  } catch (erreur) {
-    /* Filet de sécurité : en cas d'imprévu, tout le contenu reste affiché, sans message d'erreur */
-    racine.classList.remove("js");
-    Array.prototype.forEach.call(document.querySelectorAll(".rs-panneau"), function(p){ p.hidden = false; });
+  var $ = function(s, r){ return (r || document).querySelector(s); };
+  var $$ = function(s, r){ return [].slice.call((r || document).querySelectorAll(s)); };
+  function wa(msg){ return "https://wa.me/" + CONFIG.whatsapp + (msg ? "?text=" + encodeURIComponent(msg) : ""); }
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function ico(id){ return '<svg class="ico" aria-hidden="true"><use href="#i-' + id + '"/></svg>'; }
+  function lienUnivers(u){ return (u.catalogue || "").trim() || wa("Bonjour Ruben’s Saffiano, je souhaite recevoir le catalogue « " + u.nom + " ».") ; }
+  var parId = {}; UNIVERS.forEach(function(u){ parId[u.id] = u; });
+  function cible(id){
+    if (id === "sur-mesure") return { href:wa("Bonjour Ruben’s Saffiano, je souhaite une pièce sur mesure. Voici ce que je recherche :"), ext:true };
+    var u = parId[id]; return u ? { href:lienUnivers(u), ext:true } : { href:"#sur-mesure", ext:false };
   }
+  function attrs(c){ return 'href="' + esc(c.href) + '"' + (c.ext ? ' target="_blank" rel="noopener"' : ""); }
+  var verrous = 0;
+  function figer(on){ verrous = Math.max(0, verrous + (on ? 1 : -1)); document.body.classList.toggle("fige", verrous > 0); }
+
+  $$("[data-wa]").forEach(function(a){ a.href = wa(a.getAttribute("data-wa")); });
+
+  /* ---------- Sceau RS (argent) ---------- */
+  var nSceau = 0;
+  function sceau(){
+    if ((CONFIG.logo || "").trim()) return '<img class="sceau sceau-img" src="' + esc(CONFIG.logo) + '" alt="" width="480" height="480">';
+    var k = "s" + (++nSceau);
+    return '<svg class="sceau" viewBox="0 0 120 120" aria-hidden="true">' +
+      '<defs><linearGradient id="' + k + 'g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8c9095"/><stop offset=".45" stop-color="#f4f4f2"/><stop offset=".7" stop-color="#c3c6c9"/><stop offset="1" stop-color="#7d8186"/></linearGradient>' +
+      '<path id="' + k + 'p" d="M11 60a49 49 0 1 1 98 0a49 49 0 1 1-98 0"/></defs>' +
+      '<g fill="none" stroke="url(#' + k + 'g)"><circle cx="60" cy="60" r="58" stroke-width=".9"/><circle cx="60" cy="60" r="41" stroke-width=".7"/></g>' +
+      '<text fill="url(#' + k + 'g)" font-family="Helvetica Neue,Arial,sans-serif" font-size="6.6" letter-spacing="1.4"><textPath href="#' + k + 'p" textLength="300" lengthAdjust="spacing">SERVICE EXCLUSIF · SÉLECTION PREMIUM ·</textPath></text>' +
+      '<text x="60" y="69" text-anchor="middle" fill="url(#' + k + 'g)" font-family="Didot,Bodoni 72,Times New Roman,serif" font-size="27" letter-spacing="1">RS</text></svg>';
+  }
+  (function(){
+    var html = "© Ruben’s Saffiano · Maison de haute maroquinerie", ids = [];
+    if ((CONFIG.siret || "").trim()) ids.push("SIRET " + esc(CONFIG.siret));
+    if ((CONFIG.tva || "").trim()) ids.push("TVA " + esc(CONFIG.tva));
+    if (ids.length) html += '<span class="barre">|</span>' + ids.join(" · ");
+    $("#signature").innerHTML = html;
+  })();
+
+  /* ---------- Hero ---------- */
+  var hero = $("#hero"), progression = $("#progression");
+  hero.style.setProperty("--duree", CONFIG.dureeDiapo + "ms");
+  $("#diapos").innerHTML = DIAPOS.map(function(d, i){
+    var fond = d.image ? '<div class="fond" style="--focus:' + esc(d.focus || "50% 50%") + ';--focus-pc:' + esc(d.focusPc || "50% 50%") + '"><img src="' + esc(d.image) + '" alt="" ' + (i ? 'loading="lazy"' : 'fetchpriority="high"') + '></div>'
+                       : '<div class="fond compose" style="--gx:' + d.gx + ';--gy:' + d.gy + '"></div>';
+    var T = i === 0 ? "h1" : "h2";
+    return '<article class="diapo" aria-roledescription="diapositive" aria-label="' + (i + 1) + ' sur ' + DIAPOS.length + '">' + fond + '<div class="voile"></div>' +
+      '<div class="diapo-texte">' +
+      '<' + T + ' class="diapo-titre">' + esc(d.titre) + '</' + T + '>' +
+      (d.accroche ? '<p class="diapo-sous">' + esc(d.accroche) + '</p>' : '') +
+      '<a class="lien" ' + attrs(cible(d.cible)) + '>' + esc(d.lien) + '</a></div></article>';
+  }).join("");
+  progression.innerHTML = DIAPOS.map(function(d, i){ return '<button type="button" class="trait" aria-label="' + esc(d.etape || ("Visuel " + (i + 1))) + '"><span></span></button>'; }).join("");
+  var slides = $$(".diapo"), boutons = $$("#progression .trait"), courant = 0, minuteur = null, debut = 0, reste = 0;
+  function montrer(n){
+    n = (n + slides.length) % slides.length;
+    slides.forEach(function(s, i){ s.classList.toggle("active", i === n); s.setAttribute("aria-hidden", i === n ? "false" : "true"); });
+    boutons.forEach(function(b, i){ b.classList.remove("en-cours"); b.classList.toggle("vu", i < n); b.setAttribute("aria-current", i === n ? "true" : "false"); });
+    void progression.offsetWidth;
+    if (boutons[n]) boutons[n].classList.add("en-cours");
+    courant = n; reste = CONFIG.dureeDiapo; relancer();
+  }
+  function relancer(){ clearTimeout(minuteur); if (hero.classList.contains("pause") || slides.length < 2) return; debut = Date.now(); minuteur = setTimeout(function(){ montrer(courant + 1); }, reste); }
+  boutons.forEach(function(b, i){ b.addEventListener("click", function(){ montrer(i); }); });
+  hero.addEventListener("mouseenter", function(){ if (hero.classList.contains("pause")) return; hero.classList.add("pause"); clearTimeout(minuteur); reste = Math.max(0, reste - (Date.now() - debut)); });
+  hero.addEventListener("mouseleave", function(){ hero.classList.remove("pause"); relancer(); });
+  document.addEventListener("visibilitychange", function(){ if (document.hidden) clearTimeout(minuteur); else relancer(); });
+  var x0 = null;
+  hero.addEventListener("touchstart", function(e){ x0 = e.touches[0].clientX; }, { passive:true });
+  hero.addEventListener("touchend", function(e){ if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 50) montrer(courant + (dx < 0 ? 1 : -1)); });
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) hero.classList.add("pause");
+  montrer(0);
+
+  /* ---------- Menu blanc ---------- */
+  var tiroir = $("#tiroir"), ombre = $("#ombre"), btnMenu = $("#ouvrir-menu");
+  var BAS = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5.5 9 6.5 6.5L18.5 9"/></svg>';
+  function lienEntree(u, g, m){
+    var url = (m.url || "").trim();
+    return url && url !== "#" ? { href:url, ext:true } : { href:wa("Bonjour Ruben’s Saffiano, je souhaite recevoir le catalogue « " + u.nom + " · " + g.nom + " · " + m.nom + " »."), ext:true };
+  }
+  var MENU_MASQUE = ["nouveautes"];   /* rubriques retirées du menu latéral */
+  $("#menu").innerHTML = UNIVERS.filter(function(u){ return MENU_MASQUE.indexOf(u.id) < 0; }).map(function(u){
+    var c = COLLECTIONS[u.id];
+    if (!c) return '<a ' + attrs({ href:lienUnivers(u), ext:true }) + '><span>' + esc(u.nom) + '</span>' + ico("droite") + '</a>';
+    return '<div class="rub"><button class="rub-tete" type="button" aria-expanded="false"><span>' + esc(c.titre || u.nom) + '<small>' + esc(c.detail || "") + '</small></span>' + ico("droite") + '</button>' +
+      '<div class="pli"><div>' + c.gammes.map(function(g){
+        return '<div class="gamme"><button class="gamme-tete" type="button" aria-expanded="false"><span><b>' + esc(g.nom) + '</b><small>' + esc(g.detail || "") + '</small></span>' + BAS + '</button>' +
+          '<div class="pli"><div><ul class="maisons">' + g.entrees.map(function(m, i){
+            return '<li><a ' + attrs(lienEntree(u, g, m)) + '><span class="n">' + (i < 9 ? "0" : "") + (i + 1) + '</span><span class="m">' + esc(m.nom) + '</span><span class="act">' + esc(m.action || "Édition") + '</span>' + ico("droite") + '</a></li>';
+          }).join("") + '</ul></div></div></div>';
+      }).join("") + '</div></div></div>';
+  }).join("");
+  $("#menu").addEventListener("click", function(e){
+    var t = e.target.closest(".rub-tete, .gamme-tete"); if (!t) return;
+    var bloc = t.parentNode, ouvre = !bloc.classList.contains("ouverte");
+    bloc.classList.toggle("ouverte", ouvre); t.setAttribute("aria-expanded", ouvre ? "true" : "false");
+  });
+  function ouvrirMenu(){ fermerRecherche(); tiroir.classList.add("ouvert"); ombre.classList.add("ouvert"); tiroir.removeAttribute("inert"); btnMenu.setAttribute("aria-expanded", "true"); figer(true); setTimeout(function(){ $("#fermer-menu").focus(); }, 50); }
+  function fermerMenu(){ if (!tiroir.classList.contains("ouvert")) return; tiroir.classList.remove("ouvert"); ombre.classList.remove("ouvert"); tiroir.setAttribute("inert", ""); btnMenu.setAttribute("aria-expanded", "false"); figer(false); }
+  btnMenu.addEventListener("click", ouvrirMenu);
+  $("#fermer-menu").addEventListener("click", function(){ fermerMenu(); btnMenu.focus(); });
+  $("#menu").addEventListener("click", function(e){ if (e.target.closest("a")) fermerMenu(); });
+  $$("[data-fermer-menu]").forEach(function(a){ a.addEventListener("click", fermerMenu); });
+
+  /* ---------- Recherche (univers et services) ---------- */
+  var ENTREES = UNIVERS.map(function(u){ return { nom:u.nom, mots:u.nom + " " + u.ligne, lien:{ href:lienUnivers(u), ext:true } }; }).concat([
+    { nom:"Commande sur mesure", mots:"sur mesure personnalisé création", lien:{ href:"#sur-mesure", ext:false } },
+    { nom:"Restauration · Redorage · Rachat", mots:"restauration redorage rachat réparation atelier", lien:{ href:wa("Bonjour, je souhaite un renseignement sur vos services d’atelier."), ext:true } },
+    { nom:"Le cercle privé", mots:"newsletter nouveautés avant-première téléphone", lien:{ href:"#contact", ext:false } },
+    { nom:"Service client", mots:"contact whatsapp telegram aide", lien:{ href:"#contact", ext:false } }
+  ]);
+  var rech = $("#recherche"), champ = $("#champ-recherche"), res = $("#resultats"), btnRech = $("#ouvrir-recherche");
+  function norm(s){ return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
+  function chercher(){
+    var q = norm(champ.value.trim());
+    var l = q ? ENTREES.filter(function(e){ return norm(e.mots).indexOf(q) > -1; }) : ENTREES;
+    res.innerHTML = l.length ? l.map(function(e){ return '<li><a ' + attrs(e.lien) + '>' + esc(e.nom) + ico("droite") + '</a></li>'; }).join("")
+      : '<li class="vide">Aucun résultat. Écrivez-nous sur WhatsApp, nous vous répondons personnellement.</li>';
+  }
+  function ouvrirRecherche(){ fermerMenu(); rech.classList.add("ouvert"); ombre.classList.add("ouvert"); rech.removeAttribute("inert"); btnRech.setAttribute("aria-expanded", "true"); figer(true); chercher(); setTimeout(function(){ champ.focus(); }, 60); }
+  function fermerRecherche(){ if (!rech.classList.contains("ouvert")) return; rech.classList.remove("ouvert"); ombre.classList.remove("ouvert"); rech.setAttribute("inert", ""); btnRech.setAttribute("aria-expanded", "false"); figer(false); }
+  btnRech.addEventListener("click", ouvrirRecherche);
+  $("#menu-recherche").addEventListener("click", ouvrirRecherche);
+  $("#fermer-recherche").addEventListener("click", function(){ fermerRecherche(); btnRech.focus(); });
+  champ.addEventListener("input", chercher);
+  res.addEventListener("click", function(e){ if (e.target.closest("a")) fermerRecherche(); });
+  ombre.addEventListener("click", function(){ fermerMenu(); fermerRecherche(); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape"){ fermerMenu(); fermerRecherche(); } });
+
+  /* ---------- En-tête et bouton flottant ---------- */
+  var entete = $("#entete"), flottant = $("#flottant"), pied = $("#contact"), piedVisible = false;
+  function maj(){
+    var y = window.scrollY || document.documentElement.scrollTop;
+    flottant.classList.toggle("cache", y < hero.offsetHeight * 0.6 || piedVisible);
+  }
+  if ("IntersectionObserver" in window){
+    new IntersectionObserver(function(es){ piedVisible = es[0].isIntersecting; maj(); }, { rootMargin:"0px 0px -40px 0px" }).observe(pied);
+  }
+  window.addEventListener("scroll", maj, { passive:true });
+  /* En-tête : fond blanc opaque dès 20 px de défilement */
+  function enteteDefile(){ entete.classList.toggle("scrolled", (window.scrollY || document.documentElement.scrollTop) > 20); }
+  window.addEventListener("scroll", enteteDefile, { passive:true });
+  enteteDefile();
+  window.addEventListener("resize", maj);
+  maj();
+
+  /* ---------- Galerie de l'atelier : 3 s, fondu 1 s, pause au survol / toucher ---------- */
+  (function(){
+    var g = $("#galerie"), imgs = $$("#galerie img"), zone = $("#galerie-traits"), i = 0, t = null, debutG = 0, resteG = CONFIG.dureeGalerie;
+    $("#lien-atelier").href = parId.chaussures ? lienUnivers(parId.chaussures) : wa("Bonjour Ruben’s Saffiano, je souhaite découvrir vos chaussures.");
+    g.style.setProperty("--duree", CONFIG.dureeGalerie + "ms");
+    zone.innerHTML = imgs.map(function(_, k){ return '<button type="button" class="trait" aria-label="Visuel ' + (k + 1) + '"><span></span></button>'; }).join("");
+    var traits = $$("#galerie-traits .trait");
+    function voir(n){
+      i = (n + imgs.length) % imgs.length;
+      imgs.forEach(function(im, k){ im.classList.toggle("active", k === i); });
+      traits.forEach(function(b, k){ b.classList.remove("en-cours"); b.classList.toggle("vu", k < i); });
+      void zone.offsetWidth; traits[i].classList.add("en-cours");
+      resteG = CONFIG.dureeGalerie; lancer();
+    }
+    function lancer(){ clearTimeout(t); if (g.classList.contains("pause")) return; debutG = Date.now(); t = setTimeout(function(){ voir(i + 1); }, resteG); }
+    function pause(){ if (g.classList.contains("pause")) return; g.classList.add("pause"); clearTimeout(t); resteG = Math.max(0, resteG - (Date.now() - debutG)); }
+    function reprise(){ g.classList.remove("pause"); lancer(); }
+    traits.forEach(function(b, k){ b.addEventListener("click", function(){ voir(k); }); });
+    g.addEventListener("mouseenter", pause); g.addEventListener("mouseleave", reprise);
+    g.addEventListener("touchstart", pause, { passive:true }); g.addEventListener("touchend", reprise);
+    voir(0);
+  })();
+
+  /* Réseaux : liens écrits directement dans le HTML (pied de page) */
+
+  /* ---------- Accordéons ouverts sur grand écran ---------- */
+  var large = window.matchMedia("(min-width:900px)");
+  function accordeons(){ $$(".accordeon").forEach(function(d){ d.open = large.matches; }); }
+  accordeons();
+  if (large.addEventListener) large.addEventListener("change", accordeons);
+
+  /* ---------- Mentions légales ---------- */
+  var legal = $("#legal");
+  document.addEventListener("click", function(e){
+    var b = e.target.closest("[data-legal]"); if (!b) return; e.preventDefault();
+    var k = b.getAttribute("data-legal");
+    ["mentions","conditions","confidentialite"].forEach(function(n){ $("#legal-" + n).hidden = n !== k; });
+    if (!legal.open){ if (legal.showModal) legal.showModal(); else legal.setAttribute("open", ""); figer(true); }
+  });
+  legal.addEventListener("close", function(){ figer(false); });
+  legal.addEventListener("click", function(e){ if (e.target === legal || e.target.closest("[data-fermer]")) legal.close ? legal.close() : legal.removeAttribute("open"); });
+
+  /* ---------- Cercle privé : ouverture directe de WhatsApp ---------- */
+  var form = $("#form-tel"), statut = $("#statut"), tel = $("#tel");
+  form.addEventListener("submit", function(e){
+    e.preventDefault(); statut.classList.remove("erreur"); statut.textContent = "";
+    var v = tel.value.replace(/[\s.\-()]/g, "");
+    if (!/^\+?\d{9,15}$/.test(v)){ statut.textContent = "Numéro invalide : indiquez-le avec l’indicatif, par exemple +33 6 12 34 56 78."; statut.classList.add("erreur"); tel.focus(); return; }
+    var url = wa("Bonjour, je souhaite rejoindre Le Cercle Privé. Mon numéro : " + tel.value.trim());
+    var w = null;
+    try { w = window.open(url, "_blank"); if (w) w.opener = null; } catch(_){}
+    if (!w){ statut.innerHTML = 'Touchez <a href="' + esc(url) + '" target="_blank" rel="noopener" style="border-bottom:1px solid">ce lien</a> pour envoyer votre message sur WhatsApp.'; }
+    else { statut.textContent = "WhatsApp est ouvert : envoyez le message pour rejoindre le cercle privé."; form.reset(); }
+  });
 })();
 </script>
 </body>
