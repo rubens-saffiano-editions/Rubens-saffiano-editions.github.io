@@ -550,8 +550,7 @@ var DIAPOS = [
    courant = n; reste = 5000; relancer();
   }
  
-function relancer(){ clearTimeout(minuteur); if (!hero.classList.contains("pause")) minuteur = setTimeout(function(){ montrer(courant + 1); }, 5000); }
-     
+function relancer(){ clearTimeout(minuteur); if (!hero.classList.contains("pause")) minuteur = setTimeout(function(){ montrer(courant + 1); }, 4000); }
   boutons.forEach(function(b, i){ b.addEventListener("click", function(){ montrer(i); }); });
   hero.addEventListener("mouseenter", function(){ if (hero.classList.contains("pause")) return; hero.classList.add("pause"); clearTimeout(minuteur); reste = Math.max(0, reste - (Date.now() - debut)); });
   hero.addEventListener("mouseleave", function(){ hero.classList.remove("pause"); relancer(); });
