@@ -557,7 +557,6 @@ var DIAPOS = [
   var x0 = null;
   hero.addEventListener("touchstart", function(e){ x0 = e.touches[0].clientX; }, { passive:true });
   hero.addEventListener("touchend", function(e){ if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 50) montrer(courant + (dx < 0 ? 1 : -1)); });
-  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) hero.classList.add("pause");
   relancer();
 montrer(0);
   /* ---------- Menu blanc ---------- */
