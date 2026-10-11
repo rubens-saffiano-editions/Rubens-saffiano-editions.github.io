@@ -38,7 +38,7 @@ button{font:inherit;color:inherit}
 #progression {
   display: flex !important;
   justify-content: center !important;
-  gap: 12px !important;
+  gap: 10px !important;
   background: transparent !important;
   padding: 0 !important;
   margin-top: -30px !important;
@@ -46,9 +46,8 @@ button{font:inherit;color:inherit}
   z-index: 10 !important;
 }
 
-/* Traits fins et discrets */
-#progression button, 
-#progression .trait {
+/* Force tous les éléments à devenir des traits fins */
+#progression > * {
   height: 2px !important;
   width: 40px !important;
   border: none !important;
@@ -57,11 +56,11 @@ button{font:inherit;color:inherit}
   position: relative !important;
   overflow: hidden !important;
   cursor: pointer !important;
+  appearance: none !important;
 }
 
-/* Ligne blanche fine qui avance */
-#progression button::after,
-#progression .trait::after {
+/* Ligne blanche fine qui se remplit */
+#progression > *::after {
   content: "" !important;
   position: absolute !important;
   top: 0 !important;
@@ -71,14 +70,12 @@ button{font:inherit;color:inherit}
   background-color: #ffffff !important;
 }
 
-/* Animation fluide 4s */
-#progression button.en-cours::after,
-#progression .trait.en-cours::after {
+/* Animation de la barre active */
+#progression > .en-cours::after {
   width: 100% !important;
   transition: width 4s linear !important;
 }
    
-
 /* ——— En-tête ——— */
 .entete,.site-header{height:50px !important;min-height:50px !important;max-height:50px !important;display:flex !important;flex-direction:row !important;flex-wrap:nowrap !important;align-items:center !important;justify-content:space-between !important;padding:0 16px !important;margin:0 !important;background-color:#ffffff !important;border-bottom:1px solid #e5e5e5 !important;box-sizing:border-box !important;width:100% !important;position:sticky !important;top:0 !important;z-index:1000 !important;color:#000}
 .entete.scrolled,.site-header.scrolled{background-color:#ffffff !important}
