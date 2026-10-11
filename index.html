@@ -547,9 +547,11 @@ var DIAPOS = [
     boutons.forEach(function(b, i){ b.classList.remove("en-cours"); b.classList.toggle("vu", i < n); b.setAttribute("aria-current", i === n ? "true" : "false"); });
     void progression.offsetWidth;
     if (boutons[n]) boutons[n].classList.add("en-cours");
-    courant = n; reste = CONFIG.dureeDiapo; relancer();
+   courant = n; reste = 5000; relancer();
   }
-  function relancer(){ clearTimeout(minuteur); if (hero.classList.contains("pause") || slides.length < 2) return; debut = Date.now(); minuteur = setTimeout(function(){ montrer(courant + 1); }, reste); }
+ 
+function relancer(){ clearTimeout(minuteur); if (!hero.classList.contains("pause")) minuteur = setTimeout(function(){ montrer(courant + 1); }, 5000); }
+     
   boutons.forEach(function(b, i){ b.addEventListener("click", function(){ montrer(i); }); });
   hero.addEventListener("mouseenter", function(){ if (hero.classList.contains("pause")) return; hero.classList.add("pause"); clearTimeout(minuteur); reste = Math.max(0, reste - (Date.now() - debut)); });
   hero.addEventListener("mouseleave", function(){ hero.classList.remove("pause"); relancer(); });
