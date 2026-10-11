@@ -458,7 +458,9 @@ var UNIVERS = [
 var N = function(n, action){ var l = []; for (var i = 1; i <= n; i++) l.push({ nom:"Maison " + (i < 10 ? "0" : "") + i, url:"#", action:action || "Édition" }); return l; };
 var COLLECTIONS = {
   maroquinerie: { titre:"Maroquinerie · Sacs à main", detail:"19 éditions", gammes:[
-    { nom:"Prestige", detail:"12 maisons", entrees:N(12) },
+    { nom:"Prestige", detail:"12 maisons", entrees:[{nom:"01. Chanel",url:""},{nom:"02. Louis Vuitton",url:""},{nom:"03. Fendi",url:""},{nom:"04. Hermès",url:""},{nom:"05. Prada",url:""},{nom:"06. Loewe",url:""},{nom:"07. Miu Miu",url:""},{nom:"08. Bottega Veneta",url:""},{nom:"09. Saint Laurent",url:""},{nom:"10. Goyard",url:""},{nom:"11. Céline",url:""},{nom:"12. Christian Dior",url:""}] },
+
+     
     { nom:"Premium", detail:"6 maisons", entrees:N(6) },
     { nom:"Essentiel", detail:"Sélection multi-marques", entrees:[ { nom:"Sélection multi-marques", url:"#", action:"Sélection" } ] }
   ] },
