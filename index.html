@@ -455,18 +455,32 @@ var UNIVERS = [
    - url : lien de partage Canva du catalogue ("#" = pas encore relié : ouvre WhatsApp avec une demande)
    - action : mention à droite (ÉDITION, SÉLECTION ou ATELIER)
    Une rubrique absente de cette liste s'affiche comme un lien simple. */
-var N = function(n, action){ var l = []; for (var i = 1; i <= n; i++) l.push({ nom:"Maison " + (i < 10 ? "0" : "") + i, url:"#", action:action || "Édition" }); return l; };
-var COLLECTIONS = {
+
+  var COLLECTIONS = {
   maroquinerie: { titre:"Maroquinerie · Sacs à main", detail:"19 éditions", gammes:[
     { nom:"Prestige", detail:"12 maisons", entrees:[{nom:"01. Chanel",url:""},{nom:"02. Louis Vuitton",url:""},{nom:"03. Fendi",url:""},{nom:"04. Hermès",url:""},{nom:"05. Prada",url:""},{nom:"06. Loewe",url:""},{nom:"07. Miu Miu",url:""},{nom:"08. Bottega Veneta",url:""},{nom:"09. Saint Laurent",url:""},{nom:"10. Goyard",url:""},{nom:"11. Céline",url:""},{nom:"12. Christian Dior",url:""}] },
     { nom:"Premium", detail:"6 maisons", entrees:[{nom:"01. Louis Vuitton",url:""},{nom:"02. Prada",url:""},{nom:"03. Goyard",url:""},{nom:"04. Saint Laurent",url:""},{nom:"05. Dior",url:""},{nom:"06. Céline",url:""}] },
     { nom:"Essentiel", detail:"Sélection multi-marques", entrees:[ { nom:"Sélection multi-marques", url:"#", action:"Sélection" } ] }
   ] },
-  joaillerie: { detail:"11 éditions", gammes:[
-    { nom:"Prestige", detail:"7 maisons", entrees:[{nom:"01. Van Cleef & Arpels",url:""},{
-  
+  joaillerie: { titre:"Haute Joaillerie", detail:"11 éditions", gammes:[
+    { nom:"Prestige", detail:"7 maisons", entrees:[{nom:"01. Van Cleef & Arpels",url:""},{nom:"02. Chanel",url:""},{nom:"03. Cartier",url:""},{nom:"04. Fred",url:""},{nom:"05. Bvlgari",url:""},{nom:"06. Tiffany & Co.",url:""},{nom:"07. Création Maison",url:""}] },
+    { nom:"Essentiel", detail:"4 maisons", entrees:[{nom:"01. Cartier",url:""},{nom:"02. Van Cleef & Arpels",url:""},{nom:"03. Bvlgari",url:""},{nom:"04. Création Maison",url:""}] }
+  ] },
+  chaussures: { titre:"Chaussures", detail:"2 éditions", gammes:[
+    { nom:"Prestige", detail:"2 maisons", entrees:[{nom:"01. Hermès",url:""},{nom:"02. Chanel",url:""}] }
+  ] },
+  ceintures: { titre:"Ceintures", detail:"5 éditions", gammes:[
+    { nom:"Prestige", detail:"5 maisons", entrees:[{nom:"01. Hermès",url:""},{nom:"02. Louis Vuitton",url:""},{nom:"03. Tom Ford",url:""},{nom:"04. Chrome Hearts",url:""},{nom:"05. Céline",url:""}] }
+  ] },
+  atelier: { titre:"Atelier · Restauration", detail:"3 services", gammes:[
+    { nom:"Prestige", detail:"Atelier & pièces officielles · 3 services", entrees:[
+      { nom:"Restauration de maroquinerie", url:"#", action:"Atelier" },
+      { nom:"Rachat de pièces officielles", url:"#", action:"Atelier" },
+      { nom:"Redorage d'excellence", url:"#", action:"Atelier" }
+    ] }
+  ] }
+};
 
-/* Hero : image = photo de votre dépôt (ex. "images/hero-1.jpg"), vide = fond graphique.
    cible = id d'un univers, ou "sur-mesure". */
 var DIAPOS = [
   { image:"images/hero-1.jpg", etape:"Maroquinerie", titre:"Maroquinerie", accroche:"Cuir matelassé, chaîne dorée.", lien:"Découvrir", cible:"maroquinerie", focus:"55% 50%", focusPc:"50% 62%" },
