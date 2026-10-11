@@ -459,28 +459,12 @@ var N = function(n, action){ var l = []; for (var i = 1; i <= n; i++) l.push({ n
 var COLLECTIONS = {
   maroquinerie: { titre:"Maroquinerie · Sacs à main", detail:"19 éditions", gammes:[
     { nom:"Prestige", detail:"12 maisons", entrees:[{nom:"01. Chanel",url:""},{nom:"02. Louis Vuitton",url:""},{nom:"03. Fendi",url:""},{nom:"04. Hermès",url:""},{nom:"05. Prada",url:""},{nom:"06. Loewe",url:""},{nom:"07. Miu Miu",url:""},{nom:"08. Bottega Veneta",url:""},{nom:"09. Saint Laurent",url:""},{nom:"10. Goyard",url:""},{nom:"11. Céline",url:""},{nom:"12. Christian Dior",url:""}] },
-
-     
-    { nom:"Premium", detail:"6 maisons", entrees:N(6) },
+    { nom:"Premium", detail:"6 maisons", entrees:[{nom:"01. Louis Vuitton",url:""},{nom:"02. Prada",url:""},{nom:"03. Goyard",url:""},{nom:"04. Saint Laurent",url:""},{nom:"05. Dior",url:""},{nom:"06. Céline",url:""}] },
     { nom:"Essentiel", detail:"Sélection multi-marques", entrees:[ { nom:"Sélection multi-marques", url:"#", action:"Sélection" } ] }
   ] },
   joaillerie: { detail:"11 éditions", gammes:[
-    { nom:"Prestige", detail:"7 maisons", entrees:N(7) },
-    { nom:"Essentiel", detail:"4 maisons", entrees:N(4) }
-  ] },
-  chaussures: { detail:"2 éditions", gammes:[
-    { nom:"Prestige", detail:"2 maisons", entrees:N(2) }
-  ] },
-  ceintures: { detail:"5 éditions", gammes:[
-    { nom:"Prestige", detail:"5 maisons", entrees:N(5) }
-  ] },
-  atelier: { titre:"Atelier · Restauration", detail:"3 services", gammes:[
-    { nom:"Prestige", detail:"Atelier & pièces officielles · 3 services", entrees:[
-      { nom:"Restauration de maroquinerie", url:"#", action:"Atelier" },
-      { nom:"Rachat de pièces officielles", url:"#", action:"Atelier" },
-      { nom:"Redorage d’excellence", url:"#", action:"Atelier" } ] }
-  ] }
-};
+    { nom:"Prestige", detail:"7 maisons", entrees:[{nom:"01. Van Cleef & Arpels",url:""},{
+  
 
 /* Hero : image = photo de votre dépôt (ex. "images/hero-1.jpg"), vide = fond graphique.
    cible = id d'un univers, ou "sur-mesure". */
