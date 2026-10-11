@@ -653,9 +653,9 @@ montrer(0);
     traits.forEach(function(b, k){ b.addEventListener("click", function(){ voir(k); }); });
     g.addEventListener("mouseenter", pause); g.addEventListener("mouseleave", reprise);
     g.addEventListener("touchstart", pause, { passive:true }); g.addEventListener("touchend", reprise);
-    voir(0);
+    lancer();
+voir(0);
   })();
-
   /* Réseaux : liens écrits directement dans le HTML (pied de page) */
 
   /* ---------- Accordéons ouverts sur grand écran ---------- */
