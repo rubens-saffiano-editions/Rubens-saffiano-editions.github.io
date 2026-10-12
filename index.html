@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUBEN'S SAFFIANO</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #111111;
+            overflow-x: hidden;
+        }
+
+        /* Header Blanc Luxe avec toutes les icônes */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            background-color: #ffffff;
+            color: #000000;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            color: #000000;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 15px;
+            letter-spacing: 3.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        /* Menu Latéral */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100%;
+            background-color: #ffffff;
+            color: #000000;
+            z-index: 200;
+            transition: left 0.3s ease;
+            padding: 30px 24px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        }
+
+        .side-menu.active {
+            left: 0;
+        }
+
+        .menu-close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .menu-categories {
+            list-style: none;
+        }
+
+        .menu-categories li {
+            margin-bottom: 20px;
+        }
+
+        .menu-categories a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 150;
+            display: none;
+        }
+
+        .menu-overlay.active {
+            display: block;
+        }
+
+        /* Hero Carousel Section */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 75vh;
+            background-color: #000;
+        }
+
+        .hero-swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+            padding: 0 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+            padding-top: 40px;
+            color: #ffffff;
+        }
+
+        .hero-tag {
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .hero-title {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .hero-subtitle {
+            font-size: 12px;
+            color: #cccccc;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            font-weight: 300;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 3px;
+            font-weight: 500;
+        }
+
+        .swiper-pagination-progressbar {
+            background: rgba(255, 255, 255, 0.2) !important;
+            height: 2px !important;
+            bottom: 20px !important;
+            top: auto !important;
+            left: 10% !important;
+            width: 80% !important;
+        }
+
+        .swiper-pagination-progressbar-fill {
+            background: #ffffff !important;
+        }
+
+        /* Section Commande Sur Mesure */
+        .sur-mesure-section {
+            padding: 60px 24px;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .sur-mesure-title {
+            font-size: 15px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .sur-mesure-desc {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #333333;
+            max-width: 420px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid #111111;
+            padding: 14px 28px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #111111;
+            text-decoration: none;
+            font-weight: 500;
+            background: transparent;
+        }
+
+        /* Section Atelier & Savoir-Faire */
+        .atelier-section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .atelier-swiper {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 25px auto;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .atelier-swiper .swiper-slide img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .atelier-title {
+            font-size: 14px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .atelier-desc {
+            font-size: 12px;
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            max-width: 380px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .atelier-link {
+            color: #111111;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #111111;
+            padding-bottom: 3px;
+            font-weight: 600;
+        }
+
+        .atelier-swiper .swiper-pagination-progressbar {
+            background: rgba(0, 0, 0, 0.1) !important;
+        }
+        .atelier-swiper .swiper-pagination-progressbar-fill {
+            background: #000000 !important;
+        }
+
+        /* Section Le Cercle Privé */
+        .cercle-prive {
+            padding: 60px 24px;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .cercle-title {
+            font-size: 15px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .cercle-desc {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #222222;
+            font-weight: 500;
+            max-width: 420px;
+            margin: 0 auto 30px auto;
+        }
+
+        .phone-form {
+            max-width: 420px;
+            margin: 0 auto 16px auto;
+            position: relative;
+            border-bottom: 1px solid #111111;
+            display: flex;
+            align-items: center;
+        }
+
+        .phone-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 12px 0;
+            font-size: 13px;
+            background: transparent;
+            color: #111111;
+        }
+
+        .phone-submit {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0 8px;
+            font-size: 16px;
+        }
+
+        .cercle-legal {
+            font-size: 11px;
+            color: #666666;
+            line-height: 1.5;
+            max-width: 420px;
+            margin: 0 auto 35px auto;
+        }
+
+        .cercle-legal a {
+            color: #111111;
+            text-decoration: underline;
+        }
+
+        /* Social Icons */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            color: #111111;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .footer-contact {
+            font-size: 11px;
+            color: #aaaaaa;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .footer-contact a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer-copy {
+            font-size: 9px;
+            color: #666666;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-left">
+            <button class="icon-btn" id="openMenu" aria-label="Menu">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <button class="icon-btn" aria-label="Recherche">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="logo">RUBEN'S SAFFIANO</div>
+
+        <div class="header-right">
+            <button class="icon-btn" aria-label="Compte">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </button>
+            <button class="icon-btn" aria-label="Messages">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Side Menu Drawer -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="side-menu" id="sideMenu">
+        <button class="menu-close-btn" id="closeMenu">&times;</button>
+        <ul class="menu-categories">
+            <li><a href="#">Maroquinerie</a></li>
+            <li><a href="#">Haute Joaillerie</a></li>
+            <li><a href="#">Éditions Privées</a></li>
+            <li><a href="#">Sur Mesure</a></li>
+            <li><a href="#">L'Atelier</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Hero Slider -->
+    <section class="hero-section">
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="hero-1.png" alt="Maroquinerie">
+                    <div class="hero-overlay">
+                        <div class="hero-tag">Maroquinerie</div>
+                        <div class="hero-title">MAROQUINERIE</div>
+                        <div class="hero-subtitle">Cuir matelassé, chaîne dorée.</div>
+                        <a href="#" class="hero-btn">MAROQUINERIE</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="hero-2.png" alt="Éditions Privées">
+                    <div class="hero-overlay">
+                        <div class="hero-title">ÉDITIONS PRIVÉES & SUR MESURE</div>
+                        <div class="hero-subtitle">Haute Joaillerie & Maroquinerie de Collection</div>
+                        <a href="#" class="hero-btn">DÉCOUVRIR LE CATALOGUE</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="hero-3.png" alt="Collection Privée">
+                    <div class="hero-overlay">
+                        <div class="hero-title">COLLECTION PRIVÉE</div>
+                        <div class="hero-subtitle">Restauration & Pièces d'Artisanat</div>
+                        <a href="#" class="hero-btn">DÉCOUVRIR LE CATALOGUE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination hero-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Section Commande Sur Mesure -->
+    <section class="sur-mesure-section">
+        <div class="sur-mesure-title">COMMANDE SUR MESURE</div>
+        <div class="sur-mesure-desc">
+            Une pièce recherchée ne figure pas dans nos éditions ? Notre atelier réalise votre modèle sur-mesure, sur simple demande.
+        </div>
+        <a href="#" class="btn-outline">DÉCRIRE MA PIÈCE</a>
+    </section>
+
+    <!-- Section Atelier & Savoir-Faire Slider -->
+    <section class="atelier-section">
+        <div class="swiper atelier-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="detail-1.jpg" alt="Détail 1"></div>
+                <div class="swiper-slide"><img src="detail-2.jpg" alt="Détail 2"></div>
+                <div class="swiper-slide"><img src="detail-3.jpg" alt="Détail 3"></div>
+                <div class="swiper-slide"><img src="detail-4.jpg" alt="Détail 4"></div>
+                <div class="swiper-slide"><img src="detail-5.jpg" alt="Détail 5"></div>
+                <div class="swiper-slide"><img src="detail-6.jpg" alt="Détail 6"></div>
+                <div class="swiper-slide"><img src="detail-7.jpg" alt="Détail 7"></div>
+                <div class="swiper-slide"><img src="detail-8.jpg" alt="Détail 8"></div>
+                <div class="swiper-slide"><img src="detail-9.jpg" alt="Détail 9"></div>
+                <div class="swiper-slide"><img src="detail-10.jpg" alt="Détail 10"></div>
+                <div class="swiper-slide"><img src="detail-11.jpg" alt="Détail 11"></div>
+                <div class="swiper-slide"><img src="detail-12.jpg" alt="Détail 12"></div>
+            </div>
+            <div class="swiper-pagination atelier-pagination"></div>
+        </div>
+
+        <div class="atelier-title">L'ATELIER & SAVOIR-FAIRE</div>
+        <div class="atelier-desc">Création artisanale maison, façonnage du cuir Saffiano et restauration haute joaillerie.</div>
+        <a href="#" class="atelier-link">CONSULTER LE MAÎTRE ARTISAN</a>
+    </section>
+
+    <!-- Section Le Cercle Privé -->
+    <section class="cercle-prive">
+        <div class="cercle-title">LE CERCLE PRIVÉ</div>
+        <div class="cercle-desc">
+            Laissez votre numéro : nous vous écrivons sur WhatsApp à chaque nouvelle édition, avant sa présentation publique.
+        </div>
+        
+        <form class="phone-form" onsubmit="event.preventDefault();">
+            <input type="tel" class="phone-input" placeholder="Numéro de téléphone / Insérez votre numéro" required>
+            <button type="submit" class="phone-submit">▶</button>
+        </form>
+
+        <div class="cercle-legal">
+            En cliquant sur la flèche, WhatsApp s'ouvre avec un message prêt à nous envoyer. Votre numéro sert uniquement à vous prévenir des nouveautés, comme indiqué dans notre <a href="#">politique de confidentialité</a>.
+        </div>
+
+        <!-- Social Icons -->
+        <div class="social-links">
+            <!-- Instagram -->
+            <a href="#" class="social-icon" aria-label="Instagram">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="#" class="social-icon" aria-label="TikTok">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525 0h3.08c.12 1.058.65 2.115 1.5 2.89 1.15.96 2.54 1.34 3.96 1.39v3.21c-1.38-.05-2.73-.39-3.95-1.02a6.52 6.52 0 0 1-1.51-1.09v8.32c0 1.29-.33 2.51-1.02 3.51a6.83 6.83 0 0 1-2.72 2.45c-1.18.57-2.48.81-3.79.73a6.85 6.85 0 0 1-4.88-2.61A6.74 6.74 0 0 1 2 13.08c0-1.84.73-3.51 1.94-4.73A6.81 6.81 0 0 1 8.8 6.4c.48 0 .96.05 1.43.15v3.31a3.52 3.52 0 0 0-1.43-.29c-.93 0-1.78.36-2.42 1a3.42 3.42 0 0 0-1 2.42c0 .93.36 1.78 1 2.42.64.64 1.49 1 2.42 1 .93 0 1.78-.36 2.42-1a3.42 3.42 0 0 0 1-2.42V0z"/></svg>
+            </a>
+            <!-- WhatsApp -->
+            <a href="#" class="social-icon" aria-label="WhatsApp">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            </a>
+            <!-- Telegram -->
+            <a href="#" class="social-icon" aria-label="Telegram">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Icon -->
+    <a href="#" class="whatsapp-float" aria-label="Contact WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21
