@@ -855,27 +855,41 @@ if (hero && progression) {
     else { statut.textContent = "WhatsApp est ouvert : envoyez le message pour rejoindre le cercle privé."; form.reset(); }
   });
 })();
-</script>
-   <script>
-function ouvrirTiroir() {
-  var t = document.getElementById('tiroir');
-  if (t) { t.classList.add('ouvert'); t.removeAttribute('inert'); }
-}
-function fermerTiroir() {
-  var t = document.getElementById('tiroir');
-  if (t) { t.classList.remove('ouvert'); t.setAttribute('inert', ''); }
-}
+<script>
 function ouvrirSousMenu(id) {
-  document.getElementById('panneau-racine').classList.add('masque');
-  var p = document.getElementById('panneau-' + id);
-  if (p) p.classList.add('actif');
+  var racine = document.getElementById('panneau-racine');
+  var cible = document.getElementById('panneau-' + id);
+  if (racine) {
+    racine.classList.add('masque');
+    racine.classList.remove('actif');
+  }
+  if (cible) {
+    cible.classList.add('actif');
+  }
 }
-function fermerSousMenu(id) {
-  var p = document.getElementById('panneau-' + id);
-  if (p) p.classList.remove('actif');
-  document.getElementById('panneau-racine').classList.remove('masque');
+
+function fermerSousMenu() {
+  var racine = document.getElementById('panneau-racine');
+  var panneaux = document.querySelectorAll('.tiroir-panneau');
+  panneaux.forEach(function(p) {
+    p.classList.remove('actif');
+  });
+  if (racine) {
+    racine.classList.remove('masque');
+    racine.classList.add('actif');
+  }
 }
-   </script>
-   
+
+function ouvrirTiroir() {
+  var tiroir = document.getElementById('tiroir');
+  if (tiroir) tiroir.classList.add('ouvert');
+}
+
+function fermerTiroir() {
+  var tiroir = document.getElementById('tiroir');
+  if (tiroir) tiroir.classList.remove('ouvert');
+  fermerSousMenu();
+}
+</script>
 </body>
 </html>
