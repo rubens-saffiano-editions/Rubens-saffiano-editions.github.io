@@ -80,8 +80,6 @@ main{padding-top:0;margin-top:0;background-color:#f8f8f8 !important}
   .fond img{object-fit:cover;object-position:var(--focus-pc,50% 50%)}
   .diapo-titre{font-size:14px}
 }
-/* ——— Tiroir : rubriques dépliables (niveaux de gamme et maisons) ——— */
-/* Tiroir style Prada : Panneaux glissants */
 /* TIROIR DE NAVIGATION PRADA (DARK & CHIC) */
 .tiroir {
   position: fixed !important;
@@ -200,61 +198,22 @@ main{padding-top:0;margin-top:0;background-color:#f8f8f8 !important}
   background: rgba(255, 255, 255, 0.03);
   text-transform: uppercase;
 }
-/* ——— Recherche ——— */
-.recherche{position:fixed;inset:0 0 auto 0;z-index:1042;background:var(--blanc);color:var(--encre);padding-top:env(safe-area-inset-top,0px);transform:translateY(-102%);transition:transform .5s var(--ease);max-height:100svh;display:flex;flex-direction:column;border-bottom:1px solid var(--filet)}
-.recherche.ouvert{transform:none}
-.recherche-ligne{display:flex;align-items:center;gap:8px;padding:10px calc(var(--gouttiere) - 10px) 10px var(--gouttiere);border-bottom:1px solid var(--encre)}
-.recherche-ligne input{flex:1;min-width:0;border:0;background:none;outline:none;font-family:var(--f);font-weight:400;font-size:.92rem;padding:12px 0;color:var(--encre)}
-.recherche-ligne input::placeholder{color:var(--gris)}
-.resultats{list-style:none;margin:0;padding:8px var(--gouttiere) 24px;overflow-y:auto}
-.resultats a{display:flex;justify-content:space-between;align-items:center;min-height:52px;border-bottom:1px solid var(--filet);font-weight:500;font-size:.82rem}
-.resultats .ico{width:16px;height:16px;stroke-width:1.8}
-.resultats .vide{padding:18px 0;color:var(--gris);font-size:.9rem}
 
-/* ——— L'atelier & savoir-faire ——— */
-.atelier{background:#f6f6f6;color:#000;border-bottom:1px solid #e5e5e5;display:grid;gap:22px;padding:24px 24px 48px}
-.galerie{position:relative;width:100%;max-width:560px;margin-inline:auto;aspect-ratio:4 / 5 !important;overflow:hidden;background:#1a1a1a}
-.galerie img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:4 / 5 !important;object-fit:cover !important;width:100% !important;image-rendering:-webkit-optimize-contrast !important;image-rendering:crisp-edges !important;transform:translateZ(0) !important;-webkit-backface-visibility:hidden !important;backface-visibility:hidden !important;filter:contrast(1.02);z-index:0;opacity:0;visibility:hidden;transition:opacity 0s .5s,visibility 0s .5s}
-.galerie img.active{z-index:1;opacity:1;visibility:visible;transition:opacity 0.5s ease-in-out !important}
-.galerie-traits{position:absolute;z-index:2;left:var(--gouttiere);right:var(--gouttiere);bottom:10px;display:flex;gap:6px;max-width:420px;margin-inline:auto}
-.galerie.pause .trait.en-cours span::after{animation-play-state:paused}
-.atelier-texte{display:grid;justify-items:center;gap:0;text-align:center;padding-inline:var(--gouttiere)}
-.atelier-titre{margin:0;font-weight:700 !important;font-size:14px;letter-spacing:1px;text-transform:uppercase}
-.atelier .lien{font-size:11px;font-weight:700 !important;margin-top:12px;background:none;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;min-height:auto}
-.atelier-sous{margin:6px 0 0;font-weight:300 !important;font-size:13px;letter-spacing:.06em}
-@media (min-width:900px){
-  .atelier{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(32px,5vw,72px);padding:clamp(48px,6vw,80px) max(24px,calc((100% - 1180px) / 2))}
-  .galerie{margin-right:0}
+/* RESTAURATIONS SUR MESURE ET BOUTONS */
+.sur-mesure { position: relative; background: #fff; color: #000; margin-top: 0; padding: clamp(56px,7vw,76px) var(--gouttiere); display: grid; gap: 24px; text-align: center; justify-items: center; }
+.sceau { display: block; width: var(--t,96px); height: var(--t,96px); max-width: 100%; }
+.diapo-texte .sceau { --t: clamp(118px,28vw,150px); margin-bottom: 8px; }
+.sceau-img { width: var(--t,96px); height: auto; max-width: 100%; }
+.sur-mesure .surtitre { color: #000; font-weight: 700 !important; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; }
+.sur-mesure blockquote { margin: 0; max-width: 30ch; font-weight: 300; font-size: clamp(1rem,2.2vw,1.25rem); line-height: 1.6; letter-spacing: .02em; }
+.sur-mesure .trois-lignes { max-width: none; font-weight: 300 !important; font-size: 13px; color: #111111; line-height: 1.6; letter-spacing: .02em; }
+.sur-mesure .trois-lignes span { display: block; white-space: nowrap; }
+.sur-mesure p { margin: 0; max-width: 52ch; font-weight: 300; font-size: .84rem; letter-spacing: .02em; color: var(--gris-clair); }
+.bouton { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 46px; padding: 0 28px; text-decoration: none; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+.sur-mesure .bouton { border: 1px solid #000000; color: #000000 !important; background: #ffffff; font-weight: 400; }
+.sur-mesure .bouton:hover { background: #000000; color: #ffffff !important; }
+   
 }
-
-/* ——— Pied de page blanc ——— */
-.pied{background:var(--blanc);color:var(--encre);border-top:1px solid var(--filet);padding-bottom:env(safe-area-inset-bottom,0px)}
-.cercle{max-width:1180px;margin-inline:auto;padding:clamp(48px,7vw,80px) var(--gouttiere) 28px;display:grid;gap:14px}
-.cercle h2{margin:0;font-weight:700 !important;font-size:14px;letter-spacing:1.5px;text-transform:uppercase}
-.cercle p.intro{margin:0;max-width:56ch;font-weight:300 !important;font-size:13px;line-height:1.6;color:#111111}
-.form-tel{display:grid;gap:14px;max-width:760px}
-.champ{display:flex;align-items:center;border-bottom:1px solid var(--encre)}
-.champ input{flex:1;min-width:0;border:0;background:none;outline:none;font-family:var(--f);font-weight:300;font-size:13px;padding:12px 0;color:var(--encre)}
-.champ input::placeholder{color:var(--encre);opacity:1}
-.champ .ico{width:24px;height:24px;stroke-width:1.6}
-.consentement{margin:0;font-weight:300;font-size:11px;line-height:1.55;color:var(--encre);cursor:pointer}
-.consentement input{appearance:none;width:16px;height:16px;margin:3px 0 0;border:1px solid var(--encre);display:grid;place-content:center;cursor:pointer}
-.consentement input:checked{background:var(--encre)}
-.consentement input:checked::after{content:"";width:7px;height:3.5px;border:solid var(--blanc);border-width:0 0 1.3px 1.3px;transform:rotate(-45deg) translate(1px,-1px)}
-.consentement a{color:var(--encre);font-weight:400;border-bottom:1px solid var(--encre)}
-.statut{margin:0;font-size:.78rem}
-.statut:empty{display:none}
-.statut.erreur{color:#9b2c1f}
-.reseaux{display:flex;flex-wrap:nowrap;justify-content:center;gap:clamp(18px,6vw,36px);margin-top:4px}
-.reseaux a{width:44px;height:44px;flex:none;display:grid;place-items:center;color:var(--encre);transition:opacity .3s var(--ease)}
-.reseaux a:hover{opacity:.55}
-.reseaux a[aria-disabled="true"]{cursor:default}
-.reseaux svg{width:22px;height:22px;fill:currentColor;stroke:none}
-
-
-.colonnes{border-top:1px solid var(--filet)}
-.colonnes-in{max-width:1180px;margin-inline:auto}
-.accordeon{border-bottom:1px solid var(--filet)}
 .accordeon summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;min-height:56px;padding-inline:var(--gouttiere);font-weight:400;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
 .accordeon summary::-webkit-details-marker{display:none}
 .accordeon summary .ico{width:16px;height:16px;stroke-width:1.5;transition:transform .4s var(--ease)}
