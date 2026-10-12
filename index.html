@@ -343,7 +343,7 @@ dialog::backdrop{background:rgba(0,0,0,.4)}
 <aside class="tiroir" id="tiroir" aria-label="Menu" inert>
   <div class="tiroir-tete">
     <div class="bloc-g">
-      <button class="icone-btn" type="button" id="fermer-menu" aria-label="Fermer le menu">
+      <button class="icone-btn" type="button" id="fermer-menu" onclick="fermerTiroir()" aria-label="Fermer le menu">
         <svg class="ic" viewBox="0 0 24 24"><use href="#i-fermer"></use></svg>
       </button>
     </div>
@@ -354,32 +354,106 @@ dialog::backdrop{background:rgba(0,0,0,.4)}
     </div>
   </div>
 
-  <div class="tiroir-conteneur" style="position:relative; width:100%; height:calc(100% - 50px); overflow:hidden;">
+  <div class="tiroir-conteneur" style="position:relative; width:100%; height:calc(100vh - 60px); overflow:hidden;">
+    
     <!-- PANNEAU PRINCIPAL -->
     <div class="tiroir-panneau racine" id="panneau-racine">
-      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('joaillerie'); return false;"><span>Joaillerie fine</span><span>›</span></a>
-      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('maroquinerie'); return false;"><span>Maroquinerie · Sacs à main</span><span>›</span></a>
-      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('chaussures'); return false;"><span>Chaussures</span><span>›</span></a>
-      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('ceintures'); return false;"><span>Ceintures</span><span>›</span></a>
-      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('atelier'); return false;"><span>Atelier · Restauration</span><span>›</span></a>
+      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('sacs'); return false;">SACS À MAIN <span>›</span></a>
+      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('joaillerie'); return false;">HAUTE JOAILLERIE <span>›</span></a>
+      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('chaussures'); return false;">CHAUSSURES <span>›</span></a>
+      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('ceintures'); return false;">CEINTURES <span>›</span></a>
+      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('restauration'); return false;">RESTAURATION <span>›</span></a>
     </div>
 
-    <!-- SOUS-PANNEAU JOAILLERIE -->
-    <div class="tiroir-panneau sous-menu" id="panneau-joaillerie">
-      <div class="bouton-retour" onclick="fermerSousMenu('joaillerie')">Joaillerie fine</div>
-      <a href="#" class="rub-lien"><span>Prestige</span></a>
-      <a href="#" class="rub-lien"><span>Essentiel</span></a>
+    <!-- SOUS-PANNEAU : SACS À MAIN -->
+    <div class="tiroir-panneau" id="panneau-sacs">
+      <a href="#" class="rub-retour" onclick="fermerSousMenu(); return false;">‹ RETOUR</a>
+      <div style="padding: 10px 0;">
+        <span style="padding:10px 24px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">PRESTIGE</span>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">01. Chanel</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">02. Louis Vuitton</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">03. Fendi</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">04. Hermès</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">05. Prada</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">06. Loewe</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">07. Miu Miu</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">08. Bottega Veneta</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">09. Saint Laurent</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">10. Goyard</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">11. Céline</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">12. Christian Dior</a>
+        
+        <span style="padding:20px 24px 10px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">PREMIUM</span>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">01. Louis Vuitton</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">02. Prada</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">03. Goyard</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">04. Saint Laurent</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">05. Dior</a>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">06. Céline</a>
+
+        <span style="padding:20px 24px 10px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">ESSENTIEL</span>
+        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">Sélection multi-marques</a>
+      </div>
     </div>
 
-    <!-- SOUS-PANNEAU MAROQUINERIE -->
-    <div class="tiroir-panneau sous-menu" id="panneau-maroquinerie">
-      <div class="bouton-retour" onclick="fermerSousMenu('maroquinerie')">Maroquinerie</div>
-      <a href="#" class="rub-lien"><span>Prestige</span></a>
-      <a href="#" class="rub-lien"><span>Premium</span></a>
-      <a href="#" class="rub-lien"><span>Essentiel</span></a>
+    <!-- SOUS-PANNEAU : HAUTE JOAILLERIE -->
+    <div class="tiroir-panneau" id="panneau-joaillerie">
+      <a href="#" class="rub-retour" onclick="fermerSousMenu(); return false;">‹ RETOUR</a>
+      <div style="padding: 10px 0;">
+        <span style="padding:10px 24px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">PRESTIGE</span>
+        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">01. Van Cleef & Arpels</a>
+        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">02. Chanel</a>
+        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">03. Cartier</a>
+        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">04. Fred</a>
+        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">05. Bvlgari</a>
+        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">06. Tiffany & Co.</a>
+        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">07. Création Maison</a>
+
+        <span style="padding:20px 24px 10px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">ESSENTIEL</span>
+        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">01. Cartier</a>
+        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">02. Van Cleef & Arpels</a>
+        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">03. Bvlgari</a>
+        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">04. Création Maison</a>
+      </div>
     </div>
+
+    <!-- SOUS-PANNEAU : CHAUSSURES -->
+    <div class="tiroir-panneau" id="panneau-chaussures">
+      <a href="#" class="rub-retour" onclick="fermerSousMenu(); return false;">‹ RETOUR</a>
+      <div style="padding: 10px 0;">
+        <span style="padding:10px 24px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">PRESTIGE</span>
+        <a href="#chaussures" class="rub-lien" onclick="fermerTiroir()">01. Hermès</a>
+        <a href="#chaussures" class="rub-lien" onclick="fermerTiroir()">02. Chanel</a>
+      </div>
+    </div>
+
+    <!-- SOUS-PANNEAU : CEINTURES -->
+    <div class="tiroir-panneau" id="panneau-ceintures">
+      <a href="#" class="rub-retour" onclick="fermerSousMenu(); return false;">‹ RETOUR</a>
+      <div style="padding: 10px 0;">
+        <span style="padding:10px 24px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">PRESTIGE</span>
+        <a href="#ceintures" class="rub-lien" onclick="fermerTiroir()">01. Hermès</a>
+        <a href="#ceintures" class="rub-lien" onclick="fermerTiroir()">02. Louis Vuitton</a>
+        <a href="#ceintures" class="rub-lien" onclick="fermerTiroir()">03. Tom Ford</a>
+        <a href="#ceintures" class="rub-lien" onclick="fermerTiroir()">04. Chrome Hearts</a>
+        <a href="#ceintures" class="rub-lien" onclick="fermerTiroir()">05. Céline</a>
+      </div>
+    </div>
+
+    <!-- SOUS-PANNEAU : RESTAURATION -->
+    <div class="tiroir-panneau" id="panneau-restauration">
+      <a href="#" class="rub-retour" onclick="fermerSousMenu(); return false;">‹ RETOUR</a>
+      <div style="padding: 10px 0;">
+        <span style="padding:10px 24px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">PRESTIGE - ATELIER & PIÈCES OFFICIELLES</span>
+        <a href="#restauration" class="rub-lien" onclick="fermerTiroir()">01. Restauration de maroquinerie</a>
+        <a href="#restauration" class="rub-lien" onclick="fermerTiroir()">02. Rachat de pièces officielles</a>
+        <a href="#restauration" class="rub-lien" onclick="fermerTiroir()">03. Redorage d'excellence</a>
+      </div>
+    </div>
+
   </div>
 </aside>
+   
 <div class="recherche" id="recherche" role="dialog" aria-label="Recherche" inert>
   <div class="recherche-ligne">
     <label class="sr" for="champ-recherche">Rechercher un univers ou un service</label>
