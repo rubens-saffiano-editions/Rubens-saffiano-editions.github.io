@@ -513,7 +513,6 @@ var DIAPOS = [
   function attrs(c){ return 'href="' + esc(c.href) + '"' + (c.ext ? ' target="_blank" rel="noopener"' : ""); }
   var verrous = 0;
   function figer(on){ verrous = Math.max(0, verrous + (on ? 1 : -1)); document.body.classList.toggle("fige", verrous > 0); }
-
   $$("[data-wa]").forEach(function(a){ a.href = wa(a.getAttribute("data-wa")); });
   /* ---------- Sceau RS (argent) ---------- */
   var nSceau = 0;
