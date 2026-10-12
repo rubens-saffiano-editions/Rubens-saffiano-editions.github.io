@@ -80,30 +80,17 @@ main{padding-top:0;margin-top:0;background-color:#f8f8f8 !important}
   .fond img{object-fit:cover;object-position:var(--focus-pc,50% 50%)}
   .diapo-titre{font-size:14px}
 }
-
 /* ——— Tiroir : rubriques dépliables (niveaux de gamme et maisons) ——— */
-.tiroir nav .rub{border-bottom:1px solid rgba(0,0,0,.08)}
-.tiroir nav .rub-tete,.tiroir nav > a{appearance:none;background:none;border:0;width:100%;margin:0;padding:0;display:flex;align-items:center;justify-content:space-between;min-height:56px;line-height:1.4;font-family:var(--f);font-weight:300;font-size:11.5px;letter-spacing:.04em;color:var(--encre);text-align:left;cursor:pointer}
-.tiroir nav .rub-tete .ico{transition:transform .35s ease}
-.tiroir nav .rub.ouverte > .rub-tete .ico{transform:rotate(90deg)}
-.pli{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
-.ouverte > .pli{grid-template-rows:1fr}
-.pli > div{overflow:hidden;min-height:0}
-.gamme{border-top:1px solid #f0f0f0;margin-left:12px}
-.gamme-tete{appearance:none;background:none;border:0;width:100%;margin:0;padding:0;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;color:#000;font-family:var(--f);text-align:left}
-.gamme-tete b{font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
-.gamme-tete small{font-weight:300;font-size:11px;color:#888888;letter-spacing:.02em;margin-left:8px}
-.gamme-tete svg{width:14px;height:14px;fill:none;stroke:#000;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none;transition:transform .35s ease}
-.gamme.ouverte > .gamme-tete svg{transform:rotate(180deg)}
-.maisons{list-style:none;margin:0;padding:0 0 8px}
-.tiroir nav .maisons a{display:flex;align-items:center;justify-content:flex-start;gap:14px;min-height:44px;border:0;border-top:1px solid #f4f4f4;font-size:12.5px;letter-spacing:.02em}
-.maisons .n{width:20px;flex:none;font-weight:300;font-size:11px;color:#888888;font-variant-numeric:tabular-nums}
-.maisons .m{flex:1;font-weight:700;color:#000}
-.maisons .act{flex:none;font-weight:400;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#000;margin-right:-8px}
-.tiroir nav .rub-tete small{margin-left:8px;font-size:10.5px;color:#888888;letter-spacing:.02em}
-.tiroir nav .maisons .ico{width:13px;height:13px;stroke-width:1.6;margin-left:0}
-@media (prefers-reduced-motion:reduce){.pli,.gamme-tete svg,.tiroir nav .rub-tete .ico{transition:none}}
-
+/* Tiroir style Prada : Panneaux glissants */
+.tiroir-conteneur { position: relative; overflow: hidden; width: 100%; height: 100%; }
+.tiroir-panneau { position: absolute; inset: 0; width: 100%; transition: transform .3s ease-in-out; background: #ffffff; }
+.tiroir-panneau.racine { transform: translateX(0); }
+.tiroir-panneau.sous-menu { transform: translateX(100%); }
+.tiroir-panneau.sous-menu.actif { transform: translateX(0); }
+.tiroir-panneau.masque { transform: translateX(-100%); }
+.bouton-retour { display: flex; align-items: center; gap: 10px; padding: 16px 20px; font-size: 13px !important; font-weight: 600 !important; letter-spacing: .12em !important; text-transform: uppercase !important; border-bottom: 1px solid rgba(0, 0, 0, 0.08); cursor: pointer; color: #000000; }
+.bouton-retour::before { content: "‹"; font-size: 18px; line-height: 1; }
+.tiroir nav .rub-lien { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; font-size: 14px !important; font-weight: 500 !important; border-bottom: 1px solid rgba(0, 0, 0, 0.05); color: #000000; text-decoration: none; }
 /* ——— Sur mesure (bande noire) ——— */
 .sur-mesure{position:relative;background:#fff;color:#000;margin-top:0;padding:clamp(56px,7vw,76px) var(--gouttiere);display:grid;justify-items:center;gap:20px;text-align:center}
 .sceau{display:block;width:var(--t,96px);height:var(--t,96px);max-width:100%}
