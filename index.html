@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ruben's Saffiano</title>
+<meta name="description" content="Ruben's Saffiano — joaillerie fine, création maison et maroquinerie. Catalogues privés et commande personnelle sur WhatsApp.">
+<meta name="theme-color" content="#ffffff">
+<style>
+/* DESIGN GLOBAL DARK & CHIC */
+:root {
+  --noir: #0d0d0d;
+  --blanc: #ffffff;
+  --encre: #000000;
+  --gris-clair: #aaaaaa;
+  --filet: rgba(0, 0, 0, 0.12);
+  --f: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --gouttiere: clamp(16px, 4.5vw, 56px);
+  --ease: cubic-bezier(.22, .61, .36, 1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: #fff; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--blanc); color: var(--encre); font-family: var(--f); font-weight: 400; font-size: 12px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body.fige { overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+:focus-visible { outline: 1px solid currentColor; outline-offset: 3px; }
+.ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.surtitre { font-weight: 400; font-size: 9px; letter-spacing: .3em; text-transform: uppercase; }
+
+/* ——— EN-TÊTE FIXE ——— */
+.entete { position: sticky; top: 0; left: 0; width: 100%; height: 50px; background: #ffffff; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; border-bottom: 1px solid #e5e5e5; z-index: 1000; color: #000; }
+.bloc-g, .bloc-d { display: flex; align-items: center; gap: 12px; }
+.icone-btn { width: 22px; height: 50px; display: flex; align-items: center; justify-content: center; color: #000; transition: opacity .3s var(--ease); }
+.icone-btn:hover { opacity: .55; }
+.marque { position: absolute; left: 50%; transform: translateX(-50%); font-size: 13px; font-weight: 400; letter-spacing: .25em; text-transform: uppercase; color: #000; white-space: nowrap; }
+
+/* ——— HERO & SLIDESHOW ——— */
+main { padding-top: 0; margin-top: 0; }
+.hero { position: relative; width: 100%; height: calc(100vh - 50px); height: calc(100svh - 50px); min-height: 520px; max-height: 1000px; overflow: hidden; background: #000; color: #fff; }
+.diapo { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .5s ease-in-out, visibility 0s .5s; }
+.diapo.active { opacity: 1; visibility: visible; transition: opacity .5s ease-in-out, visibility 0s; z-index: 1; }
+.fond { position: absolute; inset: 0; }
+.fond img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.diapo-texte { position: absolute; left: 0; right: 0; bottom: 66px; z-index: 2; padding: 0 var(--gouttiere); display: grid; justify-items: center; gap: 8px; text-align: center; color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,.3); }
+.diapo-titre { margin: 0; font-weight: 400; font-size: 12.5px; letter-spacing: .26em; text-transform: uppercase; }
+.diapo-sous { margin: 0; font-weight: 300; font-size: 11px; letter-spacing: .06em; }
+.lien { display: inline-flex; align-items: center; min-height: 40px; font-weight: 300; font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; border-bottom: 1px solid currentColor; margin-top: 4px; }
+
+/* ——— BANDE COMMANDE SUR MESURE ——— */
+.sur-mesure { position: relative; background: #ffffff; color: #000000; padding: clamp(56px, 7vw, 76px) var(--gouttiere); display: grid; justify-items: center; gap: 20px; text-align: center; }
+.sur-mesure .surtitre { color: #000; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; }
+.sur-mesure .trois-lignes { max-width: none; font-weight: 300; font-size: 13px; color: #111111; line-height: 1.6; letter-spacing: .01em; }
+.sur-mesure .trois-lignes span { display: block; white-space: nowrap; }
+.bouton { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 46px; padding: 0 28px; border: 1px solid #000000; color: #000000 !important; background: #ffffff; font-size: 9px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; transition: background-color .4s var(--ease), color .4s var(--ease); }
+.bouton:hover { background: #000000; color: #ffffff !important; }
+
+/* ——— MENU TIROIR PRADA (DARK & CHIC) ——— */
+.tiroir { position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important; background: #0d0d0d !important; z-index: 999999 !important; visibility: hidden; opacity: 0; pointer-events: none; transition: opacity 0.3s ease, visibility 0.3s ease; color: #ffffff !important; }
+.tiroir.ouvert { visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+.tiroir-tete { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; height: 60px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); background: #0d0d0d; }
+.tiroir-tete .icone-btn { background: none; border: none; color: #ffffff !important; cursor: pointer; }
+.tiroir-tete svg { fill: #ffffff !important; stroke: #ffffff !important; }
+.tiroir-conteneur { position: relative; width: 100%; height: calc(100vh - 60px); overflow-x: hidden; overflow-y: auto; background: #0d0d0d; }
+.tiroir-panneau { position: absolute; top: 0; left: 0; width: 100%; min-height: 100%; background: #0d0d0d; display: flex; flex-direction: column; padding: 10px 0; box-sizing: border-box; transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease; transform: translateX(100%); opacity: 0; pointer-events: none; }
+.tiroir-panneau.racine { transform: translateX(0); opacity: 1; pointer-events: auto; }
+.tiroir-panneau.masque { transform: translateX(-30%); opacity: 0; pointer-events: none; }
+.tiroir-panneau.actif { transform: translateX(0); opacity: 1; pointer-events: auto; }
+.rub-lien { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; color: #ffffff !important; font-size: 13px; letter-spacing: 1px; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.08); text-transform: uppercase; cursor: pointer; font-family: var(--f); }
+.rub-lien:active { background: rgba(255, 255, 255, 0.05); }
+.rub-retour { display: block; padding: 16px 24px; color: #aaaaaa !important; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.03); text-transform: uppercase; cursor: pointer; font-family: var(--f); }
+
+/* ——— L'ATELIER & SAVOIR-FAIRE ——— */
+.atelier { background: #f6f6f6; color: #000; border-bottom: 1px solid #e5e5e5; display: grid; gap: 22px; padding: 24px 24px 48px; }
+.galerie { position: relative; width: 100%; max-width: 560px; margin-inline: auto; aspect-ratio: 4 / 5; overflow: hidden; background: #1a1a1a; }
+.galerie img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: contrast(1.02); }
+.atelier-texte { display: grid; justify-items: center; gap: 0; text-align: center; padding-inline: var(--gouttiere); }
+.atelier-titre { margin: 0; font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
+.atelier-sous { margin: 6px 0 0; font-weight: 300; font-size: 13px; letter-spacing: .06em; }
+.atelier .lien { font-size: 11px; font-weight: 700; margin-top: 12px; text-decoration: underline; text-underline-offset: 4px; border: 0; }
+
+/* ——— PIED DE PAGE & COLONNES ——— */
+.pied { background: #ffffff; color: #000000; border-top: 1px solid var(--filet); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.cercle { max-width: 1180px; margin-inline: auto; padding: clamp(48px,7vw,80px) var(--gouttiere) 28px; display: grid; gap: 14px; }
+.cercle h2 { margin: 0; font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; }
+.cercle p.intro { margin: 0; max-width: 56ch; font-weight: 300; font-size: 13px; line-height: 1.6; color: #111111; }
+.colonnes { border-top: 1px solid var(--filet); }
+.colonnes-in { max-width: 1180px; margin-inline: auto; }
+.accordeon { border-bottom: 1px solid var(--filet); }
+.accordeon summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding-inline: var(--gouttiere); font-weight: 400; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+.accordeon summary::-webkit-details-marker { display: none; }
+.accordeon summary .ico { width: 16px; height: 16px; stroke-width: 1.5; transition: transform .4s var(--ease); }
+.accordeon[open] summary .ico { transform: rotate(180deg); }
+.accordeon ul { list-style: none; margin: 0; padding: 0 var(--gouttiere) 30px; display: grid; gap: 16px; }
+.accordeon li { font-weight: 300; font-size: 11px; line-height: 1.5; letter-spacing: .03em; color: #000; }
+.reseaux { display: flex; flex-wrap: nowrap; justify-content: center; gap: clamp(18px,6vw,36px); margin: 24px 0; }
+.reseaux a { width: 44px; height: 44px; display: grid; place-items: center; color: #000; transition: opacity .3s var(--ease); }
+.reseaux a:hover { opacity: .55; }
+.reseaux svg { width: 22px; height: 22px; fill: currentColor; stroke: none; }
+.copyright { border-top: 1px solid var(--filet); padding: 26px var(--gouttiere); text-align: center; font-weight: 300; font-size: 9px; letter-spacing: .16em; line-height: 2; text-transform: uppercase; color: #000; }
+.copyright .barre { display: inline-block; margin-inline: .9em; opacity: .35; }
+
+/* ——— WHATSAPP FLOTTANT ——— */
+.flottant { position: fixed; right: clamp(14px, 3vw, 24px); bottom: calc(clamp(14px, 3vw, 24px) + env(safe-area-inset-bottom, 0px)); z-index: 20; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: #000000; color: #ffffff; box-shadow: 0 0 0 1px rgba(255,255,255,.18); transition: opacity .4s var(--ease), transform .4s var(--ease); }
+.flottant .ico { width: 20px; height: 20px; fill: currentColor; stroke: none; }
+</style>
+</head>
+<body>
+
+  <!-- EN-TÊTE FIXE -->
+  <header class="entete">
+    <div class="bloc-g">
+      <button class="icone-btn" onclick="ouvrirTiroir()" aria-label="Menu">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <a href="#" class="marque">Ruben's Saffiano</a>
+    <div class="bloc-d">
+      <button class="icone-btn" aria-label="Recherche">
+        <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / SLIDESHOW AVEC TON IMAGE hero-1.png -->
+    <section class="hero">
+      <div class="diapo active">
+        <div class="fond">
+          <img src="images/hero-1.png" alt="Ruben's Saffiano High Leatherwork">
+        </div>
+        <div class="diapo-texte">
+          <h2 class="diapo-titre">Éditions Privées & Sur Mesure</h2>
+          <p class="diapo-sous">Haute Joaillerie & Maroquinerie de Collection</p>
+          <a href="https://wa.me/" class="lien">Découvrir le catalogue</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANDE COMMANDE SUR MESURE -->
+    <section class="sur-mesure">
+      <span class="surtitre">Commande sur mesure</span>
+      <div class="trois-lignes">
+        <span>Une pièce recherchée ne figure pas dans nos éditions ?</span>
+        <span>Notre atelier réalise votre modèle sur-mesure,</span>
+        <span>sur simple demande.</span>
+      </div>
+      <a href="https://wa.me/" class="bouton">Décrire ma pièce</a>
+    </section>
+
+    <!-- SAVOIR-FAIRE & ATELIER AVEC TON IMAGE detail-1.jpg -->
+    <section class="atelier">
+      <div class="galerie">
+        <img src="images/detail-1.jpg" alt="Atelier Ruben's Saffiano">
+      </div>
+      <div class="atelier-texte">
+        <h2 class="atelier-titre">L'Atelier & Savoir-Faire</h2>
+        <p class="atelier-sous">Création artisanale maison, façonnage du cuir Saffiano et restauration haute joaillerie.</p>
+        <a href="https://wa.me/" class="lien">Consulter le maître artisan</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- MENU TIROIR PRADA (DARK & CHIC SLIDING) -->
+  <div id="tiroir" class="tiroir">
+    <div class="tiroir-tete">
+      <span style="font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;">Ruben's Saffiano</span>
+      <button class="icone-btn" onclick="fermerTiroir()" aria-label="Fermer le menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="tiroir-conteneur">
+      <!-- PANNEAU PRINCIPAL (RACINE) -->
+      <div id="panneau-racine" class="tiroir-panneau racine">
+        <a class="rub-lien" onclick="ouvrirSousMenu('maroquinerie')">Maroquinerie <span>&rsaquo;</span></a>
+        <a class="rub-lien" onclick="ouvrirSousMenu('chaussures')">Chaussures <span>&rsaquo;</span></a>
+        <a class="rub-lien" onclick="ouvrirSousMenu('joaillerie')">Joaillerie <span>&rsaquo;</span></a>
+        <a href="https://wa.me/" class="rub-lien">Commande Sur-Mesure <span>&rsaquo;</span></a>
+      </div>
+
+      <!-- SOUS-MENUS -->
+      <div id="panneau-maroquinerie" class="tiroir-panneau">
+        <a class="rub-retour" onclick="fermerSousMenu()">&lsaquo; Retour</a>
+        <a href="https://wa.me/" class="rub-lien">Sacs à main</a>
+        <a href="https://wa.me/" class="rub-lien">Petite Maroquinerie</a>
+        <a href="https://wa.me/" class="rub-lien">Sacs de voyage</a>
+      </div>
+
+      <div id="panneau-chaussures" class="tiroir-panneau">
+        <a class="rub-retour" onclick="fermerSousMenu()">&lsaquo; Retour</a>
+        <a href="https://wa.me/" class="rub-lien">Escarpins</a>
+        <a href="https://wa.me/" class="rub-lien">Mocassins & Sliders</a>
+      </div>
+
+      <div id="panneau-joaillerie" class="tiroir-panneau">
+        <a class="rub-retour" onclick="fermerSousMenu()">&lsaquo; Retour</a>
+        <a href="https://wa.me/" class="rub-lien">Bagues & Solitaires</a>
+        <a href="https://wa.me/" class="rub-lien">Bracelets & Colliers</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIED DE PAGE (COLONNES & ACCORDÉONS) -->
+  <footer class="pied">
+    <div class="cercle">
+      <h2>Éditions & Conciergerie Privée</h2>
+      <p class="intro">Accédez à nos pièces exclusives et sollicitez notre atelier d'artisanat d'art directement sur WhatsApp.</p>
+    </div>
+
+    <div class="colonnes">
+      <div class="colonnes-in">
+        <details class="accordeon">
+          <summary>Maroquinerie <svg class="ico" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul>
+            <li><a href="https://wa.me/">Sacs Saffiano</a></li>
+            <li><a href="https://wa.me/">Portefeuilles & Pochettes</a></li>
+            <li><a href="https://wa.me/">Bagagerie d'Exception</a></li>
+          </ul>
+        </details>
+
+        <details class="accordeon">
+          <summary>Joaillerie <svg class="ico" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul>
+            <li><a href="https://wa.me/">Bagues & Solitaires</a></li>
+            <li><a href="https://wa.me/">Bracelets & Manchettes</a></li>
+            <li><a href="https://wa.me/">Créations Personnalisées</a></li>
+          </ul>
+        </details>
+
+        <details class="accordeon">
+          <summary>Maison & Atelier <svg class="ico" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul>
+            <li><a href="https://wa.me/">Restauration sur mesure</a></li>
+            <li><a href="https://wa.me/">Expertise & Authentification</a></li>
+            <li><a href="https://wa.me/">Prendre Rendez-vous</a></li>
+          </ul>
+        </details>
+
+        <details class="accordeon">
+          <summary>Contact & Suivi <svg class="ico" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul>
+            <li><a href="https://wa.me/">Conciergerie WhatsApp</a></li>
+            <li><a href="https://www.instagram.com/rubens.explores/">Instagram official</a></li>
+            <li><a href="https://wa.me/">Expéditions sécurisées</a></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+
+    <!-- RÉSEAUX SOCIAUX -->
+    <div class="reseaux">
+      <a href="https://www.instagram.com/rubens.explores/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    </div>
+
+    <div class="copyright">&copy; Ruben's Saffiano <span class="barre">|</span> Tous droits réservés</div>
+  </footer>
+
+  <!-- BOUTON WHATSAPP FLOTTANT -->
+  <a href="https://wa.me/" class="flottant" aria-label="WhatsApp Concierge">
+    <svg class="ico" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+  </a>
+
+  <!-- SCRIPT JS COMPLET -->
+  <script>
+    function ouvrirTiroir() {
+      var tiroir = document.getElementById('tiroir');
+      if (tiroir) {
+        tiroir.classList.add('ouvert');
+        document.body.classList.add('fige');
+      }
+    }
+    function fermerTiroir() {
+      var tiroir = document.getElementById('tiroir');
+      if (tiroir) {
+        tiroir.classList.remove('ouvert');
+        document.body.classList.remove('fige');
+      }
+      fermerSousMenu();
+    }
+    function ouvrirSousMenu(id) {
+      var racine = document.getElementById('panneau-racine');
+      var cible = document.getElementById('panneau-' + id);
+      if (racine) { racine.classList.add('masque'); }
+      if (cible) { cible.classList.add('actif'); }
+    }
+    function fermerSousMenu() {
+      var racine = document.getElementById('panneau-racine');
+      var panneaux = document.querySelectorAll('.tiroir-panneau');
+      panneaux.forEach(function(p) { p.classList.remove('actif'); });
+      if (racine) { racine.classList.remove('masque'); }
+    }
+  </script>
+</body>
+</html>
