@@ -35,10 +35,17 @@ button{font:inherit;color:inherit}
 .ico{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .surtitre{font-weight:400;font-size:9px;letter-spacing:.3em;text-transform:uppercase}
 /* ——— En-tête ——— */
-.entete, .site-header { height: 56px !important; min-height: 56px !important; padding: 0 16px !important; background-color: #ffffff !important; display: flex !important; align-items: center !important; justify-content: space-between !important; border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important; }
-.entete .marque { font-family: "Didot", "Bodoni MT", "Cinzel", serif !important; font-size: 17px !important; font-weight: 700 !important; letter-spacing: 0.18em !important; text-transform: uppercase !important; color: #000000 !important; position: absolute !important; left: 50% !important; transform: translateX(-50%) !important; }
-.entete svg.ic, .icone-btn svg { width: 22px !important; height: 22px !important; stroke-width: 1.8px !important; }
-.bloc-g, .bloc-d { display: flex !important; align-items: center !important; gap: 18px !important; }
+.entete,.site-header{height:60px !important;min-height:60px !important;padding:0 16px !important;background-color:#ffffff !important;display:flex !important;align-items:center !important;justify-content:space-between !important}
+.entete.scrolled,.site-header.scrolled{background-color:#ffffff !important}
+.bloc-g,.bloc-d{display:flex !important;flex-direction:row !important;align-items:center !important;gap:20px !important}
+.entete .bloc-d{margin-left:auto}
+.entete svg.ic{width:24px !important;height:24px !important;stroke-width:1.5px !important}
+.icone-btn{appearance:none;background:none;border:0;padding:0;cursor:pointer}
+@media (hover:hover){.icone-btn:hover{opacity:.55}}
+svg.ic{display:block !important;width:22px !important;height:22px !important}
+.marque{position:absolute;left:50%;transform:translateX(-50%);font-family:inherit;font-size:14px !important;font-weight:600 !important;letter-spacing:.18em !important;text-transform:uppercase !important;white-space:nowrap !important;color:#000000 !important}
+@media (max-width:374px){.entete .marque{font-size:11px !important;letter-spacing:.12em !important}}
+   
 /* ——— Hero ——— */
 main{padding-top:0;margin-top:0;background-color:#f8f8f8 !important}
 .hero{position:relative;margin-top:0;height:calc(100vh - 50px);background-color:#f8f8f8 !important}
