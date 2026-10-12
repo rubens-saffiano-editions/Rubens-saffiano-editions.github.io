@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Rubens Saffiano · index.html v92 -->
+<!-- Rubens Saffiano · index.html v94 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -84,9 +84,9 @@ main{padding-top:0;margin-top:0}
 .trait span::after{content:"";position:absolute;top:0;left:0;bottom:0;width:0;background:#ffffff}
 .trait.vu span::after{width:100%}
 .trait.en-cours span::after{animation:sliderProgress var(--duree,3000ms) linear forwards}
-@keyframes fillBar{from{width:0}to{width:100%}}
+
 .hero.pause .trait.en-cours span::after{animation-play-state:paused}
-@keyframes remplir{to{transform:scaleX(1)}}
+
 /* Hero plein cadre (mobile) · image entière centrée (ordinateur) */
 @media (max-width:899px){
   .fond img{object-fit:cover}
@@ -108,7 +108,7 @@ main{padding-top:0;margin-top:0}
 .sur-mesure p{margin:0;max-width:52ch;font-weight:300;font-size:.84rem;letter-spacing:.02em;color:var(--gris-clair)}
 .bouton{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:46px;padding:0 28px 0 calc(28px + .3em);margin-top:8px;border:1px solid currentColor;font-weight:500;font-size:9px;letter-spacing:.3em;text-transform:uppercase;transition:background-color .4s var(--ease),color .4s var(--ease)}
 .sur-mesure .bouton{border:1px solid #000000;color:#000;background:#fff;font-weight:400}
-.sur-mesure .bouton:hover{background:#000;color:#fff}
+
 
 /* ——— Tiroir blanc haute couture à panneaux coulissants ——— */
 .ombre{position:fixed;inset:0;z-index:1040;background:rgba(0,0,0,.35);opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility 0s .45s}
@@ -292,7 +292,7 @@ body{color:#000}
 .diapo-titre{font-size:22px !important;font-weight:400 !important;letter-spacing:.01em !important;padding-left:0 !important;text-transform:none !important;white-space:normal !important;max-width:22ch;line-height:1.25;text-wrap:balance}
 .lien{border-bottom:0}
 .trait span{height:1.5px !important;background:rgba(0,0,0,.15) !important}
-.trait span::after{background:#fff !important}
+
 /* Sections centrales */
 .sur-mesure .surtitre,.atelier-titre{font-size:16px !important;font-weight:500 !important;letter-spacing:.1em !important;text-transform:uppercase;color:#000}
 .sur-mesure .trois-lignes,.atelier-sous{font-size:13px !important;font-weight:300 !important;line-height:1.7 !important;color:#333333 !important;max-width:500px;margin-left:auto !important;margin-right:auto !important;text-align:center}
@@ -319,7 +319,7 @@ body{color:#000}
 .entete .marque{font-size:15px !important;font-weight:700 !important;letter-spacing:.22em !important;padding-left:.22em !important;color:#000}
 @media (max-width:429px){.entete .marque{font-size:13px !important;letter-spacing:.16em !important;padding-left:.16em !important}}
 @media (max-width:379px){.entete .marque{font-size:11px !important;letter-spacing:.12em !important;padding-left:.12em !important}.bloc-g,.bloc-d{gap:18px !important}}
-@keyframes fillProgress{0%{width:0%}100%{width:100%}}
+
 .trait span{height:2px !important;background:rgba(255,255,255,.3) !important}
 .trait span::after{background:#fff !important}
 .reseaux{gap:24px !important;margin-top:8px}
@@ -381,7 +381,7 @@ p, li, .trois-lignes, .atelier-sous, .cercle p.intro, .consentement, .accordeon 
 .atelier .lien, .etiquette, .copyright, .badge-new { font-weight: 400 !important; }
 /* 3. finitions */
 .sur-mesure .bouton { font-weight: 400 !important; border: 1px solid #000 !important; padding: 13px 30px !important; }
-.trait span { height: 2px !important; }
+
 .copyright { padding-left: 24px !important; padding-right: 24px !important; }
 @media (max-width:379px){ .entete .marque { font-size: 12px !important; letter-spacing: .14em !important; } }
 .reseaux svg.plein { width: 16px !important; height: 16px !important; fill: #000 !important; stroke: none !important; }
@@ -402,11 +402,11 @@ p, li, .trois-lignes span, .atelier-sous, .cercle p.intro, .consentement, .accor
 .cercle { padding: 28px 20px 16px !important; gap: 0 !important; }
 .cercle p.intro { margin: 0 0 12px !important; }
 .form-tel { gap: 8px !important; }
-.champ { border-bottom: 1px solid #000 !important; }
+
 .champ input { padding: 8px 0 !important; font-size: 13px !important; }
 .champ .icone-btn { height: 32px !important; }
 .reseaux { gap: 24px !important; margin: 14px 0 0 !important; justify-content: flex-start !important; }
-.reseaux a { padding: 4px 0 !important; }
+
 .reseaux svg.plein { width: 14px !important; height: 14px !important; }
 /* accordéons compacts */
 .accordeon summary { min-height: 0 !important; padding-top: 12px !important; padding-bottom: 12px !important; font-size: 11px !important; font-weight: 400 !important; }
@@ -428,7 +428,7 @@ p, li, .trois-lignes span, .atelier-sous, .cercle p.intro, .consentement, .accor
 .cercle { padding: 14px 20px 8px !important; }
 .cercle h2 { font-size: 10px !important; font-weight: 500 !important; letter-spacing: .15em !important; margin: 0 0 8px !important; }
 .form-tel { gap: 4px !important; }
-.champ { border-bottom: 1px solid #000 !important; }
+
 .champ input { font-size: 11px !important; padding: 6px 0 !important; }
 .champ input::placeholder { font-size: 11px; }
 .champ .icone-btn { height: 26px !important; width: 18px !important; }
@@ -463,19 +463,19 @@ body, p, li, .trois-lignes span, .atelier-sous, .accordeon li { font-weight: 300
 .cercle { padding: 24px 20px 12px !important; }
 .cercle h2 { font-size: 11px !important; font-weight: 500 !important; letter-spacing: .18em !important; text-transform: uppercase; margin: 0 0 10px !important; }
 .champ input, .champ input::placeholder { font-size: 12px !important; font-weight: 300 !important; }
-.champ input { padding: 8px 0 !important; }
+
 .consentement { font-size: 9.5px !important; font-weight: 300 !important; line-height: 1.5 !important; color: #555 !important; }
 .reseaux { justify-content: space-between !important; gap: 0 !important; margin: 18px 0 0 !important; padding: 0 4px; }
 .reseaux svg.plein { width: 15px !important; height: 15px !important; fill: #000000 !important; }
 /* Accordéons */
 .colonnes .accordeon summary { font-size: 11px !important; font-weight: 500 !important; letter-spacing: .15em !important; padding-top: 10px !important; padding-bottom: 10px !important; }
-.colonnes, .accordeon { border-color: #e5e5e5 !important; }
+
 
 
 /* ===================== Cahier des charges mathématique ===================== */
 .entete, .site-header { height: 52px !important; min-height: 52px !important; max-height: 52px !important; background: #fff !important; border-bottom: 1px solid #f2f2f2 !important; }
 header.entete .marque { font-size: 13px !important; font-weight: 700 !important; letter-spacing: .22em !important; padding-left: .22em !important; color: #000 !important; }
-.bloc-g, .bloc-d { gap: 20px !important; }
+
 .entete svg.ic { width: 18px !important; height: 18px !important; stroke-width: 1.5px !important; }
 .entete .icone-btn { width: 18px !important; }
 /* textes sur les visuels */
@@ -491,8 +491,8 @@ header.entete .marque { font-size: 13px !important; font-weight: 700 !important;
 /* formulaire et pied de page */
 .champ input, .champ input::placeholder { font-size: 11.5px !important; font-weight: 300 !important; }
 .champ input { padding: 8px 0 !important; }
-.champ { border-bottom: 1px solid #000 !important; }
-.consentement { font-size: 9px !important; font-weight: 300 !important; line-height: 1.4 !important; color: #555555 !important; }
+
+
 .consentement a { color: #555 !important; }
 .reseaux svg.plein { width: 13px !important; height: 13px !important; fill: #000 !important; }
 .colonnes .accordeon summary { font-size: 10.5px !important; font-weight: 500 !important; letter-spacing: .12em !important; }
@@ -542,7 +542,7 @@ header.entete .marque { font-size: 11px !important; font-weight: 600 !important;
 .tiroir-tete svg.ic { width: 17px !important; height: 17px !important; stroke-width: 1.4 !important; stroke: #000 !important; fill: none !important; }
 .tiroir-logo { display: none !important; }
 .tiroir-retour { position: absolute !important; left: 38px !important; top: 50% !important; transform: translateY(-50%) !important; font-weight: 500 !important; font-size: 13px !important; background: #fff !important; padding-right: 12px !important; }
-.tiroir.dans-sous .tiroir-loupe { visibility: hidden; }
+
 .tiroir .lien-menu { min-height: 44px !important; font-weight: 500 !important; color: #000 !important; }
 .tiroir .lien-menu .txt { font-weight: 500 !important; }
 .tiroir .lien-menu svg { width: 12px !important; height: 12px !important; stroke: #000 !important; stroke-width: 2.2 !important; opacity: 1 !important; }
@@ -557,7 +557,7 @@ section.sur-mesure .trois-lignes span, .sur-mesure .trois-lignes, .atelier-sous 
 .sur-mesure .bouton { border: 1px solid #000 !important; background: #fff !important; padding: 12px 32px !important; letter-spacing: .25em !important; margin-top: 0 !important; }
 /* newsletter */
 .cercle h2 { font-size: 12px !important; font-weight: 600 !important; letter-spacing: .06em !important; margin: 0 0 12px !important; }
-.champ { border-bottom: 2px solid #000 !important; }
+
 .champ input, .champ input::placeholder { font-size: 12px !important; font-weight: 400 !important; color: #000 !important; }
 .champ .icone-btn { width: 26px !important; height: 34px !important; margin-right: -2px !important; justify-content: flex-end !important; }
 .champ .ico { width: 24px !important; height: 24px !important; stroke-width: 2 !important; stroke: #000 !important; stroke-linecap: square !important; stroke-linejoin: miter !important; }
@@ -598,7 +598,7 @@ section.sur-mesure .trois-lignes span, .sur-mesure .trois-lignes, .atelier-sous 
 .encart-lien { text-underline-offset: 6px !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 12px !important; font-weight: 500 !important; }
 /* newsletter et pied */
 .cercle h2 { font-size: 15px !important; font-weight: 700 !important; letter-spacing: .01em !important; color: #000 !important; }
-.champ { border-bottom: 2px solid #000 !important; }
+
 .consentement { text-align: left !important; font-size: 11px !important; line-height: 1.4 !important; color: #000 !important; }
 .consentement a { color: #000 !important; border-bottom-color: #000 !important; }
 .reseaux { justify-content: flex-start !important; gap: 18px !important; }
@@ -619,17 +619,17 @@ header.entete .icone-btn { width: 18px !important; }
 .diapo-texte .lien { font-size: 12px !important; font-weight: 400 !important; letter-spacing: .08em !important; text-underline-offset: 6px !important; }
 @keyframes sliderProgress { from { width: 0%; } to { width: 100%; } }
 .trait span { height: 1.5px !important; background: rgba(255,255,255,.3) !important; }
-.trait span::after { background: #fff !important; }
+
 /* sections */
 .sur-mesure > * { max-width: 320px; }
 .sur-mesure .surtitre, .atelier-titre { font-size: 15px !important; font-weight: 500 !important; letter-spacing: 0 !important; margin: 0 0 12px !important; }
 section.sur-mesure .trois-lignes span, .sur-mesure .trois-lignes, .atelier-sous, .atelier-sous span { font-size: 13px !important; font-weight: 400 !important; line-height: 1.6 !important; color: #000 !important; }
 .sur-mesure .trois-lignes, .atelier-sous { max-width: 320px !important; }
-.atelier-sous.deux-lignes span { display: block; white-space: nowrap; }
+
 .sur-mesure .bouton.lien-simple { font-size: 13px !important; font-weight: 500 !important; }
 .atelier .lien { font-size: 12px !important; font-weight: 400 !important; letter-spacing: .08em !important; text-transform: uppercase !important; }
 /* liens soulignés : étirement délicat */
-.lien, .lien-simple, .encart-lien, .diapo-texte .lien { transition: text-underline-offset .35s cubic-bezier(.16,1,.3,1), opacity .3s ease !important; }
+
 .lien:hover, .lien-simple:hover, .encart-lien:hover, .lien:active, .lien-simple:active, .encart-lien:active { text-underline-offset: 9px !important; }
 /* tiroir */
 .tiroir { opacity: 0; transition: transform .45s cubic-bezier(.25,.46,.45,.94), opacity .45s ease !important; }
@@ -645,7 +645,7 @@ section.sur-mesure .trois-lignes span, .sur-mesure .trois-lignes, .atelier-sous,
 .consentement { font-size: 11px !important; font-weight: 400 !important; line-height: 1.5 !important; }
 /* accordéons fluides */
 .colonnes .accordeon summary { font-size: 14px !important; font-weight: 500 !important; letter-spacing: 0 !important; text-transform: none !important; }
-.accordeon { border-bottom: 1px solid #EAEAEA !important; }
+
 .accordeon ul { max-height: 0; opacity: 0; overflow: hidden; padding-bottom: 0 !important; transition: max-height .35s ease-in-out, opacity .35s ease-in-out, padding .35s ease-in-out; }
 .accordeon.ouvert ul { max-height: 400px; opacity: 1; padding-bottom: 14px !important; }
 .accordeon summary .ico { transition: transform .35s ease-in-out !important; transform: none !important; }
@@ -751,7 +751,7 @@ section.hero, .hero { background-color: #000 !important; }
 header.entete.site-header.scrolled { background-color: #f7f5f2 !important; border-bottom: 1px solid #e1deda !important; }
 aside.tiroir, .tiroir, .tiroir .tiroir-tete, .tiroir .panneau, .tiroir-encart, .tiroir-retour, .recherche { background-color: #f7f5f2 !important; }
 .tiroir .lien-menu, .tiroir .tiroir-tete { border-bottom-color: #e1deda !important; }
-.accordeon { border-bottom: 1px solid #e1deda !important; }
+
 .pied, .copyright, .tiroir-encart { border-top-color: #e1deda !important; }
 .consentement, .consentement a { color: #000 !important; }
 .consentement a { border-bottom-color: #000 !important; }
@@ -783,7 +783,7 @@ aside.tiroir, .tiroir, .tiroir .tiroir-tete, .tiroir .panneau, .tiroir-encart, .
 .colonnes .accordeon summary { font-size: 10.5px !important; padding-top: 8px !important; padding-bottom: 8px !important; min-height: 0 !important; }
 .accordeon { border-bottom: 1px solid #e7e4e0 !important; }
 /* retour symétrique : sous-menu sort vers la droite, racine revient au centre */
-.tiroir .panneau:not(.actif):not(.recule) { transform: translateX(30px); opacity: 0; }
+
 /* ===================== v62 : cinématique feutrée 0.8s ===================== */
 .consentement { width: 100% !important; max-width: 100% !important; }
 .accordeon { border-bottom: 1px solid #e1deda !important; }
@@ -959,7 +959,7 @@ section.sur-mesure { padding-top: 14px !important; }
 .vitrine-carte { margin: 0; width: 38vw; max-width: 220px; flex: none; }
 .vitrine-carte img { display: block; width: 100% !important; height: auto !important; aspect-ratio: 4/5; object-fit: cover; background: #F9F8F6; }
 .vitrine-carte figcaption { margin-top: 10px; text-align: center; font-size: 11px; font-weight: 300; letter-spacing: .01em; color: #000; }
-@keyframes vitrineDefile { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
 /* icône Instagram : angles stricts */
 .reseaux svg.filaire rect { rx: 1px; }
 /* ===================== v74 : vitrine grand format ===================== */
@@ -989,7 +989,7 @@ section.hero, .hero, .hero .diapos, .hero .diapo, .hero .fond { background: #000
 html, body, main, section.sur-mesure, section.atelier, .atelier, .vitrine, footer.pied, .pied, .cercle, .colonnes, .copyright,
 header.entete.site-header.scrolled { background: #F9F8F6 !important; background-color: #F9F8F6 !important; }
 .vitrine-carte, .vitrine-carte img { background: #F9F8F6 !important; border: 0 !important; box-shadow: none !important; outline: 0 !important; }
-section.hero, .hero, .hero .diapo, .hero .fond { background: #000 !important; }
+
 /* ===================== v86 : hero — cadrage d'origine centré, plein cadre ===================== */
 .hero .fond img { object-fit: cover !important; object-position: center !important; width: 100% !important; height: 100% !important; }
 section.hero, .hero, .hero .diapo, .hero .fond { background: #000 !important; }
@@ -1273,10 +1273,10 @@ var MENU = [
 /* Hero : image = photo de votre dépôt (ex. "images/hero-1.jpg"), vide = fond graphique.
    cible = id d'un univers, ou "sur-mesure". */
 var DIAPOS = [
-  /* sur GitHub : hero-2.png = sac à dos mini (couverture), hero-1.png = sac à deux poches, hero-3.png = sac matelassé glacé */
+  /* sur GitHub : hero-3.png = sac matelassé glacé à chaîne dorée (couverture), hero-2.png = mini sac à dos, hero-1.png = sac à deux poches */
+  { image:"images/hero-3.png", etape:"L’Art des Proportions", titre:"Nouveautés", accroche:"L’Art des Proportions", desc:"Une silhouette aux lignes pures.", lien:"Découvrir", cible:"nouveautes", focus:"50% 50%", focusPc:"50% 58%" },
   { image:"images/hero-2.png", etape:"Lignes Architecturales", titre:"Exclusivités", accroche:"Lignes Architecturales", desc:"Une étude de la matière iconique.", lien:"Pour lui", cible:"maroquinerie", focus:"50% 50%", focusPc:"50% 55%" },
-  { image:"images/hero-1.png", etape:"L’Essence du Saffiano", titre:"Exclusivité en ligne", accroche:"L’Essence du Saffiano", desc:"Un raffinement totalement intemporel.", lien:"Pour elle", cible:"maroquinerie", focus:"50% 50%", focusPc:"50% 62%" },
-  { image:"images/hero-3.png", etape:"L’Art des Proportions", titre:"Nouveautés", accroche:"L’Art des Proportions", desc:"Une silhouette aux lignes pures.", lien:"Découvrir", cible:"nouveautes", focus:"50% 50%", focusPc:"50% 58%" }
+  { image:"images/hero-1.png", etape:"L’Essence du Saffiano", titre:"Exclusivité en ligne", accroche:"L’Essence du Saffiano", desc:"Un raffinement totalement intemporel.", lien:"Pour elle", cible:"maroquinerie", focus:"50% 50%", focusPc:"50% 62%" }
 ];
 /* ========================================================================== */
 
