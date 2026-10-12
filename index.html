@@ -45,25 +45,20 @@ button{font:inherit;color:inherit}
 @media (hover: hover) { .icone-btn:hover { opacity: .55; } }
 .marque { position: absolute; left: 50%; transform: translateX(-50%); font-family: inherit; font-size: 15px !important; font-weight: 700 !important; letter-spacing: .16em !important; text-transform: uppercase !important; white-space: nowrap !important; color: #000000 !important; }
 @media (max-width: 374px) { .entete .marque { font-size: 12px !important; letter-spacing: .12em !important; } }
-    
 /* ——— Hero ——— */
 main{padding-top:0;margin-top:0;background-color:#f8f8f8 !important}
 .hero{position:relative;margin-top:0;height:calc(100vh - 50px);background-color:#f8f8f8 !important}
-.diapo{position:absolute;inset:0;z-index:0;opacity:0;visibility:hidden;background-color:#f8f8f8 !important}
+.diapo{position:absolute;inset:0;z-index:0;opacity:0;visibility:hidden}
 .diapo.active{z-index:1;opacity:1;visibility:visible}
 .fond{position:absolute;inset:0;background-color:#f8f8f8 !important}
 .fond img{width:100%;height:100%;object-fit:contain;background-color:#f8f8f8 !important}
-.fond.compose{background:
-  radial-gradient(ellipse 70% 60% at var(--gx,50%) var(--gy,50%),rgba(229,228,226,.13),transparent 72%),
-  repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 1px,transparent 1px 7px),
-  repeating-linear-gradient(-45deg,rgba(0,0,0,.45) 0 1px,transparent 1px 7px),
-  linear-gradient(180deg,#0a0a0a,#050505)}
+.fond.compose{background:radial-gradient(ellipse 70% 60% at var(--gx,50%) var(--gy,50%),rgba(229,228,226,.13),transparent 72%),repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 1px,transparent 1px 7px),repeating-linear-gradient(-45deg,rgba(0,0,0,.45) 0 1px,transparent 1px 7px),linear-gradient(180deg,#0a0a0a,#050505)}
 .voile{display:none}
-.diapo-texte{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:0 var(--gouttiere) 66px;display:grid;justify-items:center;gap:8px;text-align:center;color:var(--blanc);text-shadow:0 1px 10px rgba(0,0,0,.28)}
-.diapo-titre{margin:0;font-weight:400;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;padding-left:.24em;white-space:nowrap}
-.diapo-sous{margin:0;font-weight:300;font-size:11px;letter-spacing:.06em;white-space:nowrap}
-.lien{display:inline-flex;align-items:center;min-height:40px;font-weight:300;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;padding-left:.14em;background:linear-gradient(currentColor,currentColor) .14em calc(100% - 9px)/calc(100% - .14em) 1px no-repeat;transition:background-size .5s var(--ease)}
-.lien:hover{background-size:30% 1px}
+.diapo-texte{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:0 var(--gouttiere) 66px;display:grid;justify-items:center;text-align:center}
+.diapo-titre{margin:0 0 6px 0;font-weight:700 !important;font-size:24px !important;letter-spacing:-.01em !important;line-height:1.2 !important;text-transform:none !important;color:#000000 !important;white-space:normal !important}
+.diapo-sous{margin:0 0 12px 0;font-weight:400 !important;font-size:14px !important;line-height:1.5 !important;letter-spacing:0 !important;color:#111111 !important;white-space:normal !important}
+.lien{display:inline-flex;align-items:center;min-height:40px;padding:0;font-weight:600 !important;font-size:12px !important;letter-spacing:.14em !important;text-transform:uppercase !important;text-decoration:underline !important;text-underline-offset:5px !important;color:#000000 !important}
+.lien:hover{opacity:.65}
 .diapo-texte > *{opacity:0;transform:translateY(10px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .diapo.active .diapo-texte > *{opacity:1;transform:none}
 .diapo.active .diapo-texte > *:nth-child(2){transition-delay:.12s}
