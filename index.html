@@ -80,86 +80,9 @@ main{padding-top:0;margin-top:0;background-color:#f8f8f8 !important}
   .fond img{object-fit:cover;object-position:var(--focus-pc,50% 50%)}
   .diapo-titre{font-size:14px}
 }
-/
-
-.tiroir-panneau.masque {
-  transform: translateX(-30%);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.tiroir-panneau.actif {
-  transform: translateX(0);
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.rub-lien {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 24px;
-  color: #ffffff !important;
-  font-size: 13px;
-  letter-spacing: 1px;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  font-family: inherit;
-  text-transform: uppercase;
-}
-
-.rub-lien:active {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.rub-retour {
-  display: block;
-  padding: 16px 24px;
-  color: #aaaaaa !important;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
-  text-transform: uppercase;
-}
-
-/* RESTAURATIONS SUR MESURE ET BOUTONS */
-.sur-mesure { position: relative; background: #fff; color: #000; margin-top: 0; padding: clamp(56px,7vw,76px) var(--gouttiere); display: grid; gap: 24px; text-align: center; justify-items: center; }
-.sceau { display: block; width: var(--t,96px); height: var(--t,96px); max-width: 100%; }
-.diapo-texte .sceau { --t: clamp(118px,28vw,150px); margin-bottom: 8px; }
-.sceau-img { width: var(--t,96px); height: auto; max-width: 100%; }
-.sur-mesure .surtitre { color: #000; font-weight: 700 !important; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; }
-.sur-mesure blockquote { margin: 0; max-width: 30ch; font-weight: 300; font-size: clamp(1rem,2.2vw,1.25rem); line-height: 1.6; letter-spacing: .02em; }
-.sur-mesure .trois-lignes { max-width: none; font-weight: 300 !important; font-size: 13px; color: #111111; line-height: 1.6; letter-spacing: .02em; }
-.sur-mesure .trois-lignes span { display: block; white-space: nowrap; }
-.sur-mesure p { margin: 0; max-width: 52ch; font-weight: 300; font-size: .84rem; letter-spacing: .02em; color: var(--gris-clair); }
-.bouton { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 46px; padding: 0 28px; text-decoration: none; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
-.sur-mesure .bouton { border: 1px solid #000000; color: #000000 !important; background: #ffffff; font-weight: 400; }
-.sur-mesure .bouton:hover { background: #000000; color: #ffffff !important; }
-   
-}
-.accordeon summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;min-height:56px;padding-inline:var(--gouttiere);font-weight:400;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
-.accordeon summary::-webkit-details-marker{display:none}
-.accordeon summary .ico{width:16px;height:16px;stroke-width:1.5;transition:transform .4s var(--ease)}
-.accordeon[open] summary .ico{transform:rotate(180deg)}
-.accordeon ul{list-style:none;margin:0;padding:0 var(--gouttiere) 30px;display:grid;gap:16px}
-.accordeon li{font-weight:300;font-size:11px;line-height:1.5;letter-spacing:.03em;color:var(--encre)}
-.accordeon li a,.accordeon li button{transition:color .3s var(--ease)}
-.accordeon li a:hover,.accordeon li button:hover{opacity:.55}
-.accordeon li button{appearance:none;background:none;border:0;padding:0;cursor:pointer;color:var(--encre);text-align:left;font-weight:300;font-size:11px;letter-spacing:.03em}
-.num{color:var(--encre);font-weight:300;font-variant-numeric:tabular-nums}
-@media (min-width:900px){
-  .colonnes-in{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;padding-inline:var(--gouttiere)}
-  .accordeon{border-bottom:0}
-  .accordeon summary{min-height:auto;padding:40px 0 18px;pointer-events:none}
-  .accordeon summary .ico{display:none}
-  .accordeon ul{padding:0 0 40px}
 }
 .copyright{border-top:1px solid var(--filet);padding:26px calc(var(--gouttiere) + 52px) calc(30px + env(safe-area-inset-bottom,0px));text-align:center;font-weight:300;font-size:9px;letter-spacing:.16em;line-height:2;text-transform:uppercase;color:var(--encre)}
 .copyright .barre{display:inline-block;margin-inline:.9em;opacity:.35}
-
 /* ——— Mentions légales ——— */
 dialog{border:0;padding:0;background:transparent;color:var(--encre);max-width:none;max-height:none}
 dialog::backdrop{background:rgba(0,0,0,.4)}
