@@ -106,8 +106,18 @@ main{padding-top:0;margin-top:0}
   repeating-linear-gradient(-45deg,rgba(0,0,0,.45) 0 1px,transparent 1px 7px),
   linear-gradient(180deg,#0a0a0a,#050505)}
 .voile{display:none}
-.diapo-texte{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:0 var(--gouttiere) 66px;display:grid;justify-items:center;gap:8px;text-align:center;color:var(--blanc);text-shadow:0 1px 10px rgba(0,0,0,.28)}
-.diapo-titre{margin:0;font-weight:400;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;padding-left:.24em;white-space:nowrap}
+
+.diapo-texte {
+  bottom: 50px !important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 0 var(--gouttiere);
+  display: grid;
+  justify-items: center;
+}
+   
 .diapo-sous{margin:0;font-weight:300;font-size:11px;letter-spacing:.06em;white-space:nowrap}
 .lien{display:inline-flex;align-items:center;min-height:40px;font-weight:300;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;padding-left:.14em;background:linear-gradient(currentColor,currentColor) .14em calc(100% - 9px)/calc(100% - .14em) 1px no-repeat;transition:background-size .5s var(--ease)}
 .lien:hover{background-size:30% 1px}
