@@ -692,5 +692,26 @@ if (hero && progression) {
   });
 })();
 </script>
+   <script>
+function ouvrirTiroir() {
+  var t = document.getElementById('tiroir');
+  if (t) { t.classList.add('ouvert'); t.removeAttribute('inert'); }
+}
+function fermerTiroir() {
+  var t = document.getElementById('tiroir');
+  if (t) { t.classList.remove('ouvert'); t.setAttribute('inert', ''); }
+}
+function ouvrirSousMenu(id) {
+  document.getElementById('panneau-racine').classList.add('masque');
+  var p = document.getElementById('panneau-' + id);
+  if (p) p.classList.add('actif');
+}
+function fermerSousMenu(id) {
+  var p = document.getElementById('panneau-' + id);
+  if (p) p.classList.remove('actif');
+  document.getElementById('panneau-racine').classList.remove('masque');
+}
+   </script>
+   
 </body>
 </html>
