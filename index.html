@@ -947,6 +947,10 @@ function ouvrirTiroir() {
   }
 }
 
+function ouvrirMenu() {
+  ouvrirTiroir();
+}
+
 function fermerTiroir() {
   var tiroir = document.getElementById('tiroir');
   if (tiroir) {
@@ -954,6 +958,10 @@ function fermerTiroir() {
     tiroir.setAttribute('inert', '');
   }
   fermerSousMenu();
+}
+
+function fermerMenu() {
+  fermerTiroir();
 }
 
 function ouvrirSousMenu(id) {
