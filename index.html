@@ -1,799 +1,139 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Ruben's Saffiano</title>
-<meta name="description" content="Ruben's Saffiano — joaillerie fine, création maison et maroquinerie. Catalogues privés et commande personnelle sur WhatsApp.">
-<meta name="theme-color" content="#ffffff">
-<style>
-/* Mise en page : corps noir (hero + bande « sur mesure »), menu et pied de page blancs.
-   Texte toujours franc : noir pur sur blanc, blanc pur sur noir. Une seule famille sans empattement. */
-:root{
-  --noir:#050505;
-  --blanc:#FFFFFF;
-  --encre:#000000;            /* texte sur blanc */
-  --gris:#000000;             /* secondaire sur blanc : noir franc */
-  --gris-clair:#FFFFFF;       /* secondaire sur noir : blanc franc */
-  --filet:rgba(0,0,0,.12);    /* filet sur blanc */
-  --filet-nuit:rgba(255,255,255,.22);
-  --f:'Helvetica Neue',Helvetica,Arial,sans-serif;
-  --gouttiere:clamp(16px,4.5vw,56px);
-  --entete:50px;
-  --ease:cubic-bezier(.22,.61,.36,1);
-  color-scheme:dark;
-  background:var(--noir);
-}
-*,*::before,*::after{box-sizing:border-box}
-html{background:#fff;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--blanc);color:var(--blanc);font-family:var(--f);font-weight:400;font-size:12px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body.fige{overflow:hidden}
-a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit}
-:focus-visible{outline:1px solid currentColor;outline-offset:3px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.ico{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.surtitre{font-weight:400;font-size:9px;letter-spacing:.3em;text-transform:uppercase}
-/* ——— En-tête ——— */
-.entete, .site-header { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 1000 !important; height: 64px !important; min-height: 64px !important; padding: 0 20px !important; background-color: #ffffff !important; display: flex !important; align-items: center !important; justify-content: space-between !important; border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important; }
-.entete.scrolled, .site-header.scrolled { background-color: #ffffff !important; }
-.bloc-g, .bloc-d { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 22px !important; }
-.entete .bloc-d { margin-left: auto; }
-.entete svg, .entete svg *, .icone-btn svg, .icone-btn svg * { fill: none !important; stroke: #000000 !important; stroke-width: 2.2px !important; stroke-linecap: round !important; stroke-linejoin: round !important; }
-.entete svg.ic, .icone-btn svg { width: 24px !important; height: 24px !important; display: block !important; }
-.icone-btn { appearance: none; background: none; border: 0; padding: 0; cursor: pointer; display: flex; align-items: center; }
-@media (hover: hover) { .icone-btn:hover { opacity: .55; } }
-.marque { position: absolute; left: 50%; transform: translateX(-50%); font-family: inherit; font-size: 15px !important; font-weight: 700 !important; letter-spacing: .16em !important; text-transform: uppercase !important; white-space: nowrap !important; color: #000000 !important; }
-@media (max-width: 374px) { .entete .marque { font-size: 12px !important; letter-spacing: .12em !important; } }
-/* ——— Hero ——— */
-main{padding-top:0;margin-top:0;background-color:#f8f8f8 !important}
-.hero{position:relative;margin-top:0;height:calc(100vh - 50px);background-color:#f8f8f8 !important}
-.diapo{position:absolute;inset:0;z-index:0;opacity:0;visibility:hidden}
-.diapo.active{z-index:1;opacity:1;visibility:visible}
-.fond{position:absolute;inset:0;background-color:#f8f8f8 !important}
-.fond img{width:100%;height:100%;object-fit:contain;background-color:#f8f8f8 !important}
-.fond.compose{background:radial-gradient(ellipse 70% 60% at var(--gx,50%) var(--gy,50%),rgba(229,228,226,.13),transparent 72%),repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 1px,transparent 1px 7px),repeating-linear-gradient(-45deg,rgba(0,0,0,.45) 0 1px,transparent 1px 7px),linear-gradient(180deg,#0a0a0a,#050505)}
-.voile{display:none}
-.diapo-texte{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:0 var(--gouttiere) 66px;display:grid;justify-items:center;text-align:center}
-.diapo-titre{margin:0 0 6px 0;font-weight:700 !important;font-size:24px !important;letter-spacing:-.01em !important;line-height:1.2 !important;text-transform:none !important;color:#000000 !important;white-space:normal !important}
-.diapo-sous{margin:0 0 12px 0;font-weight:400 !important;font-size:14px !important;line-height:1.5 !important;letter-spacing:0 !important;color:#111111 !important;white-space:normal !important}
-.lien{display:inline-flex;align-items:center;min-height:40px;padding:0;font-weight:600 !important;font-size:12px !important;letter-spacing:.14em !important;text-transform:uppercase !important;text-decoration:underline !important;text-underline-offset:5px !important;color:#000000 !important}
-.lien:hover{opacity:.65}
-.diapo-texte > *{opacity:0;transform:translateY(10px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
-.diapo.active .diapo-texte > *{opacity:1;transform:none}
-.diapo.active .diapo-texte > *:nth-child(2){transition-delay:.12s}
-.diapo.active .diapo-texte > *:nth-child(3){transition-delay:.22s}
-.progression{position:absolute;z-index:2;left:var(--gouttiere);right:var(--gouttiere);bottom:14px;display:flex;gap:6px;max-width:420px;margin-inline:auto}
-.trait{appearance:none;border:0;background:none;cursor:pointer;flex:1;padding:14px 0}
-.trait span{display:block;height:2px;background:rgba(255,255,255,0.3);position:relative;overflow:hidden}
-.trait span::after{content:"";position:absolute;top:0;left:0;bottom:0;width:0;background:#ffffff}
-.trait.vu span::after{width:100%}
-.trait.en-cours span::after{animation:fillBar var(--duree,2000ms) linear forwards}
-@keyframes fillBar{from{width:0}to{width:100%}}
-.hero.pause .trait.en-cours span::after{animation-play-state:paused}
-@keyframes remplir{to{transform:scaleX(1)}}
-/* Hero plein cadre (mobile) · image entière centrée (ordinateur) */
-@media (max-width:899px){
-  .fond img{object-fit:cover}
-}
-@media (min-width:900px){
-  .fond img{object-fit:cover;object-position:var(--focus-pc,50% 50%)}
-  .diapo-titre{font-size:14px}
-}
-}
-.copyright{border-top:1px solid var(--filet);padding:26px calc(var(--gouttiere) + 52px) calc(30px + env(safe-area-inset-bottom,0px));text-align:center;font-weight:300;font-size:9px;letter-spacing:.16em;line-height:2;text-transform:uppercase;color:var(--encre)}
-.copyright .barre{display:inline-block;margin-inline:.9em;opacity:.35}
-/* ——— Mentions légales ——— */
-dialog{border:0;padding:0;background:transparent;color:var(--encre);max-width:none;max-height:none}
-dialog::backdrop{background:rgba(0,0,0,.4)}
-.legal{width:min(680px,calc(100vw - 24px))}
-.legal-in{position:relative;background:var(--blanc);padding:52px clamp(20px,5vw,48px) 36px;max-height:calc(100svh - 24px);overflow:auto}
-.legal-in .fermer{position:absolute;right:10px;top:8px}
-.legal-in h3{margin:0 0 4px;font-weight:400;font-size:.8rem;letter-spacing:.28em;text-transform:uppercase}
-.legal-in h4{margin:24px 0 4px;font-weight:400;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
-.legal-in p{margin:0;font-size:.82rem;color:var(--encre);max-width:62ch}
-.a-completer{color:#9b6a1f}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ruben's Saffiano</title>
+  <style>
+    /* DESIGN GLOBAL DARK & CHIC */
+    :root {
+      --noir: #0d0d0d;
+      --blanc: #ffffff;
+      --gris-clair: #aaaaaa;
+      --gouttiere: 20px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--noir); color: var(--blanc); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; overflow-x: hidden; }
 
-/* ——— WhatsApp flottant, discret ——— */
-.flottant{position:fixed;right:clamp(14px,3vw,24px);bottom:calc(clamp(14px,3vw,24px) + env(safe-area-inset-bottom,0px));z-index:20;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--noir);color:var(--blanc);box-shadow:0 0 0 1px rgba(255,255,255,.18);transition:opacity .4s var(--ease),transform .4s var(--ease)}
-.flottant .ico{width:20px;height:20px}
-.flottant.cache{opacity:0;transform:translateY(10px);pointer-events:none}
+    /* EN-TÊTE */
+    header, .entete { position: fixed; top: 0; left: 0; width: 100%; height: 60px; background: rgba(13, 13, 13, 0.95); display: flex; justify-content: space-between; align-items: center; padding: 0 20px; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+    .marque { position: absolute; left: 50%; transform: translateX(-50%); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; text-decoration: none; }
+    .icone-btn { background: none; border: none; color: #fff; cursor: pointer; display: flex; align-items: center; }
 
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .diapo-texte > *{opacity:1;transform:none}
-}
-</style>
-   <style>
-#tiroir {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: 100vw;
-  height: 100vh;
-  background: #ffffff;
-  z-index: 9999;
-  transition: left 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-  box-sizing: border-box;
-}
-#tiroir.ouvert {
-  left: 0;
-}
-.tiroir-tete {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  height: 60px;
-  border-bottom: 1px solid #f0f0f0;
-}
-.tiroir-conteneur {
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 60px);
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-.tiroir-panneau {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #ffffff;
-  display: flex;
-  flex-direction: column;
-  padding: 10px 0;
-  transition: transform 0.35s ease, opacity 0.3s ease;
-  box-sizing: border-box;
-}
-.tiroir-panneau.masque {
-  transform: translateX(-30%);
-  opacity: 0;
-  pointer-events: none;
-}
-.tiroir-panneau:not(#panneau-racine) {
-  transform: translateX(100%);
-  opacity: 0;
-  pointer-events: none;
-}
-.tiroir-panneau.actif {
-  transform: translateX(0);
-  opacity: 1;
-  pointer-events: auto;
-}
-.rub-lien {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 24px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  color: #000000;
-  text-decoration: none;
-  border-bottom: 1px solid #f5f5f5;
-  background: transparent;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: left;
-}
-.rub-retour {
-  display: flex;
-  align-items: center;
-  padding: 18px 24px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #000000;
-  text-decoration: none;
-  border-bottom: 1px solid #e0e0e0;
-  background: #fafafa;
-  cursor: pointer;
-}
-   </style>
-   
+    /* HERO & GALERIE */
+    .hero, #galerie, .galerie, .diapo { position: relative; width: 100%; min-height: 75vh; margin-top: 60px; background: #000; }
+    .fond, #galerie img, .diapo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 1 !important; display: block !important; }
+
+    /* SECTIONS SUR MESURE */
+    .sur-mesure { position: relative; background: #ffffff; color: #000000; padding: 60px 20px; display: grid; gap: 20px; text-align: center; justify-items: center; }
+    .sur-mesure .surtitre { color: #000; font-weight: 700 !important; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; }
+    .sur-mesure p { margin: 0; max-width: 52ch; font-weight: 300; font-size: 0.85rem; letter-spacing: 0.02em; color: #333333; line-height: 1.6; }
+    .bouton { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 28px; text-decoration: none; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; border: 1px solid #000; color: #000 !important; background: #fff; transition: 0.3s ease; }
+    .bouton:hover { background: #000; color: #fff !important; }
+
+    /* TIROIR DE NAVIGATION PRADA (DARK & CHIC) */
+    .tiroir { position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important; background: #0d0d0d !important; z-index: 999999 !important; visibility: hidden; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; color: #ffffff !important; }
+    .tiroir.ouvert { visibility: visible !important; opacity: 1 !important; pointer-events: auto !important; }
+    .tiroir-tete { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; height: 60px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); background: #0d0d0d; }
+    .tiroir-tete .icone-btn { background: none; border: none; color: #ffffff !important; cursor: pointer; }
+    .tiroir-tete svg { fill: #ffffff !important; stroke: #ffffff !important; }
+    .tiroir-conteneur { position: relative; width: 100%; height: calc(100vh - 60px); overflow-y: auto; background: #0d0d0d; }
+    .tiroir-panneau { position: absolute; top: 0; left: 0; width: 100%; min-height: 100%; background: #0d0d0d; display: flex; flex-direction: column; padding: 10px 0; box-sizing: border-box; transition: transform 0.35s ease, opacity 0.3s ease; transform: translateX(100%); opacity: 0; pointer-events: none; }
+    .tiroir-panneau.racine { transform: translateX(0); opacity: 1; pointer-events: auto; }
+    .tiroir-panneau.masque { transform: translateX(-30%); opacity: 0; pointer-events: none; }
+    .tiroir-panneau.actif { transform: translateX(0); opacity: 1; pointer-events: auto; }
+    .rub-lien { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; color: #ffffff !important; font-size: 13px; letter-spacing: 1px; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.08); text-transform: uppercase; cursor: pointer; }
+    .rub-retour { display: block; padding: 16px 24px; color: #aaaaaa !important; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.03); text-transform: uppercase; cursor: pointer; }
+
+    /* FOOTER */
+    footer { background: #050505; padding: 40px 20px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+  </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3.5 9h17M3.5 15h17"/></symbol>
-  <symbol id="i-recherche" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4 20.5 20.5"/></symbol>
-  <symbol id="i-fermer" viewBox="0 0 24 24"><path d="M5.5 5.5l13 13M18.5 5.5l-13 13"/></symbol>
-  <symbol id="i-compte" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1.4-3.7 4.2-5.5 7.5-5.5s6.1 1.8 7.5 5.5"/></symbol>
-  <symbol id="i-droite" viewBox="0 0 24 24"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></symbol>
-  <symbol id="i-bas" viewBox="0 0 24 24"><path d="m5.5 9.5 6.5 6.5 6.5-6.5"/></symbol>
-  <symbol id="i-fleche" viewBox="0 0 24 24"><path d="M3 12h17.5M14.5 6l6 6-6 6"/></symbol>
-  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.3 20.7l4.4-1.1A8.8 8.8 0 1 0 12 3.2Z"/><path d="M8.9 8.3c.2-.5.6-.6 1-.6l.6 1.6-.7.9c.6 1.4 1.7 2.5 3.1 3.1l.9-.7 1.6.6c0 .4-.1.8-.6 1-2.9.8-6.6-2.9-5.9-5.9Z"/></symbol>
-  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.9"/><circle cx="17.2" cy="6.8" r=".5"/></symbol>
-  <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 3.5v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3.5c.6 2.5 2.4 4.3 5 4.7"/></symbol>
-  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14.3 20.5v-7h2.5l.4-3h-2.9V8.7c0-.9.3-1.5 1.5-1.5h1.6V4.6c-.3-.1-1.3-.2-2.3-.2-2.3 0-3.8 1.4-3.8 3.9v2.2H8.8v3h2.5v7"/></symbol>
-  <symbol id="i-x" viewBox="0 0 24 24"><path d="M4.5 4.5h4.2l10.8 15h-4.2Z"/><path d="M19 4.5l-5.9 6.6M5 19.5l5.9-6.6"/></symbol>
-  <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3.6"/><path d="M10.4 9.6v4.8l4.1-2.4Z"/></symbol>
-  <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M20.5 4.5 3.5 11.3l5.7 2 2.1 5.9 3-3.7 4.4 3.2Z"/><path d="m9.2 13.3 8.6-6.1"/></symbol>
-  <symbol id="p-instagram" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm5.2-3.4a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/></symbol>
-  <symbol id="p-tiktok" viewBox="0 0 24 24"><path d="M16.6 2.5c.4 2.3 1.9 3.8 4.2 4v3.2c-1.6 0-3-.5-4.2-1.3v6.6a6.2 6.2 0 1 1-6.2-6.2c.4 0 .7 0 1 .1v3.3a3 3 0 1 0 2.1 2.9V2.5Z"/></symbol>
-  <symbol id="p-whatsapp" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm-3.3 5.5c.3 0 .5 0 .7.5l.9 2.2c.1.3 0 .5-.1.7l-.6.7c-.1.2-.2.4 0 .6.5.9 1.1 1.6 1.8 2.2.8.7 1.6 1.1 2.2 1.3.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l2.1 1c.3.2.5.3.5.5 0 .3-.1 1.2-.6 1.7-.6.6-1.6 1-2.5.9-1.3-.1-3.4-.9-5.1-2.5-1.9-1.7-3-3.8-3.2-5.1-.1-.9.3-1.9.9-2.5.3-.3.6-.5.9-.6Z"/></symbol>
-  <symbol id="p-telegram" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.7 3.3 2.6 10.6c-1.3.5-1.3 1.3-.2 1.6l4.9 1.5 1.9 5.8c.2.6.4.8.9.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.8c.3-1.3-.5-1.9-1.2-1.5ZM9.6 14.4l-.4 3.7-1.4-4.6 10.5-6.7Z"/></symbol>
-</svg>
-<header class="entete site-header" id="entete">
-    <div class="bloc-g">
-      <button class="icone-btn" type="button" id="ouvrir-menu" onclick="ouvrirTiroir()" aria-label="Ouvrir le menu"><svg class="ic" viewBox="0 0 24 24"><use href="#i-menu"></use></svg></button>
-      <button class="icone-btn" type="button" id="ouvrir-recherche" aria-label="Rechercher"><svg class="ic" viewBox="0 0 24 24"><use href="#i-recherche"></use></svg></button>
+
+  <!-- EN-TÊTE -->
+  <header class="entete">
+    <button class="icone-btn" onclick="ouvrirMenu()" aria-label="Ouvrir le menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <a href="#" class="marque">RUBEN'S SAFFIANO</a>
+  </header>
+
+  <!-- HERO (IMAGE PRINCIPALE) -->
+  <section class="hero">
+    <div class="fond">
+      <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=1200&auto=format&fit=crop" alt="Ruben's Saffiano Collection">
     </div>
-  <a class="marque" href="#haut" aria-label="Ruben’s Saffiano">Ruben’s Saffiano</a>
-  <div class="bloc-d">
-    <a class="icone-btn" href="#contact" aria-label="Service client"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></a>
-    <a class="icone-btn" data-wa="Bonjour Ruben’s Saffiano, je souhaite être conseillé(e)." href="#" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-  </div>
-</header>
-<div class="ombre" id="ombre"></div>
-<aside class="tiroir" id="tiroir" aria-label="Menu" inert>
-  <div class="tiroir-tete">
-    <div class="bloc-g">
-      <button class="icone-btn" type="button" id="fermer-menu" onclick="fermerTiroir()" aria-label="Fermer le menu">
-        <svg class="ic" viewBox="0 0 24 24"><use href="#i-fermer"></use></svg>
+  </section>
+
+  <!-- COMMANDE SUR MESURE -->
+  <section class="sur-mesure">
+    <span class="surtitre">Commande sur mesure</span>
+    <p>Une pièce recherchée ne figure pas dans nos éditions ? Notre atelier réalise votre modèle sur-mesure, sur simple demande.</p>
+    <a href="#" class="bouton">Décrire ma pièce</a>
+  </section>
+
+  <!-- TIROIR DE NAVIGATION -->
+  <div id="tiroir" class="tiroir">
+    <div class="tiroir-tete">
+      <span>MENU</span>
+      <button class="icone-btn" onclick="fermerMenu()" aria-label="Fermer le menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
     </div>
-    <div class="bloc-d">
-      <a class="icone-btn" href="#contact" data-fermer-menu aria-label="Service client">
-        <svg class="ic" viewBox="0 0 24 24"><use href="#i-whatsapp"></use></svg>
-      </a>
+    <div class="tiroir-conteneur">
+      <!-- PANNEAU RACINE -->
+      <div id="panneau-racine" class="tiroir-panneau racine">
+        <a class="rub-lien" onclick="ouvrirSousMenu('maroquinerie')">Maroquinerie <span>&rsaquo;</span></a>
+        <a class="rub-lien" onclick="ouvrirSousMenu('chaussures')">Chaussures <span>&rsaquo;</span></a>
+        <a class="rub-lien" onclick="ouvrirSousMenu('joaillerie')">Joaillerie <span>&rsaquo;</span></a>
+      </div>
+
+      <!-- SOUS-MENUS -->
+      <div id="panneau-maroquinerie" class="tiroir-panneau">
+        <a class="rub-retour" onclick="fermerSousMenu()">&lsaquo; Retour</a>
+        <a href="#" class="rub-lien">Sacs à main</a>
+        <a href="#" class="rub-lien">Petite Maroquinerie</a>
+      </div>
+
+      <div id="panneau-chaussures" class="tiroir-panneau">
+        <a class="rub-retour" onclick="fermerSousMenu()">&lsaquo; Retour</a>
+        <a href="#" class="rub-lien">Escarpins</a>
+        <a href="#" class="rub-lien">Mocassins</a>
+      </div>
+
+      <div id="panneau-joaillerie" class="tiroir-panneau">
+        <a class="rub-retour" onclick="fermerSousMenu()">&lsaquo; Retour</a>
+        <a href="#" class="rub-lien">Bagues & Bracelets</a>
+      </div>
     </div>
   </div>
 
-  <div class="tiroir-conteneur" style="position:relative; width:100%; height:calc(100vh - 60px); overflow:hidden;">
-    
-    <!-- PANNEAU PRINCIPAL -->
-    <div class="tiroir-panneau racine" id="panneau-racine">
-      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('sacs'); return false;">SACS À MAIN <span>›</span></a>
-      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('joaillerie'); return false;">HAUTE JOAILLERIE <span>›</span></a>
-      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('chaussures'); return false;">CHAUSSURES <span>›</span></a>
-      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('ceintures'); return false;">CEINTURES <span>›</span></a>
-      <a href="#" class="rub-lien" onclick="ouvrirSousMenu('restauration'); return false;">RESTAURATION <span>›</span></a>
-    </div>
-
-    <!-- SOUS-PANNEAU : SACS À MAIN -->
-    <div class="tiroir-panneau" id="panneau-sacs">
-      <a href="#" class="rub-retour" onclick="fermerSousMenu(); return false;">‹ RETOUR</a>
-      <div style="padding: 10px 0;">
-        <span style="padding:10px 24px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">PRESTIGE</span>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">01. Chanel</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">02. Louis Vuitton</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">03. Fendi</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">04. Hermès</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">05. Prada</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">06. Loewe</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">07. Miu Miu</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">08. Bottega Veneta</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">09. Saint Laurent</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">10. Goyard</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">11. Céline</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">12. Christian Dior</a>
-        
-        <span style="padding:20px 24px 10px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">PREMIUM</span>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">01. Louis Vuitton</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">02. Prada</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">03. Goyard</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">04. Saint Laurent</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">05. Dior</a>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">06. Céline</a>
-
-        <span style="padding:20px 24px 10px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">ESSENTIEL</span>
-        <a href="#sacs" class="rub-lien" onclick="fermerTiroir()">Sélection multi-marques</a>
-      </div>
-    </div>
-
-    <!-- SOUS-PANNEAU : HAUTE JOAILLERIE -->
-    <div class="tiroir-panneau" id="panneau-joaillerie">
-      <a href="#" class="rub-retour" onclick="fermerSousMenu(); return false;">‹ RETOUR</a>
-      <div style="padding: 10px 0;">
-        <span style="padding:10px 24px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">PRESTIGE</span>
-        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">01. Van Cleef & Arpels</a>
-        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">02. Chanel</a>
-        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">03. Cartier</a>
-        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">04. Fred</a>
-        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">05. Bvlgari</a>
-        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">06. Tiffany & Co.</a>
-        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">07. Création Maison</a>
-
-        <span style="padding:20px 24px 10px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">ESSENTIEL</span>
-        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">01. Cartier</a>
-        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">02. Van Cleef & Arpels</a>
-        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">03. Bvlgari</a>
-        <a href="#joaillerie" class="rub-lien" onclick="fermerTiroir()">04. Création Maison</a>
-      </div>
-    </div>
-
-    <!-- SOUS-PANNEAU : CHAUSSURES -->
-    <div class="tiroir-panneau" id="panneau-chaussures">
-      <a href="#" class="rub-retour" onclick="fermerSousMenu(); return false;">‹ RETOUR</a>
-      <div style="padding: 10px 0;">
-        <span style="padding:10px 24px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">PRESTIGE</span>
-        <a href="#chaussures" class="rub-lien" onclick="fermerTiroir()">01. Hermès</a>
-        <a href="#chaussures" class="rub-lien" onclick="fermerTiroir()">02. Chanel</a>
-      </div>
-    </div>
-
-    <!-- SOUS-PANNEAU : CEINTURES -->
-    <div class="tiroir-panneau" id="panneau-ceintures">
-      <a href="#" class="rub-retour" onclick="fermerSousMenu(); return false;">‹ RETOUR</a>
-      <div style="padding: 10px 0;">
-        <span style="padding:10px 24px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">PRESTIGE</span>
-        <a href="#ceintures" class="rub-lien" onclick="fermerTiroir()">01. Hermès</a>
-        <a href="#ceintures" class="rub-lien" onclick="fermerTiroir()">02. Louis Vuitton</a>
-        <a href="#ceintures" class="rub-lien" onclick="fermerTiroir()">03. Tom Ford</a>
-        <a href="#ceintures" class="rub-lien" onclick="fermerTiroir()">04. Chrome Hearts</a>
-        <a href="#ceintures" class="rub-lien" onclick="fermerTiroir()">05. Céline</a>
-      </div>
-    </div>
-
-    <!-- SOUS-PANNEAU : RESTAURATION -->
-    <div class="tiroir-panneau" id="panneau-restauration">
-      <a href="#" class="rub-retour" onclick="fermerSousMenu(); return false;">‹ RETOUR</a>
-      <div style="padding: 10px 0;">
-        <span style="padding:10px 24px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#888; display:block;">PRESTIGE - ATELIER & PIÈCES OFFICIELLES</span>
-        <a href="#restauration" class="rub-lien" onclick="fermerTiroir()">01. Restauration de maroquinerie</a>
-        <a href="#restauration" class="rub-lien" onclick="fermerTiroir()">02. Rachat de pièces officielles</a>
-        <a href="#restauration" class="rub-lien" onclick="fermerTiroir()">03. Redorage d'excellence</a>
-      </div>
-    </div>
-
-  </div>
-</aside>
-   
-<div class="recherche" id="recherche" role="dialog" aria-label="Recherche" inert>
-  <div class="recherche-ligne">
-    <label class="sr" for="champ-recherche">Rechercher un univers ou un service</label>
-    <input id="champ-recherche" type="search" placeholder="Rechercher un univers ou un service" autocomplete="off">
-    <button class="icone-btn" type="button" id="fermer-recherche" aria-label="Fermer la recherche"><svg class="ico"><use href="#i-fermer"/></svg></button>
-  </div>
-  <ul class="resultats" id="resultats" aria-live="polite"></ul>
-</div>
-
-<main id="haut">
-  <section class="hero" id="hero" aria-roledescription="carrousel" aria-label="À la une">
-    <div id="diapos"></div>
-    <div class="progression" id="progression" aria-label="Visuels"></div>
-  </section>
-
-
-  <section class="sur-mesure" id="sur-mesure" aria-labelledby="t-sm">
-    <span class="surtitre" id="t-sm">Commande sur mesure</span>
-    <blockquote class="trois-lignes"><span>Une pièce recherchée ne figure pas dans</span><span>nos éditions&nbsp;? Notre atelier réalise votre</span><span>modèle sur-mesure, sur simple demande.</span></blockquote>
-    <a class="bouton" data-wa="Bonjour Ruben’s Saffiano, je souhaite une pièce sur mesure. Voici ce que je recherche :" href="#" target="_blank" rel="noopener">Décrire ma pièce</a>
-  </section>
-
-  <section class="atelier" id="atelier" aria-labelledby="t-at">
-    <div class="galerie" id="galerie" aria-roledescription="carrousel" aria-label="Détails de l’atelier">
-      <img class="active" src="images/detail-1.jpg" alt="Escarpins bicolores, cuir grainé et bout en gros-grain" width="1080" height="1350">
-      <img src="images/detail-2.jpg" alt="Talon gainé de cuir" width="1080" height="1350" loading="lazy">
-      <img src="images/detail-3.jpg" alt="Fermeture éclair sur cuir bordeaux" width="1080" height="1350" loading="lazy">
-      <img src="images/detail-4.jpg" alt="Fermeture éclair sur cuir grainé noir" width="1080" height="1350" loading="lazy">
-      <img src="images/detail-5.jpg" alt="Œillets métalliques et lanière de cuir" width="1080" height="1350" loading="lazy">
-      <img src="images/detail-6.jpg" alt="Ballerines matelassées bordeaux" width="1080" height="1350" loading="lazy">
-      <img src="images/detail-7.jpg" alt="Rabat et sangles en cuir noir" width="1080" height="1350" loading="lazy">
-      <img src="images/detail-8.jpg" alt="Contrefort matelassé et gros-grain" width="1080" height="1350" loading="lazy">
-      <img src="images/detail-9.jpg" alt="Attache de poignée, couture sellier" width="1080" height="1350" loading="lazy">
-      <div class="galerie-traits" id="galerie-traits"></div>
-    </div>
-    <div class="atelier-texte">
-      <h2 class="atelier-titre" id="t-at">L’atelier &amp; savoir-faire</h2>
-      <p class="atelier-sous">Le cuir d’exception, finitions faites main.</p>
-      <a class="lien" id="lien-atelier" href="#" target="_blank" rel="noopener">Découvrir</a>
-    </div>
-  </section>
-</main>
-
-<footer class="pied" id="contact">
-  <div class="cercle">
-    <h2>Le cercle privé</h2>
-    <p class="intro">Laissez votre numéro : nous vous écrivons sur WhatsApp à chaque nouvelle édition, avant sa présentation publique.</p>
-    <form class="form-tel" id="form-tel" novalidate>
-      <div class="champ">
-        <label class="sr" for="tel">Numéro de téléphone</label>
-        <input id="tel" name="telephone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Insérez votre numéro de téléphone" required>
-        <button class="icone-btn" type="submit" aria-label="Envoyer"><svg class="ico"><use href="#i-fleche"/></svg></button>
-      </div>
-      <p class="consentement">En cliquant sur la flèche, WhatsApp s’ouvre avec un message prêt à nous envoyer. Votre numéro sert uniquement à vous prévenir des nouveautés, comme indiqué dans notre <a href="#" data-legal="confidentialite">politique de confidentialité</a>.</p>
-      <p class="statut" id="statut" role="status"></p>
-    </form>
-    <div class="reseaux" id="reseaux" aria-label="Réseaux sociaux">
-      <a href="https://www.instagram.com/rubens.saffiano.paris" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#p-instagram"/></svg></a>
-      <a href="https://www.tiktok.com/@rubens.saffiano?_r=1&amp;_t=ZN-9AT3OpEegi6" target="_blank" rel="noopener" aria-label="TikTok"><svg aria-hidden="true"><use href="#p-tiktok"/></svg></a>
-      <a href="https://wa.me/33695772805" target="_blank" rel="noopener" aria-label="WhatsApp"><svg aria-hidden="true"><use href="#p-whatsapp"/></svg></a>
-      <a href="https://t.me/+53MQ3b2okQg1OGQ0" target="_blank" rel="noopener" aria-label="Telegram"><svg aria-hidden="true"><use href="#p-telegram"/></svg></a>
-    </div>
-  </div>
-
-  <div class="colonnes">
-    <div class="colonnes-in">
-      <details class="accordeon">
-        <summary>Nous contacter<svg class="ico"><use href="#i-bas"/></svg></summary>
-        <ul>
-          <li>WhatsApp · <span class="num">+33 6 95 77 28 05</span></li>
-          <li><a data-wa="Bonjour Ruben’s Saffiano, je souhaite être conseillé(e)." href="#" target="_blank" rel="noopener">Écrire au service client</a></li>
-          <li>Telegram · accès privé sur demande</li>
-        </ul>
-      </details>
-      <details class="accordeon">
-        <summary>Services<svg class="ico"><use href="#i-bas"/></svg></summary>
-        <ul>
-          <li><a href="#sur-mesure">Commande sur mesure</a></li>
-          <li><a data-wa="Bonjour, je souhaite faire restaurer une pièce." href="#" target="_blank" rel="noopener">Restauration de maroquinerie</a></li>
-          <li><a data-wa="Bonjour, je souhaite un redorage." href="#" target="_blank" rel="noopener">Redorage &amp; remise en teinte</a></li>
-          <li><a data-wa="Bonjour, je souhaite vous proposer une pièce au rachat." href="#" target="_blank" rel="noopener">Rachat de pièces</a></li>
-        </ul>
-      </details>
-      <details class="accordeon">
-        <summary>Société<svg class="ico"><use href="#i-bas"/></svg></summary>
-        <ul>
-          <li>Joaillerie, maroquinerie, chaussures, ceintures</li>
-          <li>Séries courtes, présentées sur catalogue privé</li>
-          <li>Atelier et usines partenaires</li>
-        </ul>
-      </details>
-      <details class="accordeon">
-        <summary>Conditions et mentions légales<svg class="ico"><use href="#i-bas"/></svg></summary>
-        <ul>
-          <li><button type="button" data-legal="mentions">Mentions légales</button></li>
-          <li><button type="button" data-legal="conditions">Conditions de vente</button></li>
-          <li><button type="button" data-legal="confidentialite">Politique de confidentialité</button></li>
-        </ul>
-      </details>
-    </div>
-  </div>
-
-  <div class="copyright" id="signature">© Ruben’s Saffiano · Maison de haute maroquinerie</div>
-</footer>
-
-<a class="flottant cache" id="flottant" data-wa="Bonjour Ruben’s Saffiano, je souhaite être conseillé(e)." href="#" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><svg class="ico"><use href="#i-whatsapp"/></svg></a>
-
-<dialog class="legal" id="legal" aria-labelledby="legal-titre">
-  <div class="legal-in">
-    <button class="icone-btn fermer" type="button" data-fermer aria-label="Fermer"><svg class="ico"><use href="#i-fermer"/></svg></button>
-    <div id="legal-mentions">
-      <h3 id="legal-titre">Mentions légales</h3>
-      <h4>Éditeur du site</h4>
-      <p>Ruben’s Saffiano · <span class="a-completer">[forme juridique, adresse, numéro SIRET]</span></p>
-      <h4>Contact</h4>
-      <p>WhatsApp : +33 6 95 77 28 05</p>
-      <h4>Hébergement</h4>
-      <p>GitHub Pages · GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
-    </div>
-    <div id="legal-conditions" hidden>
-      <h3>Conditions de vente</h3>
-      <h4>Commande</h4>
-      <p>Les commandes se font par message direct. La disponibilité, le prix et le délai sont confirmés par écrit avant tout paiement.</p>
-      <h4>Livraison et retours</h4>
-      <p class="a-completer">[Délais et frais de livraison, droit de rétractation de 14 jours pour les particuliers, exceptions pour les pièces sur mesure.]</p>
-    </div>
-    <div id="legal-confidentialite" hidden>
-      <h3>Confidentialité</h3>
-      <h4>Données collectées</h4>
-      <p>Votre numéro de téléphone, uniquement si vous nous l’envoyez sur WhatsApp depuis le formulaire « Le cercle privé ».</p>
-      <h4>Usage</h4>
-      <p>Vous prévenir des nouveautés par WhatsApp ou SMS. Votre numéro n’est ni vendu ni cédé. Pour être retiré de la liste, envoyez-nous un message.</p>
-      <h4>Responsable</h4>
-      <p>Ruben’s Saffiano · <span class="a-completer">[adresse de contact]</span></p>
-    </div>
-  </div>
-</dialog>
-
-<script>
-/* ===================== RÉGLAGES — tout se modifie ici ===================== */
-var CONFIG = {
-  whatsapp: "33695772805",                  // format international, sans + ni espaces
-  reseaux: {
-    instagram: "https://www.instagram.com/rubens.saffiano.paris",
-    tiktok: "https://www.tiktok.com/@rubens.saffiano?_r=1&_t=ZN-9AT3OpEegi6",
-    telegram: "https://t.me/+53MQ3b2okQg1OGQ0"
-  }, // "" = icône grisée
-    dureeDiapo: 5000,
-  dureeGalerie: 5000,
-  logo: "images/sceau-rs.png", // sceau RS sur fond transparent ; vide = sceau dessiné
-  siret: "",       // numéro SIRET affiché dans la signature ; vide = masqué
-  tva: ""          // numéro de TVA intracommunautaire (ex. "FR12345678901") ; vide = masqué
-};
-
-/* Univers : catalogue = lien de partage Canva (« Afficher seulement »).
-   Vide = le bouton propose de recevoir le catalogue par WhatsApp. */
-var UNIVERS = [
-  { id:"nouveautes",      nom:"Nouveautés",      ligne:"Les dernières pièces ajoutées",            catalogue:"" },
-  { id:"joaillerie",      nom:"Joaillerie fine", ligne:"Bagues, colliers, bracelets",               catalogue:"" },
-  { id:"creation-maison", nom:"Création Maison", ligne:"Haute joaillerie · Modèles sur mesure",     catalogue:"" },
-  { id:"maroquinerie",    nom:"Maroquinerie",    ligne:"Cuir saffiano, séries courtes",             catalogue:"" },
-  { id:"chaussures",      nom:"Chaussures",      ligne:"Taille semi-sur-mesure",                    catalogue:"" },
-  { id:"ceintures",       nom:"Ceintures",       ligne:"Taille semi-sur-mesure",                    catalogue:"" },
-  { id:"atelier",         nom:"Atelier",         ligne:"Restauration · Redorage · Rachat",          catalogue:"" }
-];
-
-/* Catalogues du menu latéral : pour chaque rubrique, les niveaux de gamme et leurs entrées.
-   - nom : texte affiché (remplacez "Maison 01"… par vos noms de lignes ou de modèles)
-   - url : lien de partage Canva du catalogue ("#" = pas encore relié : ouvre WhatsApp avec une demande)
-   - action : mention à droite (ÉDITION, SÉLECTION ou ATELIER)
-   Une rubrique absente de cette liste s'affiche comme un lien simple. */
-var N = function(n, action){ var l = []; for (var i = 1; i <= n; i++) l.push({ nom:"Maison " + (i < 10 ? "0" : "") + i, url:"#", action:action || "Édition" }); return l; };
-var COLLECTIONS = {
-  maroquinerie: { titre:"Maroquinerie · Sacs à main", detail:"19 éditions", gammes:[
-    { nom:"Prestige", detail:"12 maisons", entrees:N(12) },
-    { nom:"Premium", detail:"6 maisons", entrees:N(6) },
-    { nom:"Essentiel", detail:"Sélection multi-marques", entrees:[ { nom:"Sélection multi-marques", url:"#", action:"Sélection" } ] }
-  ] },
-  joaillerie: { detail:"11 éditions", gammes:[
-    { nom:"Prestige", detail:"7 maisons", entrees:N(7) },
-    { nom:"Essentiel", detail:"4 maisons", entrees:N(4) }
-  ] },
-  chaussures: { detail:"2 éditions", gammes:[
-    { nom:"Prestige", detail:"2 maisons", entrees:N(2) }
-  ] },
-  ceintures: { detail:"5 éditions", gammes:[
-    { nom:"Prestige", detail:"5 maisons", entrees:N(5) }
-  ] },
-  atelier: { titre:"Atelier · Restauration", detail:"3 services", gammes:[
-    { nom:"Prestige", detail:"Atelier & pièces officielles · 3 services", entrees:[
-      { nom:"Restauration de maroquinerie", url:"#", action:"Atelier" },
-      { nom:"Rachat de pièces officielles", url:"#", action:"Atelier" },
-      { nom:"Redorage d’excellence", url:"#", action:"Atelier" } ] }
-  ] }
-};
-
-/* Hero : image = photo de votre dépôt (ex. "images/hero-1.jpg"), vide = fond graphique.
-   cible = id d'un univers, ou "sur-mesure". */
-var DIAPOS = [
-  { image:"images/hero-1.png", etape:"Maroquinerie", titre:"Maroquinerie", accroche:"Cuir matelassé, chaîne dorée.", lien:"maroquinerie" },
-  { image:"images/hero-2.png", etape:"Nouveautés", titre:"Nouveautés", accroche:"Les dernières pièces de l'atelier.", lien:"#nouveautes" },
-  { image:"images/hero-3.png", etape:"Exclusivités", titre:"Exclusivités", accroche:"Chaque pièce, en séries courtes.", lien:"#exclusivites" }
-];
-   
-/* ========================================================================== */
-
-(function(){
-  "use strict";
-  var $ = function(s, r){ return (r || document).querySelector(s); };
-  var $$ = function(s, r){ return [].slice.call((r || document).querySelectorAll(s)); };
-  function wa(msg){ return "https://wa.me/" + CONFIG.whatsapp + (msg ? "?text=" + encodeURIComponent(msg) : ""); }
-  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
-  function ico(id){ return '<svg class="ico" aria-hidden="true"><use href="#i-' + id + '"/></svg>'; }
-  function lienUnivers(u){ return (u.catalogue || "").trim() || wa("Bonjour Ruben’s Saffiano, je souhaite recevoir le catalogue « " + u.nom + " ».") ; }
-  var parId = {}; UNIVERS.forEach(function(u){ parId[u.id] = u; });
-  function cible(id){
-    if (id === "sur-mesure") return { href:wa("Bonjour Ruben’s Saffiano, je souhaite une pièce sur mesure. Voici ce que je recherche :"), ext:true };
-    var u = parId[id]; return u ? { href:lienUnivers(u), ext:true } : { href:"#sur-mesure", ext:false };
-  }
-  function attrs(c){ return 'href="' + esc(c.href) + '"' + (c.ext ? ' target="_blank" rel="noopener"' : ""); }
-  var verrous = 0;
-  function figer(on){ verrous = Math.max(0, verrous + (on ? 1 : -1)); document.body.classList.toggle("fige", verrous > 0); }
-
-  $$("[data-wa]").forEach(function(a){ a.href = wa(a.getAttribute("data-wa")); });
-
-  /* ---------- Sceau RS (argent) ---------- */
-  var nSceau = 0;
-  function sceau(){
-    if ((CONFIG.logo || "").trim()) return '<img class="sceau sceau-img" src="' + esc(CONFIG.logo) + '" alt="" width="480" height="480">';
-    var k = "s" + (++nSceau);
-    return '<svg class="sceau" viewBox="0 0 120 120" aria-hidden="true">' +
-      '<defs><linearGradient id="' + k + 'g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8c9095"/><stop offset=".45" stop-color="#f4f4f2"/><stop offset=".7" stop-color="#c3c6c9"/><stop offset="1" stop-color="#7d8186"/></linearGradient>' +
-      '<path id="' + k + 'p" d="M11 60a49 49 0 1 1 98 0a49 49 0 1 1-98 0"/></defs>' +
-      '<g fill="none" stroke="url(#' + k + 'g)"><circle cx="60" cy="60" r="58" stroke-width=".9"/><circle cx="60" cy="60" r="41" stroke-width=".7"/></g>' +
-      '<text fill="url(#' + k + 'g)" font-family="Helvetica Neue,Arial,sans-serif" font-size="6.6" letter-spacing="1.4"><textPath href="#' + k + 'p" textLength="300" lengthAdjust="spacing">SERVICE EXCLUSIF · SÉLECTION PREMIUM ·</textPath></text>' +
-      '<text x="60" y="69" text-anchor="middle" fill="url(#' + k + 'g)" font-family="Didot,Bodoni 72,Times New Roman,serif" font-size="27" letter-spacing="1">RS</text></svg>';
-  }
-  (function(){
-    var html = "© Ruben’s Saffiano · Maison de haute maroquinerie", ids = [];
-    if ((CONFIG.siret || "").trim()) ids.push("SIRET " + esc(CONFIG.siret));
-    if ((CONFIG.tva || "").trim()) ids.push("TVA " + esc(CONFIG.tva));
-    if (ids.length) html += '<span class="barre">|</span>' + ids.join(" · ");
-    $("#signature").innerHTML = html;
-  })();
-
-  var hero = $("#hero"), progression = $("#progression");
-if (hero && progression) {
-  hero.style.setProperty("--duree", CONFIG.dureeDiapo + "ms");
-  $("#diapos").innerHTML = DIAPOS.map(function(d, i){
-    var fond = d.image ? '<div class="fond img"><img src="' + esc(d.image) + '" style="object-position:' + esc(d.focus || "50% 50%") + '"></div>' : '<div class="fond compose" style="--gx:' + d.gx + '%;--gy:' + d.gy + '%"></div>';
-    var T = i === 0 ? "h1" : "h2";
-    return '<article class="diapo" aria-roledescription="diapositive" aria-label="' + (i + 1) + ' sur ' + DIAPOS.length + '">' + fond + '<div class="diapo-texte"><div>' + (d.etape ? '<p class="diapo-etape">' + esc(d.etape) + '</p>' : '') + '<' + T + ' class="diapo-titre">' + esc(d.titre) + '</' + T + '>' + (d.accroche ? '<p class="diapo-sous">' + esc(d.accroche) + '</p>' : '') + '<a class="lien" href="' + attrs(cible(d.cible)).href + '">' + esc(d.lien) + '</a></div></div></article>';
-  }).join("");
-
-  progression.innerHTML = DIAPOS.map(function(d, i){ return '<button type="button" class="trait" aria-label="Visuel ' + (i + 1) + '"><span></span></button>'; }).join("");
-  var slides = $$(".diapo"), boutons = $$("#progression .trait"), courant = 0, minuteur = null;
-
-  function montrer(n) {
-    courant = (n + slides.length) % slides.length;
-    slides.forEach(function(s, i){ s.classList.toggle("active", i === courant); });
-    boutons.forEach(function(b, i){
-      b.classList.remove("en-cours", "vu");
-      if (i < courant) b.classList.add("vu");
-      if (i === courant) { void b.offsetWidth; b.classList.add("en-cours"); }
-    });
-    clearTimeout(minuteur);
-    minuteur = setTimeout(function(){ montrer(courant + 1); }, CONFIG.dureeDiapo);
-  }
-
-  montrer(0);
-}
-   
-
-  /* ---------- Menu blanc ---------- */
-  var tiroir = $("#tiroir"), ombre = $("#ombre"), btnMenu = $("#ouvrir-menu");
-  var BAS = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5.5 9 6.5 6.5L18.5 9"/></svg>';
-  function lienEntree(u, g, m){
-    var url = (m.url || "").trim();
-    return url && url !== "#" ? { href:url, ext:true } : { href:wa("Bonjour Ruben’s Saffiano, je souhaite recevoir le catalogue « " + u.nom + " · " + g.nom + " · " + m.nom + " »."), ext:true };
-  }
-  var MENU_MASQUE = ["nouveautes"];   /* rubriques retirées du menu latéral */
-  $("#menu").innerHTML = UNIVERS.filter(function(u){ return MENU_MASQUE.indexOf(u.id) < 0; }).map(function(u){
-    var c = COLLECTIONS[u.id];
-    if (!c) return '<a ' + attrs({ href:lienUnivers(u), ext:true }) + '><span>' + esc(u.nom) + '</span>' + ico("droite") + '</a>';
-    return '<div class="rub"><button class="rub-tete" type="button" aria-expanded="false"><span>' + esc(c.titre || u.nom) + '<small>' + esc(c.detail || "") + '</small></span>' + ico("droite") + '</button>' +
-      '<div class="pli"><div>' + c.gammes.map(function(g){
-        return '<div class="gamme"><button class="gamme-tete" type="button" aria-expanded="false"><span><b>' + esc(g.nom) + '</b><small>' + esc(g.detail || "") + '</small></span>' + BAS + '</button>' +
-          '<div class="pli"><div><ul class="maisons">' + g.entrees.map(function(m, i){
-            return '<li><a ' + attrs(lienEntree(u, g, m)) + '><span class="n">' + (i < 9 ? "0" : "") + (i + 1) + '</span><span class="m">' + esc(m.nom) + '</span><span class="act">' + esc(m.action || "Édition") + '</span>' + ico("droite") + '</a></li>';
-          }).join("") + '</ul></div></div></div>';
-      }).join("") + '</div></div></div>';
-  }).join("");
-  $("#menu").addEventListener("click", function(e){
-    var t = e.target.closest(".rub-tete, .gamme-tete"); if (!t) return;
-    var bloc = t.parentNode, ouvre = !bloc.classList.contains("ouverte");
-    bloc.classList.toggle("ouverte", ouvre); t.setAttribute("aria-expanded", ouvre ? "true" : "false");
-  });
-  function ouvrirMenu(){ fermerRecherche(); tiroir.classList.add("ouvert"); ombre.classList.add("ouvert"); tiroir.removeAttribute("inert"); btnMenu.setAttribute("aria-expanded", "true"); figer(true); setTimeout(function(){ $("#fermer-menu").focus(); }, 50); }
-  function fermerMenu(){ if (!tiroir.classList.contains("ouvert")) return; tiroir.classList.remove("ouvert"); ombre.classList.remove("ouvert"); tiroir.setAttribute("inert", ""); btnMenu.setAttribute("aria-expanded", "false"); figer(false); }
-  btnMenu.addEventListener("click", ouvrirMenu);
-  $("#fermer-menu").addEventListener("click", function(){ fermerMenu(); btnMenu.focus(); });
-  $("#menu").addEventListener("click", function(e){ if (e.target.closest("a")) fermerMenu(); });
-  $$("[data-fermer-menu]").forEach(function(a){ a.addEventListener("click", fermerMenu); });
-
-  /* ---------- Recherche (univers et services) ---------- */
-  var ENTREES = UNIVERS.map(function(u){ return { nom:u.nom, mots:u.nom + " " + u.ligne, lien:{ href:lienUnivers(u), ext:true } }; }).concat([
-    { nom:"Commande sur mesure", mots:"sur mesure personnalisé création", lien:{ href:"#sur-mesure", ext:false } },
-    { nom:"Restauration · Redorage · Rachat", mots:"restauration redorage rachat réparation atelier", lien:{ href:wa("Bonjour, je souhaite un renseignement sur vos services d’atelier."), ext:true } },
-    { nom:"Le cercle privé", mots:"newsletter nouveautés avant-première téléphone", lien:{ href:"#contact", ext:false } },
-    { nom:"Service client", mots:"contact whatsapp telegram aide", lien:{ href:"#contact", ext:false } }
-  ]);
-  var rech = $("#recherche"), champ = $("#champ-recherche"), res = $("#resultats"), btnRech = $("#ouvrir-recherche");
-  function norm(s){ return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
-  function chercher(){
-    var q = norm(champ.value.trim());
-    var l = q ? ENTREES.filter(function(e){ return norm(e.mots).indexOf(q) > -1; }) : ENTREES;
-    res.innerHTML = l.length ? l.map(function(e){ return '<li><a ' + attrs(e.lien) + '>' + esc(e.nom) + ico("droite") + '</a></li>'; }).join("")
-      : '<li class="vide">Aucun résultat. Écrivez-nous sur WhatsApp, nous vous répondons personnellement.</li>';
-  }
-  function ouvrirRecherche(){ fermerMenu(); rech.classList.add("ouvert"); ombre.classList.add("ouvert"); rech.removeAttribute("inert"); btnRech.setAttribute("aria-expanded", "true"); figer(true); chercher(); setTimeout(function(){ champ.focus(); }, 60); }
-  function fermerRecherche(){ if (!rech.classList.contains("ouvert")) return; rech.classList.remove("ouvert"); ombre.classList.remove("ouvert"); rech.setAttribute("inert", ""); btnRech.setAttribute("aria-expanded", "false"); figer(false); }
-  btnRech.addEventListener("click", ouvrirRecherche);
-  $("#menu-recherche").addEventListener("click", ouvrirRecherche);
-  $("#fermer-recherche").addEventListener("click", function(){ fermerRecherche(); btnRech.focus(); });
-  champ.addEventListener("input", chercher);
-  res.addEventListener("click", function(e){ if (e.target.closest("a")) fermerRecherche(); });
-  ombre.addEventListener("click", function(){ fermerMenu(); fermerRecherche(); });
-  document.addEventListener("keydown", function(e){ if (e.key === "Escape"){ fermerMenu(); fermerRecherche(); } });
-
-  /* ---------- En-tête et bouton flottant ---------- */
-  var entete = $("#entete"), flottant = $("#flottant"), pied = $("#contact"), piedVisible = false;
-  function maj(){
-    var y = window.scrollY || document.documentElement.scrollTop;
-    flottant.classList.toggle("cache", y < hero.offsetHeight * 0.6 || piedVisible);
-  }
-  if ("IntersectionObserver" in window){
-    new IntersectionObserver(function(es){ piedVisible = es[0].isIntersecting; maj(); }, { rootMargin:"0px 0px -40px 0px" }).observe(pied);
-  }
-  window.addEventListener("scroll", maj, { passive:true });
-  /* En-tête : fond blanc opaque dès 20 px de défilement */
-  function enteteDefile(){ entete.classList.toggle("scrolled", (window.scrollY || document.documentElement.scrollTop) > 20); }
-  window.addEventListener("scroll", enteteDefile, { passive:true });
-  enteteDefile();
-  window.addEventListener("resize", maj);
-  maj();
-
-  /* ---------- Galerie de l'atelier : 3 s, fondu 1 s, pause au survol / toucher ---------- */
-  (function(){
-    var g = $("#galerie"), imgs = $$("#galerie img"), zone = $("#galerie-traits"), i = 0, t = null, debutG = 0, resteG = CONFIG.dureeGalerie;
-    $("#lien-atelier").href = parId.chaussures ? lienUnivers(parId.chaussures) : wa("Bonjour Ruben’s Saffiano, je souhaite découvrir vos chaussures.");
-    g.style.setProperty("--duree", CONFIG.dureeGalerie + "ms");
-    zone.innerHTML = imgs.map(function(_, k){ return '<button type="button" class="trait" aria-label="Visuel ' + (k + 1) + '"><span></span></button>'; }).join("");
-    var traits = $$("#galerie-traits .trait");
-    function voir(n){
-      i = (n + imgs.length) % imgs.length;
-      imgs.forEach(function(im, k){ im.classList.toggle("active", k === i); });
-      traits.forEach(function(b, k){ b.classList.remove("en-cours"); b.classList.toggle("vu", k < i); });
-      void zone.offsetWidth; traits[i].classList.add("en-cours");
-      resteG = CONFIG.dureeGalerie; lancer();
+  <!-- SCRIPT JS -->
+  <script>
+    function ouvrirTiroir() {
+      var tiroir = document.getElementById('tiroir');
+      if (tiroir) { tiroir.classList.add('ouvert'); }
     }
-    function lancer(){ clearTimeout(t); if (g.classList.contains("pause")) return; debutG = Date.now(); t = setTimeout(function(){ voir(i + 1); }, resteG); }
-    function pause(){ if (g.classList.contains("pause")) return; g.classList.add("pause"); clearTimeout(t); resteG = Math.max(0, resteG - (Date.now() - debutG)); }
-    function reprise(){ g.classList.remove("pause"); lancer(); }
-    traits.forEach(function(b, k){ b.addEventListener("click", function(){ voir(k); }); });
-    g.addEventListener("mouseenter", pause); g.addEventListener("mouseleave", reprise);
-    g.addEventListener("touchstart", pause, { passive:true }); g.addEventListener("touchend", reprise);
-    voir(0);
-  })();
-
-  /* Réseaux : liens écrits directement dans le HTML (pied de page) */
-
-  /* ---------- Accordéons ouverts sur grand écran ---------- */
-  var large = window.matchMedia("(min-width:900px)");
-  function accordeons(){ $$(".accordeon").forEach(function(d){ d.open = large.matches; }); }
-  accordeons();
-  if (large.addEventListener) large.addEventListener("change", accordeons);
-
-  /* ---------- Mentions légales ---------- */
-  var legal = $("#legal");
-  document.addEventListener("click", function(e){
-    var b = e.target.closest("[data-legal]"); if (!b) return; e.preventDefault();
-    var k = b.getAttribute("data-legal");
-    ["mentions","conditions","confidentialite"].forEach(function(n){ $("#legal-" + n).hidden = n !== k; });
-    if (!legal.open){ if (legal.showModal) legal.showModal(); else legal.setAttribute("open", ""); figer(true); }
-  });
-  legal.addEventListener("close", function(){ figer(false); });
-  legal.addEventListener("click", function(e){ if (e.target === legal || e.target.closest("[data-fermer]")) legal.close ? legal.close() : legal.removeAttribute("open"); });
-
-  /* ---------- Cercle privé : ouverture directe de WhatsApp ---------- */
-  var form = $("#form-tel"), statut = $("#statut"), tel = $("#tel");
-  form.addEventListener("submit", function(e){
-    e.preventDefault(); statut.classList.remove("erreur"); statut.textContent = "";
-    var v = tel.value.replace(/[\s.\-()]/g, "");
-    if (!/^\+?\d{9,15}$/.test(v)){ statut.textContent = "Numéro invalide : indiquez-le avec l’indicatif, par exemple +33 6 12 34 56 78."; statut.classList.add("erreur"); tel.focus(); return; }
-    var url = wa("Bonjour, je souhaite rejoindre Le Cercle Privé. Mon numéro : " + tel.value.trim());
-    var w = null;
-    try { w = window.open(url, "_blank"); if (w) w.opener = null; } catch(_){}
-    if (!w){ statut.innerHTML = 'Touchez <a href="' + esc(url) + '" target="_blank" rel="noopener" style="border-bottom:1px solid">ce lien</a> pour envoyer votre message sur WhatsApp.'; }
-    else { statut.textContent = "WhatsApp est ouvert : envoyez le message pour rejoindre le cercle privé."; form.reset(); }
-  });
-})();
-<script>
-function ouvrirTiroir() {
-  var tiroir = document.getElementById('tiroir');
-  if (tiroir) {
-    tiroir.classList.add('ouvert');
-    tiroir.removeAttribute('inert');
-  }
-}
-
-function ouvrirMenu() {
-  ouvrirTiroir();
-}
-
-function fermerTiroir() {
-  var tiroir = document.getElementById('tiroir');
-  if (tiroir) {
-    tiroir.classList.remove('ouvert');
-    tiroir.setAttribute('inert', '');
-  }
-  fermerSousMenu();
-}
-
-function fermerMenu() {
-  fermerTiroir();
-}
-
-function ouvrirSousMenu(id) {
-  var racine = document.getElementById('panneau-racine');
-  var cible = document.getElementById('panneau-' + id);
-  if (racine) {
-    racine.classList.add('masque');
-  }
-  if (cible) {
-    cible.classList.add('actif');
-  }
-}
-
-function fermerSousMenu() {
-  var racine = document.getElementById('panneau-racine');
-  var panneaux = document.querySelectorAll('.tiroir-panneau');
-  panneaux.forEach(function(p) {
-    p.classList.remove('actif');
-  });
-  if (racine) {
-    racine.classList.remove('masque');
-  }
-}
-</script>
-   
+    function ouvrirMenu() { ouvrirTiroir(); }
+    function fermerTiroir() {
+      var tiroir = document.getElementById('tiroir');
+      if (tiroir) { tiroir.classList.remove('ouvert'); }
+      fermerSousMenu();
+    }
+    function fermerMenu() { fermerTiroir(); }
+    function ouvrirSousMenu(id) {
+      var racine = document.getElementById('panneau-racine');
+      var cible = document.getElementById('panneau-' + id);
+      if (racine) { racine.classList.add('masque'); }
+      if (cible) { cible.classList.add('actif'); }
+    }
+    function fermerSousMenu() {
+      var racine = document.getElementById('panneau-racine');
+      var panneaux = document.querySelectorAll('.tiroir-panneau');
+      panneaux.forEach(function(p) { p.classList.remove('actif'); });
+      if (racine) { racine.classList.remove('masque'); }
+    }
+  </script>
 </body>
 </html>
