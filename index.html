@@ -529,39 +529,33 @@ var DIAPOS = [
     $("#signature").innerHTML = html;
   })();
 
-  /* ---------- Hero ---------- */
   var hero = $("#hero"), progression = $("#progression");
+if (hero && progression) {
   hero.style.setProperty("--duree", CONFIG.dureeDiapo + "ms");
   $("#diapos").innerHTML = DIAPOS.map(function(d, i){
-    var fond = d.image ? '<div class="fond" style="--focus:' + esc(d.focus || "50% 50%") + ';--focus-pc:' + esc(d.focusPc || "50% 50%") + '"><img src="' + esc(d.image) + '" alt="" ' + (i ? 'loading="lazy"' : 'fetchpriority="high"') + '></div>'
-                       : '<div class="fond compose" style="--gx:' + d.gx + ';--gy:' + d.gy + '"></div>';
+    var fond = d.image ? '<div class="fond img"><img src="' + esc(d.image) + '" style="object-position:' + esc(d.focus || "50% 50%") + '"></div>' : '<div class="fond compose" style="--gx:' + d.gx + '%;--gy:' + d.gy + '%"></div>';
     var T = i === 0 ? "h1" : "h2";
-    return '<article class="diapo" aria-roledescription="diapositive" aria-label="' + (i + 1) + ' sur ' + DIAPOS.length + '">' + fond + '<div class="voile"></div>' +
-      '<div class="diapo-texte">' +
-      '<' + T + ' class="diapo-titre">' + esc(d.titre) + '</' + T + '>' +
-      (d.accroche ? '<p class="diapo-sous">' + esc(d.accroche) + '</p>' : '') +
-      '<a class="lien" ' + attrs(cible(d.cible)) + '>' + esc(d.lien) + '</a></div></article>';
+    return '<article class="diapo" aria-roledescription="diapositive" aria-label="' + (i + 1) + ' sur ' + DIAPOS.length + '">' + fond + '<div class="diapo-texte"><div>' + (d.etape ? '<p class="diapo-etape">' + esc(d.etape) + '</p>' : '') + '<' + T + ' class="diapo-titre">' + esc(d.titre) + '</' + T + '>' + (d.accroche ? '<p class="diapo-sous">' + esc(d.accroche) + '</p>' : '') + '<a class="lien" href="' + attrs(cible(d.cible)).href + '">' + esc(d.lien) + '</a></div></div></article>';
   }).join("");
-  progression.innerHTML = DIAPOS.map(function(d, i){ return '<button type="button" class="trait" aria-label="' + esc(d.etape || ("Visuel " + (i + 1))) + '"><span></span></button>'; }).join("");
-  var slides = $$(".diapo"), boutons = $$("#progression .trait"), courant = 0, minuteur = null, debut = 0, reste = 0;
-  function montrer(n){
-    n = (n + slides.length) % slides.length;
-    slides.forEach(function(s, i){ s.classList.toggle("active", i === n); s.setAttribute("aria-hidden", i === n ? "false" : "true"); });
-    boutons.forEach(function(b, i){ b.classList.remove("en-cours"); b.classList.toggle("vu", i < n); b.setAttribute("aria-current", i === n ? "true" : "false"); });
-    void progression.offsetWidth;
-    if (boutons[n]) boutons[n].classList.add("en-cours");
-    courant = n; reste = CONFIG.dureeDiapo; relancer();
+
+  progression.innerHTML = DIAPOS.map(function(d, i){ return '<button type="button" class="trait" aria-label="Visuel ' + (i + 1) + '"><span></span></button>'; }).join("");
+  var slides = $$(".diapo"), boutons = $$("#progression .trait"), courant = 0, minuteur = null;
+
+  function montrer(n) {
+    courant = (n + slides.length) % slides.length;
+    slides.forEach(function(s, i){ s.classList.toggle("active", i === courant); });
+    boutons.forEach(function(b, i){
+      b.classList.remove("en-cours", "vu");
+      if (i < courant) b.classList.add("vu");
+      if (i === courant) { void b.offsetWidth; b.classList.add("en-cours"); }
+    });
+    clearTimeout(minuteur);
+    minuteur = setTimeout(function(){ montrer(courant + 1); }, CONFIG.dureeDiapo);
   }
-  function relancer(){ clearTimeout(minuteur); if (hero.classList.contains("pause") || slides.length < 2) return; debut = Date.now(); minuteur = setTimeout(function(){ montrer(courant + 1); }, reste); }
-  boutons.forEach(function(b, i){ b.addEventListener("click", function(){ montrer(i); }); });
-  hero.addEventListener("mouseenter", function(){ if (hero.classList.contains("pause")) return; hero.classList.add("pause"); clearTimeout(minuteur); reste = Math.max(0, reste - (Date.now() - debut)); });
-  hero.addEventListener("mouseleave", function(){ hero.classList.remove("pause"); relancer(); });
-  document.addEventListener("visibilitychange", function(){ if (document.hidden) clearTimeout(minuteur); else relancer(); });
-  var x0 = null;
-  hero.addEventListener("touchstart", function(e){ x0 = e.touches[0].clientX; }, { passive:true });
-  hero.addEventListener("touchend", function(e){ if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 50) montrer(courant + (dx < 0 ? 1 : -1)); });
-  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) hero.classList.add("pause");
+
   montrer(0);
+}
+   
 
   /* ---------- Menu blanc ---------- */
   var tiroir = $("#tiroir"), ombre = $("#ombre"), btnMenu = $("#ouvrir-menu");
