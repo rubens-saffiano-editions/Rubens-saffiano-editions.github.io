@@ -106,9 +106,8 @@ main{padding-top:0;margin-top:0}
   repeating-linear-gradient(-45deg,rgba(0,0,0,.45) 0 1px,transparent 1px 7px),
   linear-gradient(180deg,#0a0a0a,#050505)}
 .voile{display:none}
-
 .diapo-texte {
-  bottom: 50px !important;
+  bottom: 35px !important;
   position: absolute;
   left: 0;
   right: 0;
@@ -116,11 +115,39 @@ main{padding-top:0;margin-top:0}
   padding: 0 var(--gouttiere);
   display: grid;
   justify-items: center;
+  gap: 6px;
 }
-   
-.diapo-sous{margin:0;font-weight:300;font-size:11px;letter-spacing:.06em;white-space:nowrap}
-.lien{display:inline-flex;align-items:center;min-height:40px;font-weight:300;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;padding-left:.14em;background:linear-gradient(currentColor,currentColor) .14em calc(100% - 9px)/calc(100% - .14em) 1px no-repeat;transition:background-size .5s var(--ease)}
-.lien:hover{background-size:30% 1px}
+
+.diapo-sur {
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.15em !important;
+  font-weight: 400 !important;
+}
+
+.diapo-titre {
+  margin: 0 !important;
+  font-weight: 600 !important;
+  font-size: 22px !important;
+  letter-spacing: 0.02em !important;
+}
+
+.diapo-sous {
+  margin: 0 !important;
+  font-weight: 300 !important;
+  font-size: 13px !important;
+  opacity: 0.9;
+}
+
+.lien {
+  margin-top: 6px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+}
 .diapo-texte > *{opacity:0;transform:translateY(10px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .diapo.active .diapo-texte > *{opacity:1;transform:none}
 .diapo.active .diapo-texte > *:nth-child(2){transition-delay:.12s}
