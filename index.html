@@ -483,7 +483,6 @@ dialog::backdrop{background:rgba(0,0,0,.4)}
     </div>
   </div>
 </dialog>
-
 <script>
 /* ===================== RÉGLAGES — tout se modifie ici ===================== */
 var CONFIG = {
@@ -499,7 +498,6 @@ var CONFIG = {
   siret: "",       // numéro SIRET affiché dans la signature ; vide = masqué
   tva: ""          // numéro de TVA intracommunautaire (ex. "FR12345678901") ; vide = masqué
 };
-
 /* Univers : catalogue = lien de partage Canva (« Afficher seulement »).
    Vide = le bouton propose de recevoir le catalogue par WhatsApp. */
 var UNIVERS = [
@@ -511,13 +509,11 @@ var UNIVERS = [
   { id:"ceintures",       nom:"Ceintures",       ligne:"Taille semi-sur-mesure",                    catalogue:"" },
   { id:"atelier",         nom:"Atelier",         ligne:"Restauration · Redorage · Rachat",          catalogue:"" }
 ];
-
 /* Catalogues du menu latéral : pour chaque rubrique, les niveaux de gamme et leurs entrées.
    - nom : texte affiché (remplacez "Maison 01"… par vos noms de lignes ou de modèles)
    - url : lien de partage Canva du catalogue ("#" = pas encore relié : ouvre WhatsApp avec une demande)
    - action : mention à droite (ÉDITION, SÉLECTION ou ATELIER)
    Une rubrique absente de cette liste s'affiche comme un lien simple. */
-
   var COLLECTIONS = {
   maroquinerie: { titre:"Maroquinerie · Sacs à main", detail:"19 éditions", gammes:[
     { nom:"Prestige", detail:"12 maisons", entrees:[{nom:"01. Chanel",url:""},{nom:"02. Louis Vuitton",url:""},{nom:"03. Fendi",url:""},{nom:"04. Hermès",url:""},{nom:"05. Prada",url:""},{nom:"06. Loewe",url:""},{nom:"07. Miu Miu",url:""},{nom:"08. Bottega Veneta",url:""},{nom:"09. Saint Laurent",url:""},{nom:"10. Goyard",url:""},{nom:"11. Céline",url:""},{nom:"12. Christian Dior",url:""}] },
@@ -548,7 +544,6 @@ var DIAPOS = [
   { image:"./images/hero-3.png", etape:"Exclusivités", titre:"Exclusivités", accroche:"Chaque pièce, en séries courtes.", lien:"Découvrir", cible:"maroquinerie", focus:"50% 50%", focusPc:"50% 55%" }
 ];
 /* ========================================================================== */
-
 (function(){
   "use strict";
   var $ = function(s, r){ return (r || document).querySelector(s); };
@@ -567,7 +562,6 @@ var DIAPOS = [
   function figer(on){ verrous = Math.max(0, verrous + (on ? 1 : -1)); document.body.classList.toggle("fige", verrous > 0); }
 
   $$("[data-wa]").forEach(function(a){ a.href = wa(a.getAttribute("data-wa")); });
-
   /* ---------- Sceau RS (argent) ---------- */
   var nSceau = 0;
   function sceau(){
@@ -587,7 +581,6 @@ var DIAPOS = [
     if (ids.length) html += '<span class="barre">|</span>' + ids.join(" · ");
     $("#signature").innerHTML = html;
   })();
-
   /* ---------- Hero ---------- */
   var hero = $("#hero"), progression = $("#progression");
   hero.style.setProperty("--duree", CONFIG.dureeDiapo + "ms");
@@ -694,7 +687,6 @@ montrer(0);
   enteteDefile();
   window.addEventListener("resize", maj);
   maj();
-
   /* ---------- Galerie de l'atelier : 3 s, fondu 1 s, pause au survol / toucher ---------- */
   (function(){
     var g = $("#galerie"), imgs = $$("#galerie img"), zone = $("#galerie-traits"), i = 0, t = null, debutG = 0, resteG = CONFIG.dureeGalerie;
@@ -719,7 +711,6 @@ montrer(0);
 voir(0);
   })();
   /* Réseaux : liens écrits directement dans le HTML (pied de page) */
-
   /* ---------- Accordéons ouverts sur grand écran ---------- */
   var large = window.matchMedia("(min-width:900px)");
   function accordeons(){ $$(".accordeon").forEach(function(d){ d.open = large.matches; }); }
