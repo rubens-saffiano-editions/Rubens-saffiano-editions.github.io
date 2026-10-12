@@ -47,13 +47,12 @@ svg.ic{display:block !important;width:20px !important;height:20px !important;fil
 .marque{position:absolute;left:50%;transform:translateX(-50%);margin:0;white-space:nowrap;font-weight:400;font-size:13px;letter-spacing:.25em;padding-left:.25em;text-transform:uppercase;line-height:1;color:#000}
 @media (max-width:374px){.entete .marque{font-size:10px;letter-spacing:.14em;padding-left:.14em}}
 /* ——— Hero ——— */
-main{padding-top:0;margin-top:0;background-color:#f8f8f8}
-.hero{position:relative;margin-top:0;height:calc(100vh - 50px);background-color:#f8f8f8}
-
-.diapo{position:absolute;inset:0;z-index:0;opacity:0;visibility:hidden;transition:opacity 0s .5s,visibility 0s .5s}
-.diapo.active{z-index:1;opacity:1;visibility:visible;transition:opacity .5s ease-in-out,visibility 0s}
-.fond{position:absolute;inset:0;background-color:#f8f8f8}
-.fond img{width:100%;height:100%;object-fit:contain;object-position:var(--focus,50% 50%);image-rendering:auto;image-rendering:-webkit-optimize-contrast;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(0)}
+main{padding-top:0;margin-top:0;background-color:#f8f8f8 !important}
+.hero{position:relative;margin-top:0;height:calc(100vh - 50px);background-color:#f8f8f8 !important}
+.diapo{position:absolute;inset:0;z-index:0;opacity:0;visibility:hidden;background-color:#f8f8f8 !important}
+.diapo.active{z-index:1;opacity:1;visibility:visible}
+.fond{position:absolute;inset:0;background-color:#f8f8f8 !important}
+.fond img{width:100%;height:100%;object-fit:contain;background-color:#f8f8f8 !important}
 .fond.compose{background:
   radial-gradient(ellipse 70% 60% at var(--gx,50%) var(--gy,50%),rgba(229,228,226,.13),transparent 72%),
   repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 1px,transparent 1px 7px),
