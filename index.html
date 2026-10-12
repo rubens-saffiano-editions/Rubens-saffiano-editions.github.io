@@ -24,17 +24,6 @@ iframe.goog-te-banner-frame { display: none !important; }
 a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--encre); outline-offset: 3px; }
 #progression > * { height: 1px !important; width: 90px !important; max-width: 90px !important; flex: 0 0 90px !important; border: none !important; padding: 0 !important; background-color: rgba(255, 255, 255, 0.3) !important; position: relative !important; overflow: hidden !important; cursor: pointer !important; appearance: none !important; box-sizing: border-box !important; }
 #progression > .en-cours::after { width: 100% !important; transition: width 4s linear !important; }
-.hero { position: relative; margin-top: 0; height: calc(100vh - 50px); background-color: #f4f4f4 !important; }
-.diapo { position: absolute; inset: 0; z-index: 0; opacity: 0; visibility: hidden; transition: opacity 0.6s ease; background-color: #f4f4f4 !important; }
-.diapo.active { z-index: 1; opacity: 1; visibility: visible; }
-.fond, .fond img { position: absolute; inset: 0; background-color: #f4f4f4 !important; width: 100%; height: 100%; object-fit: contain; }
-.diapo-texte { bottom: 25px !important; position: absolute; left: 0; right: 0; z-index: 1; padding: 0 var(--gouttiere); display: grid; justify-items: center; gap: 4px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; }
-.diapo-sur { font-size: 13px !important; text-transform: uppercase !important; letter-spacing: 0.12em !important; font-weight: 400 !important; }
-.diapo-titre { margin: 0 !important; font-weight: 700 !important; font-size: 28px !important; letter-spacing: -0.01em !important; }
-.diapo-sous { margin: 0 !important; font-weight: 400 !important; font-size: 15px !important; opacity: 0.9; }
-.lien { margin-top: 8px !important; font-size: 13px !important; font-weight: 600 !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; text-decoration: underline !important; text-underline-offset: 4px !important; }
-  background-color: #ffffff !important;
-}
 #progression > .en-cours::after {
   width: 100% !important;
   transition: width 4s linear !important;
