@@ -1,9 +1,10 @@
 <!doctype html>
-<!-- Rubens Saffiano · index.html v104 -->
+<!-- Rubens Saffiano · index.html v105 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <title>Ruben's Saffiano</title>
 <meta name="description" content="Ruben's Saffiano — joaillerie fine, création maison et maroquinerie. Catalogues privés et commande personnelle sur WhatsApp.">
 <meta name="theme-color" content="#ffffff">
@@ -1461,6 +1462,33 @@ header.entete.site-header.scrolled .icone-btn,
 .recherche .resultats a span { min-width: 0; font-size: inherit !important; font-weight: 400 !important; color: #111111 !important; }
 .recherche .resultats .ico { width: 13px !important; height: 13px !important; stroke-width: 1.2px !important; opacity: 0.5; flex: none; }
 .recherche .resultats .vide { padding: 13.5px 0 !important; font-size: 14px !important; font-weight: 400 !important; color: #111111 !important; line-height: 1.5; }
+
+/* ===================== v105 : recherche (police du site), badges, panneaux d'information ===================== */
+.recherche .recherche-ligne input,
+.recherche .resultats a,
+.recherche .resultats a span,
+.recherche .resultats .vide { font-family: inherit !important; font-size: 14px !important; font-weight: 400 !important; color: #111111; }
+.recherche .recherche-ligne input { color: #111111 !important; }
+
+/* badges des rubriques « Transactions » et « Explications & Concept » */
+.tiroir .lien-menu .info-ed.info-14 { font-size: 14px !important; font-weight: 400 !important; letter-spacing: 0.02em !important; color: #111111 !important; }
+
+/* sous-menu Transactions : 14 px / 400 partout */
+.tiroir .panneau[data-nom="Transactions"] *,
+.tiroir .panneau[data-nom="Transactions"] .lien-menu .txt { font-size: 14px !important; font-weight: 400 !important; }
+
+/* panneaux d'information (Explications & Concept) */
+.tiroir .panneaux .panneau .info-section { margin: 0 24px; padding: 20px 0 8px; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+.tiroir .panneaux .panneau .info-section:last-child { border-bottom: 0; }
+.tiroir .panneaux .panneau .info-section p { margin: 0; font-family: inherit; font-size: 14px !important; font-weight: 400 !important; line-height: 1.6 !important; letter-spacing: 0.02em !important; color: #111111; }
+.tiroir .panneaux .panneau .info-titre { text-transform: uppercase; letter-spacing: 0.08em !important; margin-bottom: 6px !important; }
+.tiroir .panneaux .panneau .info-ligne { padding: 12px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+.tiroir .panneaux .panneau .info-section .info-ligne:last-child { border-bottom: 0; }
+.tiroir .panneaux .panneau .info-pile .info-k { text-transform: uppercase; letter-spacing: 0.08em !important; margin-bottom: 4px !important; }
+.tiroir .panneaux .panneau .info-pile .info-v { color: #444444; }
+.tiroir .panneaux .panneau .info-duo .info-ligne { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
+.tiroir .panneaux .panneau .info-duo .info-k { flex: none; }
+.tiroir .panneaux .panneau .info-duo .info-v { text-align: right; color: #444444; }
 </style>
 </head>
 <body>
@@ -1705,12 +1733,33 @@ var MENU = [
   { nom:"Chaussures", info:"2 éditions", gammes:[ { nom:"Prestige", info:"2 éditions", liens:ed(["Hermès","Chanel"], "ÉDITION", ["https://canva.link/a0ox33tg6pidcaf", "https://canva.link/aj5nmy778k55xvy"]) } ] },
   { nom:"Ceintures", info:"5 éditions", gammes:[ { nom:"Prestige", info:"5 éditions", liens:ed(["Hermès","Louis Vuitton","Tom Ford","Chrome Hearts","Céline"], "ÉDITION", ["https://canva.link/t3obkqknppclruu", "https://canva.link/cppq4j6xcostbck", "https://canva.link/pl0sq6at826x4hb", "https://canva.link/dlak7gssp2pogvv", "https://canva.link/w3i8jhqfbv8ad1q"]) } ] },
   { nom:"Restauration", info:"3 services", gammes:[ { nom:"Prestige", info:"Atelier & pièces officielles", liens:ed(["Restauration de maroquinerie","Rachat de pièces officielles","Redorage d'excellence"], "ATELIER", ["https://canva.link/a3bjnhwiczuzra3", "https://canva.link/a3bjnhwiczuzra3", "https://canva.link/a3bjnhwiczuzra3"]) } ] },
-  { nom:"Transactions", sections:[
+  { nom:"Transactions", info:"4 options", badge:"info-ed info-14", sections:[
     { titre:"", liens:[
       { nom:"Carte Bancaire (Visa, Mastercard)", url:"https://revolut.me/rubenszia7" },
-      { nom:"PayPal (Paiement Express)", url:"https://paypal.me/Rsbpluxry?country.x=FR&locale.x=fr_FR" },
+      { nom:"PayPal (Paiement Express)", msg:"Bonjour, je souhaite passer commande. Pouvez-vous me transmettre le lien PayPal s'il vous plaît ?" },
       { nom:"Virement Bancaire (Lien direct RIB/Facturation)", msg:"Bonjour, je souhaite effectuer un règlement pour une commande. Pouvez-vous me transmettre les informations de paiement ?" },
-      { nom:"Paiement Sécurisé WhatsApp", msg:"Bonjour, je souhaite réserver une création. Pouvez-vous me transmettre le lien de paiement ?" } ] } ] }
+      { nom:"Paiement Sécurisé WhatsApp", msg:"Bonjour, je souhaite réserver une création. Pouvez-vous me transmettre le lien de paiement ?" } ] } ] },
+  /* Rubrique d'information : tiroirs de texte (sans liens). lignes : k = intitulé, v = texte ; mode "duo" = deux colonnes */
+  { nom:"Explications & Concept", info:"3 rubriques", badge:"info-ed info-14", infos:[
+    { nom:"Explication des Gammes", sections:[ { mode:"pile", lignes:[
+      { k:"Gamme Prestige", v:"Confection d’exception, finitions artisanales cousues main et sélection des matériaux les plus nobles." },
+      { k:"Gamme Premium", v:"Exigence supérieure, finitions soignées et processus optimisé pour un excellent compromis durabilité et rendu." },
+      { k:"Gamme Essentiel", v:"Sélection de matériaux de première qualité adaptés aux budgets maîtrisés tout en conservant une esthétique soignée." } ] } ] },
+    { nom:"Parrainage & Privilèges", sections:[
+      { titre:"Remises groupées", mode:"duo", lignes:[
+        { k:"2 articles", v:"-10 € / article" },
+        { k:"3 articles", v:"-15 € / article" },
+        { k:"4 articles", v:"-20 € / article" } ] },
+      { titre:"Offre Parrainage", mode:"duo", lignes:[
+        { k:"1 client recommandé", v:"15 € de réduction" },
+        { k:"2 clients", v:"Accessoire ou mini-sac offert" },
+        { k:"3 clients", v:"15 % de remise sur toute la boutique" },
+        { k:"4 clients", v:"Chaussures ou maroquinerie d’exception offertes" } ] } ] },
+    { nom:"Délais de Confection", sections:[ { mode:"pile", lignes:[
+      { k:"Maroquinerie", v:"3 à 10 jours de confection selon la complexité de la pièce." },
+      { k:"Chaussures", v:"3 à 5 jours de réalisation." },
+      { k:"Haute Joaillerie", v:"3 à 15 jours (travail sur-mesure à la commande)." } ] } ] }
+  ] }
 ];
 
 /* Hero : image = photo de votre dépôt (ex. "images/hero-1.jpg"), vide = fond graphique.
@@ -1822,6 +1871,13 @@ var DIAPOS = [
            '<span class="carte-edition-texte"><b>' + esc(CARTE_MENU.surtitre) + '</b> — <i>' + esc(CARTE_MENU.lien) + '</i></span></a></div>';
   }
   function decoHTML(c){ return c && c.image ? '<div class="carte-deco" aria-hidden="true"><img src="' + esc(c.image) + '" alt="" loading="lazy"></div>' : ''; }
+  /* panneau d'information : sections de lignes « intitulé / texte » */
+  function infoHTML(g){
+    return g.sections.map(function(sec){
+      return '<div class="info-section info-' + (sec.mode || "pile") + '">' + (sec.titre ? '<p class="info-titre">' + esc(sec.titre) + '</p>' : '') +
+        sec.lignes.map(function(l){ return '<div class="info-ligne"><p class="info-k">' + esc(l.k) + '</p><p class="info-v">' + esc(l.v) + '</p></div>'; }).join("") + '</div>';
+    }).join("");
+  }
   var panneauxHTML = "";
   MENU.forEach(function(r, k){
     var corps;
@@ -1832,13 +1888,18 @@ var DIAPOS = [
         panneauxHTML += '<div class="panneau" data-p="' + k + '-' + j + '" data-nom="' + esc(g.nom) + '">' + contenu + '</div>';
         return '<button class="lien-menu" type="button" data-ouvre="' + k + '-' + j + '"><span class="txt">' + esc(g.nom) + '</span>' + fin(g.info) + '</button>';
       }).join("");
+    } else if (r.infos){
+      corps = r.infos.map(function(g, j){
+        panneauxHTML += '<div class="panneau" data-p="' + k + '-' + j + '" data-nom="' + esc(g.nom) + '">' + infoHTML(g) + '</div>';
+        return '<button class="lien-menu" type="button" data-ouvre="' + k + '-' + j + '"><span class="txt">' + esc(g.nom) + '</span>' + fin("") + '</button>';
+      }).join("");
     } else {
       corps = r.sections.map(function(sec){ return (sec.titre ? '<p class="etiquette">' + esc(sec.titre) + '</p>' : '') + sec.liens.map(function(it){ return lienHTML(r, it); }).join(""); }).join("");
     }
     panneauxHTML = '<div class="panneau" data-p="' + k + '" data-nom="' + esc(r.nom) + '">' + corps + decoHTML(r.carte) + '</div>' + panneauxHTML;
   });
   nav.innerHTML = '<div class="panneau actif" data-p="racine">' + MENU.map(function(r, k){
-      return '<button class="lien-menu" type="button" data-ouvre="' + k + '"><span class="txt">' + esc(r.nom) + '</span>' + fin(r.info) + '</button>';
+      return '<button class="lien-menu" type="button" data-ouvre="' + k + '"><span class="txt">' + esc(r.nom) + '</span>' + fin(r.info, r.badge) + '</button>';
     }).join("") + carteEdition() + '</div>' + panneauxHTML;
   var racine = $('[data-p="racine"]', nav), pile = [racine];
   function cascade(p){ Array.prototype.forEach.call(p.children, function(el, k){ el.style.transitionDelay = Math.min(0.08 + k * 0.03, 0.8) + "s"; }); }
@@ -1916,7 +1977,7 @@ var DIAPOS = [
                  .sort(function(x, y){ return (x.m.indexOf(q) === 0 ? 0 : 1) - (y.m.indexOf(q) === 0 ? 0 : 1); });
     res.innerHTML = l.length ? l.map(function(e){
       return '<li><a href="' + esc(e.url) + '" target="_blank" rel="noopener noreferrer"><span>' + esc(e.marque) + ' — ' + esc(e.cat) + ' (' + esc(e.gamme) + ')</span>' + ico("droite") + '</a></li>';
-    }).join("") : '<li class="vide">Aucun résultat. Écrivez-nous sur WhatsApp, nous vous répondons personnellement.</li>';
+    }).join("") : '<li class="vide">Aucune création trouvée pour cette recherche.</li>';
   }
 
   function ouvrirRecherche(){ fermerMenu(); rech.classList.add("ouvert"); ombre.classList.add("ouvert"); rech.removeAttribute("inert"); btnRech.setAttribute("aria-expanded", "true"); figer(true); chercher(); setTimeout(function(){ champ.focus(); }, 60); }
